@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "name": "Hilde Thistle",
+      "contact": {
+        "email": "hilde.thistle@post.example",
+        "town": "Moulinet"
+      },
+      "employer": "The Lantern",
+      "colleague": "Willow",
+      "barge": {
+        "plate": "OH-6589 (31)",
+        "home": "Stonebridge"
+      }
+    },
+    {
+      "name": "Elna Thistle",
+      "contact": {
+        "email": "elna.thistle@post.example",
+        "town": "Moulinet"
+      },
+      "employer": "Loge Doré",
+      "colleague": "Reed",
+      "barge": {
+        "plate": "KP-5443 (28)",
+        "home": "Champcuivre"
+      }
+    },
+    {
+      "name": "Willow",
+      "contact": {
+        "email": "willow@testmail.example",
+        "town": "Marshton"
+      },
+      "employer": "The Lantern",
+      "colleague": "Ivo",
+      "barge": {
+        "plate": "WJ-6592 (24)",
+        "home": "Stonebridge"
+      }
+    },
+    {
+      "name": "Jory Oakley",
+      "contact": {
+        "email": "jory.oakley@post.example",
+        "town": "Moulinet"
+      },
+      "employer": "Guilde du Cuivre",
+      "colleague": "Aldo",
+      "barge": {
+        "plate": "AZ-1379 (5)",
+        "home": "Moulinet"
+      }
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "template",
+    "count": 4,
+    "seed": 8,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

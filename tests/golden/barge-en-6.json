@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "name": "The MILL",
+      "registry": "ZR-0662",
+      "cargo": "Salt",
+      "home_port": "Port Lumen",
+      "region": "South March",
+      "crew": 26,
+      "owner": "Islander",
+      "plate": "ZR-0662 (26)"
+    },
+    {
+      "name": "The BELL",
+      "registry": "KW-1942",
+      "cargo": "Grain",
+      "home_port": "Marshton",
+      "region": "North Reach",
+      "crew": 4,
+      "owner": "Valefolk",
+      "plate": "KW-1942 (4)"
+    },
+    {
+      "name": "The OAK",
+      "registry": "XX-7011",
+      "cargo": "Salt",
+      "home_port": "Stonebridge",
+      "region": "South March",
+      "crew": 34,
+      "owner": "Valefolk",
+      "plate": "XX-7011 (34)"
+    },
+    {
+      "name": "The BELL",
+      "registry": "BY-4120",
+      "cargo": "Grain",
+      "home_port": "Port Lumen",
+      "region": "South March",
+      "crew": 24,
+      "owner": "Valefolk",
+      "plate": "BY-4120 (24)"
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "barge",
+    "count": 4,
+    "seed": 6,
+    "seed_generated": false,
+    "locale": "en",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "data": [
+    {
+      "name": {
+        "value": "Le MOULIN",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "registry": {
+        "value": "YY-9443",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "cargo": {
+        "value": "Laine",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "home_port": {
+        "value": "Moulinet",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "region": {
+        "value": "Confins du Nord",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "crew": {
+        "value": 15,
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "owner": {
+        "value": "Marcheur des marais",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "plate": {
+        "value": "YY-9443 (15)",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      }
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "barge",
+    "count": 1,
+    "seed": 6,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

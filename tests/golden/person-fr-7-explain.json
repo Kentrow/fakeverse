@@ -1,0 +1,191 @@
+{
+  "data": [
+    {
+      "first_name": {
+        "value": "Cyrille",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "last_name": {
+        "value": "Oakley",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "full_name": {
+        "value": "Cyrille Oakley",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "gender": {
+        "value": "masculine",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "people": {
+        "value": "Valois",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "address": {
+        "street_address": {
+          "value": "26 route Moulin",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "postal_code": {
+          "value": "NR-7823",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "locality": {
+          "value": "Moulinet",
+          "origin": "canon",
+          "locale": "fr",
+          "fallback": false
+        },
+        "subdivision": {
+          "value": "Val d'Ambre",
+          "origin": "canon",
+          "locale": "fr",
+          "fallback": false
+        },
+        "area": {
+          "value": "Confins du Nord",
+          "origin": "canon",
+          "locale": "fr",
+          "fallback": false
+        },
+        "formatted": {
+          "value": "26 route Moulin\nNR-7823 Moulinet\nVal d'Ambre, Confins du Nord",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        }
+      },
+      "email": {
+        "value": "cyrille.oakley@post.example",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "username": {
+        "value": "cyrille970",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "phone": {
+        "value": "+10 854 8677",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      }
+    },
+    {
+      "first_name": {
+        "value": "Sedge",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "last_name": {
+        "value": null,
+        "origin": null,
+        "locale": null,
+        "fallback": false
+      },
+      "full_name": {
+        "value": "Sedge",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "gender": {
+        "value": null,
+        "origin": null,
+        "locale": null,
+        "fallback": false
+      },
+      "people": {
+        "value": "Marcheur des marais",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "address": {
+        "street_address": {
+          "value": "187 allée Cloche",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "postal_code": {
+          "value": "NR-3927",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "locality": {
+          "value": "Marshton",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "subdivision": {
+          "value": "Grey Fens",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": true
+        },
+        "area": {
+          "value": "Confins du Nord",
+          "origin": "canon",
+          "locale": "fr",
+          "fallback": false
+        },
+        "formatted": {
+          "value": "187 allée Cloche\nNR-3927 Marshton\nGrey Fens, Confins du Nord",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": true
+        }
+      },
+      "email": {
+        "value": "sedge@post.example",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "username": {
+        "value": "sedge89",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      },
+      "phone": {
+        "value": "+10 834 8567",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      }
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "person",
+    "count": 2,
+    "seed": 7,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 2,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

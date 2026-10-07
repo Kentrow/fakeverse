@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "street_address": "40 route Oak",
+      "postal_code": "NR-0375",
+      "locality": "Moulinet",
+      "subdivision": "Val d'Ambre",
+      "area": "Confins du Nord",
+      "formatted": "40 route Oak\nNR-0375 Moulinet\nVal d'Ambre, Confins du Nord"
+    },
+    {
+      "street_address": "121 rue Moulin",
+      "postal_code": null,
+      "locality": "Port-Lumen",
+      "subdivision": null,
+      "area": "East Isles",
+      "formatted": "121 rue Moulin\nPort-Lumen\nEast Isles"
+    },
+    {
+      "street_address": "71 allée Moulin",
+      "postal_code": null,
+      "locality": "Dunmere",
+      "subdivision": null,
+      "area": "Marche du Sud",
+      "formatted": "71 allée Moulin\nDunmere\nMarche du Sud"
+    },
+    {
+      "street_address": "6 rue Cloche",
+      "postal_code": null,
+      "locality": "Dunmere",
+      "subdivision": null,
+      "area": "Marche du Sud",
+      "formatted": "6 rue Cloche\nDunmere\nMarche du Sud"
+    },
+    {
+      "street_address": "29 route Moulin",
+      "postal_code": "NR-9225",
+      "locality": "Moulinet",
+      "subdivision": "Val d'Ambre",
+      "area": "Confins du Nord",
+      "formatted": "29 route Moulin\nNR-9225 Moulinet\nVal d'Ambre, Confins du Nord"
+    },
+    {
+      "street_address": "31 rue Moulin",
+      "postal_code": null,
+      "locality": "Champcuivre",
+      "subdivision": "Collines Rouges",
+      "area": "Marche du Sud",
+      "formatted": "31 rue Moulin, Champcuivre (Collines Rouges), Marche du Sud"
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "address",
+    "count": 6,
+    "seed": 1,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

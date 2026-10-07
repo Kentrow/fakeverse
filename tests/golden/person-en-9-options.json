@@ -1,0 +1,87 @@
+{
+  "data": [
+    {
+      "first_name": "Ivo",
+      "last_name": "Oakley",
+      "full_name": "Ivo Oakley",
+      "gender": "feminine",
+      "people": "Valefolk",
+      "address": {
+        "street_address": "19 Oak Road",
+        "postal_code": "NR-7202",
+        "locality": "Millbrook",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "19 Oak Road\nMillbrook NR-7202\nAmber Vale\nNorth Reach"
+      },
+      "email": "ivo.oakley@post.example",
+      "username": "ivo779",
+      "phone": "+10 302 3157"
+    },
+    {
+      "first_name": "Coral",
+      "last_name": "Seaborn",
+      "full_name": "Coral Seaborn of Port Lumen",
+      "gender": "feminine",
+      "people": "Islander",
+      "address": {
+        "street_address": "86 Mill Street",
+        "postal_code": null,
+        "locality": "Port Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "86 Mill Street\nPort Lumen\nEast Isles"
+      },
+      "email": "coral.seaborn@post.example",
+      "username": "coral995",
+      "phone": "+99 953 212"
+    },
+    {
+      "first_name": "Ivo",
+      "last_name": "Underhill",
+      "full_name": "Ivo Underhill",
+      "gender": "feminine",
+      "people": "Valefolk",
+      "address": {
+        "street_address": "4 Mill Road",
+        "postal_code": "NR-3914",
+        "locality": "Millbrook",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "4 Mill Road\nMillbrook NR-3914\nAmber Vale\nNorth Reach"
+      },
+      "email": "ivo.underhill@testmail.example",
+      "username": "ivo569",
+      "phone": "+10 439 9378"
+    },
+    {
+      "first_name": "Ivo",
+      "last_name": "Thistle",
+      "full_name": "Ivo Thistle",
+      "gender": "feminine",
+      "people": "Valefolk",
+      "address": {
+        "street_address": "13 Bell Road",
+        "postal_code": "NR-4347",
+        "locality": "Millbrook",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "13 Bell Road\nMillbrook NR-4347\nAmber Vale\nNorth Reach"
+      },
+      "email": "ivo.thistle@testmail.example",
+      "username": "ivo33",
+      "phone": "+10 443 2571"
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "person",
+    "count": 4,
+    "seed": 9,
+    "seed_generated": false,
+    "locale": "en",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

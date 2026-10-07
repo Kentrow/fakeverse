@@ -1,0 +1,163 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fakeverse"
+dynamic = ["version"]
+description = "Coherent fake data generator themed by fictional universes."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE", "universes/LICENSE"]
+authors = [{ name = "Kentrow" }]
+requires-python = ">=3.12"
+keywords = ["fake", "faker", "test-data", "fixtures", "fiction"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Testing",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pydantic>=2.11",
+    "pyyaml>=6.0.2",
+    "typer>=0.16",
+]
+
+[project.urls]
+Homepage = "https://github.com/Kentrow/fakeverse"
+Documentation = "https://github.com/Kentrow/fakeverse/tree/main/docs"
+Repository = "https://github.com/Kentrow/fakeverse"
+Issues = "https://github.com/Kentrow/fakeverse/issues"
+Changelog = "https://github.com/Kentrow/fakeverse/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.115",
+    "uvicorn>=0.34",
+    "pydantic-settings>=2.9",
+    "prometheus-client>=0.21",
+]
+faker = [
+    "faker>=37",
+]
+
+[project.scripts]
+fakeverse = "fakeverse.cli:app"
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.13",
+    "hypothesis>=6.130",
+    "jsonschema>=4.23",
+    "mypy>=1.16",
+    "pre-commit>=4",
+    "pytest>=8.4",
+    "pytest-cov>=6",
+    "ruff>=0.12",
+    "types-PyYAML",
+]
+
+# Build
+
+[tool.hatch.version]
+path = "src/fakeverse/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fakeverse"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"universes" = "fakeverse/_universes"
+"releases.toml" = "fakeverse/_releases.toml"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/universes",
+    "/schema",
+    "/CHANGELOG.md",
+    "/NOTICE",
+    "/README.md",
+    "/releases.toml",
+    # Read by the test suite.
+    "/scripts",
+    "/.github/CODEOWNERS",
+    "/docs/problems.md",
+]
+
+# Lint and format
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF", "PL", "TID"]
+ignore = [
+    "PLR0913", # generation entry points take many keyword options
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["PLR2004"]
+"src/fakeverse/rng.py" = ["TID251"]
+"src/fakeverse/cli.py" = ["PLR0917"] # Typer commands take their options as parameters
+"src/fakeverse/api/routes.py" = ["PLR0917"] # FastAPI endpoints take their parameters as arguments
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"random".msg = "Determinism: use fakeverse.rng instead of the random module."
+"secrets".msg = "Determinism: only fakeverse.rng.random_seed() may use secrets."
+"uuid.uuid4".msg = "Determinism: uuid4 is forbidden in the generation path."
+"time.time".msg = "Determinism: wall clock is forbidden in the generation path."
+"datetime.datetime.now".msg = "Determinism: wall clock is forbidden in the generation path."
+
+[tool.ruff.lint.isort]
+known-first-party = ["fakeverse"]
+
+[tool.codespell]
+# Sting is a sword of The Lord of the Rings; the others are deliberately wrong test data.
+ignore-words-list = "sting,caf,valeu"
+skip = "uv.lock,./universes,./tests/golden,./tests/fixtures,./schema,./.venv"
+
+# Type checking
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src"]
+strict = true
+warn_unreachable = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+plugins = ["pydantic.mypy"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+# Tests and coverage
+
+[tool.pytest.ini_options]
+minversion = "8.4"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+xfail_strict = true
+
+[tool.coverage.run]
+source = ["fakeverse"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_covered = false
+exclude_also = [
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+]

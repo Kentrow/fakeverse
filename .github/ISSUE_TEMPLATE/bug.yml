@@ -1,0 +1,32 @@
+name: Bug
+description: Report a bug in the package, the CLI, the Faker provider or the API.
+title: "Bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: A command, code snippet or API request, with the seed when possible.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `fakeverse info`, or the data version of the API.
+    validations:
+      required: true

@@ -1,0 +1,659 @@
+# yaml-language-server: $schema=../schema/universe.schema.json
+#
+# Star Wars universe, Disney canon only (2014 and later), no Legends. Names and short labels
+# only: no quotes, no descriptions. Proper names that the French releases keep unchanged are
+# plain strings. Names marked `canon: false` are invented to enrich the pools; vocabularies
+# (streets, ship names, business names, email domains) are invented for the generator.
+format: 1
+
+universe:
+  id: starwars
+  name: Star Wars
+  default_locale: en
+  locales: [en, fr]
+  sources:
+    scope: "Disney canon only (2014 and later): films, series, novels, comics and games. No Legends."
+    translations:
+      fr: "Official French releases by Lucasfilm"
+  maintainers: [Kentrow]
+
+generation:
+  organization_generated_ratio: 0.5
+
+place_levels:
+  area: { en: Region, fr: Région }
+  subdivision: { en: Planet, fr: Planète }
+  locality: { en: City, fr: Ville }
+
+places:
+  # Galactic regions
+  - id: core-worlds
+    level: area
+    name: { en: Core Worlds, fr: Mondes du Noyau }
+    weight: 2
+    patterns:
+      postal_code: "CW-{digits:5}"
+  - id: inner-rim
+    level: area
+    name: { en: Inner Rim, fr: Bordure Intérieure }
+    patterns:
+      postal_code: "IR-{digits:5}"
+  - id: mid-rim
+    level: area
+    name: { en: Mid Rim, fr: Bordure Médiane }
+    patterns:
+      postal_code: "MR-{digits:5}"
+  - id: outer-rim
+    level: area
+    name: { en: Outer Rim, fr: Bordure Extérieure }
+    weight: 3
+    patterns:
+      postal_code: "OR-{digits:5}"
+  - id: wild-space
+    level: area
+    name: { en: Wild Space, fr: Espace Sauvage }
+    patterns:
+      postal_code: "WS-{digits:5}"
+
+  # Core Worlds
+  - id: coruscant
+    level: subdivision
+    parent: core-worlds
+    name: Coruscant
+    weight: 5
+    patterns:
+      street_address:
+        en: "Level {int:1-5127}, {int:1-999} {vocab.street_name} {vocab.street_type}"
+        fr: "{int:1-999}, {vocab.street_type} {vocab.street_name}, niveau {int:1-5127}"
+  - id: alderaan
+    level: subdivision
+    parent: core-worlds
+    name: Alderaan
+  - id: corellia
+    level: subdivision
+    parent: core-worlds
+    name: Corellia
+    weight: 2
+  - id: chandrila
+    level: subdivision
+    parent: core-worlds
+    name: Chandrila
+  - id: galactic-city
+    level: locality
+    parent: coruscant
+    name: Galactic City
+    weight: 4
+  - id: coco-town
+    level: locality
+    parent: coruscant
+    name: CoCo Town
+  - id: aldera
+    level: locality
+    parent: alderaan
+    name: Aldera
+  - id: coronet-city
+    level: locality
+    parent: corellia
+    name: Coronet City
+    weight: 2
+  - id: hanna-city
+    level: locality
+    parent: chandrila
+    name: Hanna City
+
+  # Inner Rim
+  - id: onderon
+    level: subdivision
+    parent: inner-rim
+    name: Onderon
+  - id: jakku
+    level: subdivision
+    parent: inner-rim
+    name: Jakku
+  - id: iziz
+    level: locality
+    parent: onderon
+    name: Iziz
+  - id: niima-outpost
+    level: locality
+    parent: jakku
+    name: Niima Outpost
+    weight: 2
+  - id: tuanul
+    level: locality
+    parent: jakku
+    name: Tuanul
+  - id: blowback-town
+    level: locality
+    parent: jakku
+    name: Blowback Town
+
+  # Mid Rim
+  - id: naboo
+    level: subdivision
+    parent: mid-rim
+    name: Naboo
+    weight: 2
+  - id: kashyyyk
+    level: subdivision
+    parent: mid-rim
+    name: Kashyyyk
+  - id: jedha
+    level: subdivision
+    parent: mid-rim
+    name: Jedha
+  - id: theed
+    level: locality
+    parent: naboo
+    name: Theed
+    weight: 3
+  - id: otoh-gunga
+    level: locality
+    parent: naboo
+    name: Otoh Gunga
+  - id: kachirho
+    level: locality
+    parent: kashyyyk
+    name: Kachirho
+  - id: jedha-city
+    level: locality
+    parent: jedha
+    name: Jedha City
+
+  # Outer Rim
+  - id: tatooine
+    level: subdivision
+    parent: outer-rim
+    name: Tatooine
+    weight: 3
+  - id: geonosis
+    level: subdivision
+    parent: outer-rim
+    name: Geonosis
+  - id: ryloth
+    level: subdivision
+    parent: outer-rim
+    name: Ryloth
+  - id: utapau
+    level: subdivision
+    parent: outer-rim
+    name: Utapau
+  - id: hoth
+    level: subdivision
+    parent: outer-rim
+    name: Hoth
+  - id: bespin
+    level: subdivision
+    parent: outer-rim
+    name: Bespin
+  - id: endor
+    level: subdivision
+    parent: outer-rim
+    name: Endor
+  - id: lothal
+    level: subdivision
+    parent: outer-rim
+    name: Lothal
+    weight: 2
+  - id: mandalore
+    level: subdivision
+    parent: outer-rim
+    name: Mandalore
+  - id: batuu
+    level: subdivision
+    parent: outer-rim
+    name: Batuu
+  - id: nevarro
+    level: subdivision
+    parent: outer-rim
+    name: Nevarro
+  - id: kamino
+    level: subdivision
+    parent: wild-space
+    name: Kamino
+  - id: mos-eisley
+    level: locality
+    parent: tatooine
+    name: Mos Eisley
+    weight: 3
+  - id: mos-espa
+    level: locality
+    parent: tatooine
+    name: Mos Espa
+    weight: 2
+  - id: anchorhead
+    level: locality
+    parent: tatooine
+    name: Anchorhead
+  - id: mos-pelgo
+    level: locality
+    parent: tatooine
+    name: Mos Pelgo
+  - id: stalgasin
+    level: locality
+    parent: geonosis
+    name: Stalgasin
+  - id: lessu
+    level: locality
+    parent: ryloth
+    name: Lessu
+    weight: 2
+  - id: nabat
+    level: locality
+    parent: ryloth
+    name: Nabat
+  - id: pau-city
+    level: locality
+    parent: utapau
+    name: Pau City
+  - id: echo-base
+    level: locality
+    parent: hoth
+    name: { en: Echo Base, fr: Base Echo }
+  - id: cloud-city
+    level: locality
+    parent: bespin
+    name: { en: Cloud City, fr: Cité des Nuages }
+    weight: 2
+  - id: bright-tree-village
+    level: locality
+    parent: endor
+    name: Bright Tree Village
+  - id: capital-city
+    level: locality
+    parent: lothal
+    name: Capital City
+    weight: 2
+  - id: jalath
+    level: locality
+    parent: lothal
+    name: Jalath
+  - id: tangletown
+    level: locality
+    parent: lothal
+    name: Tangletown
+  - id: sundari
+    level: locality
+    parent: mandalore
+    name: Sundari
+  - id: black-spire-outpost
+    level: locality
+    parent: batuu
+    name: Black Spire Outpost
+  - id: nevarro-city
+    level: locality
+    parent: nevarro
+    name: Nevarro City
+  - id: tipoca-city
+    level: locality
+    parent: kamino
+    name: Tipoca City
+
+peoples:
+  - id: human
+    name: { en: Human, fr: Humain }
+    homelands: [core-worlds, naboo, jedha, tatooine, bespin, lothal, nevarro, batuu, jakku]
+    weight: 6
+    first_names:
+      - { value: Luke, gender: masculine, weight: 2 }
+      - { value: Leia, gender: feminine, weight: 2 }
+      - { value: Han, gender: masculine, weight: 2 }
+      - { value: Anakin, gender: masculine }
+      - { value: Padmé, gender: feminine }
+      - { value: Obi-Wan, gender: masculine }
+      - { value: Lando, gender: masculine }
+      - { value: Rey, gender: feminine, weight: 2 }
+      - { value: Finn, gender: masculine }
+      - { value: Poe, gender: masculine }
+      - { value: Ben, gender: masculine }
+      - { value: Cassian, gender: masculine }
+      - { value: Jyn, gender: feminine }
+      - { value: Bodhi, gender: masculine }
+      - { value: Orson, gender: masculine }
+      - { value: Galen, gender: masculine }
+      - { value: Mon, gender: feminine }
+      - { value: Bail, gender: masculine }
+      - { value: Wedge, gender: masculine }
+      - { value: Biggs, gender: masculine }
+      - { value: Jan, gender: masculine }
+      - { value: Wilhuff, gender: masculine }
+      - { value: Armitage, gender: masculine }
+      - { value: Rose, gender: feminine }
+      - { value: Paige, gender: feminine }
+      - { value: Amilyn, gender: feminine }
+      - { value: Cara, gender: feminine }
+      - { value: Ezra, gender: masculine }
+      - { value: Kanan, gender: masculine }
+      - { value: Qi'ra, gender: feminine }
+      - { value: Tobias, gender: masculine }
+      - { value: Enfys, gender: feminine }
+      - { value: Saw, gender: masculine }
+      - { value: Syril, gender: masculine }
+      - { value: Bix, gender: feminine }
+      - { value: Luthen, gender: masculine }
+      - { value: Maarva, gender: feminine }
+      - { value: Dedra, gender: feminine }
+      - { value: Kleya, gender: feminine }
+      - { value: Vel, gender: feminine }
+      - { value: Cinta, gender: feminine }
+      - { value: Shmi, gender: feminine }
+      - { value: Owen, gender: masculine }
+      - { value: Beru, gender: feminine }
+      - { value: Breha, gender: feminine }
+      - { value: Kes, gender: masculine }
+      - { value: Shara, gender: feminine }
+      - { value: Iden, gender: feminine }
+    family_names:
+      - { value: Skywalker, weight: 2 }
+      - { value: Organa, weight: 2 }
+      - { value: Solo, weight: 2 }
+      - Kenobi
+      - Calrissian
+      - Andor
+      - Erso
+      - Rook
+      - Mothma
+      - Antilles
+      - Darklighter
+      - Dodonna
+      - Tarkin
+      - Hux
+      - Tico
+      - Dameron
+      - Holdo
+      - Dune
+      - Bridger
+      - Jarrus
+      - Beckett
+      - Nest
+      - Gerrera
+      - Karn
+      - Meero
+      - Rael
+      - Lars
+      - Versio
+      - Krennic
+      - Naberrie
+      - Whitesun
+
+  - id: mandalorian
+    name: { en: Mandalorian, fr: Mandalorien }
+    homelands: [mandalore, nevarro]
+    weight: 2
+    first_names:
+      - { value: Din, gender: masculine, weight: 2 }
+      - { value: Bo-Katan, gender: feminine, weight: 2 }
+      - { value: Satine, gender: feminine }
+      - { value: Korkie, gender: masculine }
+      - { value: Pre, gender: masculine }
+      - { value: Paz, gender: masculine }
+      - { value: Ragnar, gender: masculine }
+      - { value: Sabine, gender: feminine, weight: 2 }
+      - { value: Tristan, gender: masculine }
+      - { value: Ursa, gender: feminine }
+      - { value: Alrich, gender: masculine }
+      - { value: Koska, gender: feminine }
+      - { value: Axe, gender: masculine }
+      - { value: Fenn, gender: masculine }
+      - { value: Gar, gender: masculine }
+      - { value: Rook, gender: feminine }
+      - { value: Jango, gender: masculine }
+      - { value: Boba, gender: masculine }
+      - { value: Almec, gender: masculine }
+      - { value: Ketsu, gender: feminine }
+      - { value: Tavor, gender: masculine, canon: false }
+      - { value: Varek, gender: masculine, canon: false }
+      - { value: Brannoc, gender: masculine, canon: false }
+      - { value: Kelvar, gender: masculine, canon: false }
+      - { value: Jorrun, gender: masculine, canon: false }
+      - { value: Daska, gender: feminine, canon: false }
+      - { value: Reska, gender: feminine, canon: false }
+      - { value: Mirrel, gender: feminine, canon: false }
+      - { value: Sorva, gender: feminine, canon: false }
+      - { value: Kessa, gender: feminine, canon: false }
+      - { value: Torvan, gender: masculine, canon: false }
+    family_names:
+      - { value: Kryze, weight: 2 }
+      - { value: Wren, weight: 2 }
+      - { value: Vizsla, weight: 2 }
+      - Djarin
+      - Fett
+      - Reeves
+      - Woves
+      - Rau
+      - Saxon
+      - Kast
+      - Onyo
+      - { value: Tharen, canon: false }
+      - { value: Volkar, canon: false }
+
+  - id: clone-trooper
+    name: { en: Clone trooper, fr: Soldat clone }
+    homelands: [kamino]
+    weight: 2
+    name_format: "{first_name}"
+    first_names:
+      - { value: Rex, gender: masculine, weight: 3 }
+      - { value: Cody, gender: masculine, weight: 2 }
+      - { value: Fives, gender: masculine }
+      - { value: Echo, gender: masculine }
+      - { value: Hunter, gender: masculine }
+      - { value: Wrecker, gender: masculine }
+      - { value: Tech, gender: masculine }
+      - { value: Crosshair, gender: masculine }
+      - { value: Gregor, gender: masculine }
+      - { value: Hardcase, gender: masculine }
+      - { value: Jesse, gender: masculine }
+      - { value: Kix, gender: masculine }
+      - { value: Tup, gender: masculine }
+      - { value: Dogma, gender: masculine }
+      - { value: Waxer, gender: masculine }
+      - { value: Boil, gender: masculine }
+      - { value: Hevy, gender: masculine }
+      - { value: Cutup, gender: masculine }
+      - { value: Droidbait, gender: masculine }
+      - { value: Wolffe, gender: masculine }
+      - { value: Bly, gender: masculine }
+      - { value: Gree, gender: masculine }
+      - { value: Fox, gender: masculine }
+      - { value: Thire, gender: masculine }
+      - { value: Appo, gender: masculine }
+      - { value: Bacara, gender: masculine }
+      - { value: Neyo, gender: masculine }
+      - { value: Jet, gender: masculine }
+      - { value: Sinker, gender: masculine }
+      - { value: Boost, gender: masculine }
+      - { value: Comet, gender: masculine }
+      - { value: Howzer, gender: masculine }
+      - { value: Omega, gender: feminine }
+
+  - id: twilek
+    name: Twi'lek
+    homelands: [ryloth]
+    weight: 2
+    first_names:
+      - { value: Hera, gender: feminine, weight: 3 }
+      - { value: Numa, gender: feminine }
+      - { value: Oola, gender: feminine }
+      - { value: Aayla, gender: feminine, weight: 2 }
+      - { value: Ilvara, gender: feminine, canon: false }
+      - { value: Cham, gender: masculine, weight: 2 }
+      - { value: Bib, gender: masculine }
+      - { value: Orn, gender: masculine }
+      - { value: Gobi, gender: masculine }
+      - { value: Talyssa, gender: feminine, canon: false }
+      - { value: Nysha, gender: feminine, canon: false }
+      - { value: Vessa, gender: feminine, canon: false }
+      - { value: Lyra'na, gender: feminine, canon: false }
+      - { value: Seyla, gender: feminine, canon: false }
+      - { value: Orra, gender: feminine, canon: false }
+      - { value: Kirani, gender: feminine, canon: false }
+      - { value: Tessaly, gender: feminine, canon: false }
+      - { value: Jhena, gender: feminine, canon: false }
+      - { value: Amari, gender: feminine, canon: false }
+      - { value: Nalu, gender: feminine, canon: false }
+      - { value: Yaska, gender: feminine, canon: false }
+      - { value: Ferro, gender: masculine, canon: false }
+      - { value: Dravin, gender: masculine, canon: false }
+      - { value: Hollin, gender: masculine, canon: false }
+      - { value: Kovan, gender: masculine, canon: false }
+      - { value: Renno, gender: masculine, canon: false }
+      - { value: Vasko, gender: masculine, canon: false }
+      - { value: Tobb, gender: masculine, canon: false }
+      - { value: Zerro, gender: masculine, canon: false }
+      - { value: Malek, gender: masculine, canon: false }
+    family_names:
+      - { value: Syndulla, weight: 2 }
+      - Secura
+      - Fortuna
+      - Glie
+      - { value: Torrell, canon: false }
+      - { value: Nashka, canon: false }
+      - { value: Vey'lan, canon: false }
+
+  - id: wookiee
+    name: Wookiee
+    homelands: [kashyyyk]
+    name_format: "{first_name}"
+    first_names:
+      - { value: Chewbacca, gender: masculine, weight: 3 }
+      - { value: Tarfful, gender: masculine }
+      - { value: Lumpawaroo, gender: masculine }
+      - { value: Mallatobuck, gender: feminine, weight: 2 }
+      - { value: Krrsantan, gender: masculine }
+      - { value: Wullffwarro, gender: masculine }
+      - { value: Gungi, gender: masculine }
+      - { value: Burryaga, gender: masculine }
+      - { value: Rrorrwah, gender: masculine, canon: false }
+      - { value: Hrrakka, gender: feminine, canon: false }
+
+organizations:
+  - id: jedi-temple
+    name: { en: Jedi Temple, fr: Temple Jedi }
+    kind: { en: Order, fr: Ordre }
+    places: [galactic-city]
+  - id: dex-diner
+    name: Dex's Diner
+    kind: { en: Diner, fr: Restaurant }
+    places: [coco-town]
+  - id: chalmun-cantina
+    name: Chalmun's Cantina
+    kind: Cantina
+    places: [mos-eisley]
+    weight: 2
+  - id: oga-cantina
+    name: Oga's Cantina
+    kind: Cantina
+    places: [black-spire-outpost]
+  - id: tosche-station
+    name: { en: Tosche Station, fr: Station Tosche }
+    kind: { en: Power station, fr: Centrale }
+    places: [anchorhead]
+  - id: corellian-engineering
+    name: Corellian Engineering Corporation
+    kind: { en: Shipyard, fr: Chantier spatial }
+    places: [coronet-city]
+  - id: incom
+    name: Incom Corporation
+    kind: { en: Manufacturer, fr: Constructeur }
+  - id: sienar
+    name: Sienar Fleet Systems
+    kind: { en: Manufacturer, fr: Constructeur }
+  - id: kuat-drive-yards
+    name: Kuat Drive Yards
+    kind: { en: Shipyard, fr: Chantier spatial }
+  - id: czerka
+    name: Czerka Corporation
+    kind: { en: Corporation, fr: Société }
+
+vocab:
+  street_name:
+    - { en: Spaceport, fr: du Spatioport }
+    - { en: Twin Suns, fr: des Soleils Jumeaux }
+    - { en: Senate, fr: du Sénat }
+    - { en: Holonet, fr: de l'HoloNet }
+    - { en: Durasteel, fr: du Duracier }
+    - { en: Starfighter, fr: du Chasseur Stellaire }
+    - { en: Moisture Farm, fr: de la Ferme d'Humidité }
+    - { en: Hangar, fr: du Hangar }
+    - { en: Droid, fr: des Droïdes }
+    - { en: Nebula, fr: de la Nébuleuse }
+    - { en: Comet, fr: de la Comète }
+    - { en: Market, fr: du Marché }
+    - { en: Cantina, fr: de la Cantina }
+    - { en: Hyperspace, fr: de l'Hyperespace }
+    - { en: Landing Pad, fr: de la Plateforme }
+  street_type:
+    - { value: { en: Street, fr: rue }, weight: 3 }
+    - { value: { en: Avenue, fr: avenue }, weight: 2 }
+    - { en: Lane, fr: allée }
+    - { en: Plaza, fr: place }
+    - { en: Skyway, fr: voie aérienne }
+    - { en: Promenade, fr: promenade }
+  email_domain:
+    - { value: holonet.example, weight: 3 }
+    - comlink.example
+    - galaxymail.example
+    - outerrim.example
+  org_name:
+    - { en: Binary Sun Cantina, fr: Cantina des Soleils Jumeaux }
+    - { en: Hyperlane Couriers, fr: Messagers de l'Hyperespace }
+    - { en: Starlight Repairs, fr: Réparations Lumière d'Étoile }
+    - { en: Nebula Freight, fr: Fret Nébuleuse }
+    - { en: Durasteel Works, fr: Ateliers de Duracier }
+    - { en: Droid Repair Shop, fr: Atelier de réparation de droïdes }
+    - { en: Holonet Relay Station, fr: Relais HoloNet }
+    - { en: Moisture Farmers' Union, fr: Syndicat des Fermiers d'Humidité }
+    - { en: Bantha Milk Dairy, fr: Laiterie de lait de bantha }
+    - { en: Sabacc Parlor, fr: Salon de sabacc }
+    - { en: Blue Milk Bar, fr: Bar du Lait Bleu }
+    - { en: Podracing Circuit, fr: Circuit de courses de modules }
+    - { en: Rim Haulers, fr: Transporteurs de la Bordure }
+    - { en: Spaceport Docking Company, fr: Compagnie d'amarrage du spatioport }
+  ship_name:
+    - { en: Crimson Comet, fr: Comète Écarlate }
+    - { en: Silver Wing, fr: Aile d'Argent }
+    - { en: Dusk Runner, fr: Coureur du Crépuscule }
+    - { en: Star Wanderer, fr: Vagabond des Étoiles }
+    - { en: Rusty Bantha, fr: Bantha Rouillé }
+    - { en: Lucky Spark, fr: Étincelle Chanceuse }
+    - { en: Void Dancer, fr: Danseuse du Vide }
+    - { en: Iron Nomad, fr: Nomade de Fer }
+    - { en: Solar Drifter, fr: Dériveur Solaire }
+    - { en: Blue Nova, fr: Nova Bleue }
+    - { en: Swift Mynock, fr: Mynock Rapide }
+    - { en: Last Ember, fr: Dernière Braise }
+  ship_model:
+    - { value: { en: YT-1300 light freighter, fr: cargo léger YT-1300 }, weight: 3 }
+    - { value: { en: VCX-100 light freighter, fr: cargo léger VCX-100 }, weight: 2 }
+    - { en: T-65B X-wing, fr: X-wing T-65B }
+    - { en: BTL Y-wing, fr: Y-wing BTL }
+    - { en: RZ-1 A-wing, fr: A-wing RZ-1 }
+    - { en: UT-60D U-wing, fr: U-wing UT-60D }
+    - { en: TIE fighter, fr: chasseur TIE }
+    - { en: Lambda-class shuttle, fr: navette de classe Lambda }
+    - { en: N-1 starfighter, fr: chasseur N-1 }
+
+patterns:
+  street_address:
+    en: "{int:1-999} {vocab.street_name} {vocab.street_type}"
+    fr: "{int:1-999}, {vocab.street_type} {vocab.street_name}"
+  postal_code: "GX-{digits:5}"
+  address_format:
+    en: "{street_address}\n{locality} {postal_code}\n{subdivision}, {area}"
+    fr: "{street_address}\n{postal_code} {locality}\n{subdivision}, {area}"
+  phone: "{digits:3}-{digits:3}-{digits:4}"
+  email: "{first_name|slug}.{family_name|slug}@{vocab.email_domain}"
+  username: "{first_name|slug}{int:1-9999}"
+  organization_name: "{vocab.org_name}"
+
+extensions:
+  starship:
+    label: { en: Starship, fr: Vaisseau }
+    fields:
+      name: { vocab: ship_name }
+      model: { vocab: ship_model }
+      registry: { pattern: "{letters:2}-{digits:4}" }
+      homeworld: { place: subdivision }
+      crew: { int: "1-12" }
+      operator: { people: true }

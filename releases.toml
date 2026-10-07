@@ -1,0 +1,11 @@
+# Release history of Fakeverse.
+#
+# One [[releases]] table per published version, appended at each release:
+#
+#   [[releases]]
+#   version = "0.1.0"        # SemVer, equal to the package version (data_version)
+#   engine_revision = 1      # value of fakeverse.engine.revision.ENGINE_REVISION
+#   date = 2026-01-01        # TOML local date of the release
+#
+# The API serves a data snapshot for every release whose engine_revision equals
+# the current ENGINE_REVISION. Entries are added by scripts/release.py.

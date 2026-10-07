@@ -1,0 +1,119 @@
+{
+  "data": [
+    {
+      "name": "Wayfarers' Company",
+      "kind": null,
+      "address": {
+        "street_address": "24 Mill Road",
+        "postal_code": "SB-34",
+        "locality": "Stonebridge",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "24 Mill Road\nStonebridge SB-34\nAmber Vale\nNorth Reach"
+      },
+      "phone": "+10 088 3786"
+    },
+    {
+      "name": "The Golden Lodge",
+      "kind": null,
+      "address": {
+        "street_address": "25 Mill Road",
+        "postal_code": "NR-7891",
+        "locality": "Millbrook",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "25 Mill Road\nMillbrook NR-7891\nAmber Vale\nNorth Reach"
+      },
+      "phone": "+10 565 7577"
+    },
+    {
+      "name": "The Lantern",
+      "kind": "Inn",
+      "address": {
+        "street_address": "167 Mill Street",
+        "postal_code": null,
+        "locality": "Port Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "167 Mill Street\nPort Lumen\nEast Isles"
+      },
+      "phone": "+99 880 310"
+    },
+    {
+      "name": "Wayfarers' Company",
+      "kind": null,
+      "address": {
+        "street_address": "108 Bell Street",
+        "postal_code": null,
+        "locality": "Port Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "108 Bell Street\nPort Lumen\nEast Isles"
+      },
+      "phone": "+99 418 373"
+    },
+    {
+      "name": "The Lantern",
+      "kind": "Inn",
+      "address": {
+        "street_address": "39 Mill Street",
+        "postal_code": null,
+        "locality": "Port Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "39 Mill Street\nPort Lumen\nEast Isles"
+      },
+      "phone": "+99 619 232"
+    },
+    {
+      "name": "Wayfarers' Company",
+      "kind": null,
+      "address": {
+        "street_address": "1 Mill Road",
+        "postal_code": "SB-24",
+        "locality": "Stonebridge",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "1 Mill Road\nStonebridge SB-24\nAmber Vale\nNorth Reach"
+      },
+      "phone": "+10 372 2111"
+    },
+    {
+      "name": "Copper Guild",
+      "kind": "Guild",
+      "address": {
+        "street_address": "165 Mill Street",
+        "postal_code": null,
+        "locality": "Copperfield",
+        "subdivision": "Red Hills",
+        "area": "South March",
+        "formatted": "165 Mill Street, Copperfield, Red Hills, South March"
+      },
+      "phone": "+10 376 6844"
+    },
+    {
+      "name": "The Lantern",
+      "kind": "Inn",
+      "address": {
+        "street_address": "64 Bell Street",
+        "postal_code": null,
+        "locality": "Port Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "64 Bell Street\nPort Lumen\nEast Isles"
+      },
+      "phone": "+99 008 231"
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "organization",
+    "count": 8,
+    "seed": 5,
+    "seed_generated": false,
+    "locale": "en",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

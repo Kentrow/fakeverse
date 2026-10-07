@@ -1,0 +1,81 @@
+# Install with `uv run pre-commit install`: it sets up the pre-commit and commit-msg hooks.
+# Ruff and mypy run through uv so that they use the versions pinned in uv.lock.
+default_install_hook_types: [pre-commit, commit-msg]
+default_stages: [pre-commit, manual]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+        # Deliberately broken fixtures of validation rule 1.
+        exclude: ^tests/fixtures/invalid/r01-(yaml-syntax|duplicate-key)\.yaml$
+      - id: check-toml
+      - id: check-json
+      - id: check-added-large-files
+        args: [--maxkb=500]
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.38.2
+    hooks:
+      - id: check-github-workflows
+      - id: check-dependabot
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.3
+    hooks:
+      - id: codespell
+        # Names from the works and deliberately invalid test data.
+        exclude: ^(uv\.lock|universes/|tests/golden/|tests/fixtures/|schema/)
+
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check --fix
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types_or: [python, pyi, markdown]
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        language: system
+        types_or: [python, pyi]
+        files: ^src/
+        pass_filenames: false
+      - id: uv-lock
+        name: uv lock is up to date
+        entry: uv lock --check
+        language: system
+        files: ^(pyproject\.toml|uv\.lock)$
+        pass_filenames: false
+      - id: validate-universes
+        name: fakeverse validate
+        entry: uv run fakeverse validate --strict universes/
+        language: system
+        files: ^(universes/.*\.yaml|src/fakeverse/.*\.py)$
+        pass_filenames: false
+      - id: schema-drift
+        name: JSON Schema drift
+        entry: bash -c 'uv run fakeverse schema export | diff -u schema/universe.schema.json -'
+        language: system
+        files: ^(src/fakeverse/model/.*\.py|schema/universe\.schema\.json)$
+        pass_filenames: false
+      - id: conventional-commit
+        name: Conventional Commits and sign-off
+        entry: uv run --no-project python scripts/check_commits.py --message-file
+        language: system
+        stages: [commit-msg]

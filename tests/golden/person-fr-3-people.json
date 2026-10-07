@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "first_name": "Tide",
+      "last_name": "Néemer",
+      "full_name": "Tide Néemer de Port-Lumen",
+      "gender": "neutral",
+      "people": "Islander",
+      "address": {
+        "street_address": "118 rue Moulin",
+        "postal_code": null,
+        "locality": "Port-Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "118 rue Moulin\nPort-Lumen\nEast Isles"
+      },
+      "email": "tide.neemer@testmail.example",
+      "username": "tide942",
+      "phone": "+99 658 282"
+    },
+    {
+      "first_name": "Coral",
+      "last_name": "Saltmarsh",
+      "full_name": "Coral Saltmarsh de Port-Lumen",
+      "gender": "feminine",
+      "people": "Islander",
+      "address": {
+        "street_address": "17 rue Oak",
+        "postal_code": null,
+        "locality": "Port-Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "17 rue Oak\nPort-Lumen\nEast Isles"
+      },
+      "email": "coral.saltmarsh@testmail.example",
+      "username": "coral271",
+      "phone": "+99 794 948"
+    },
+    {
+      "first_name": "Marin",
+      "last_name": "Saltmarsh",
+      "full_name": "Marin Saltmarsh de Port-Lumen",
+      "gender": "feminine",
+      "people": "Islander",
+      "address": {
+        "street_address": "29 rue Moulin",
+        "postal_code": null,
+        "locality": "Port-Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "29 rue Moulin\nPort-Lumen\nEast Isles"
+      },
+      "email": "marin.saltmarsh@testmail.example",
+      "username": "marin236",
+      "phone": "+99 746 469"
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "person",
+    "count": 3,
+    "seed": 3,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 3,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

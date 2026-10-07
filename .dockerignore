@@ -1,0 +1,15 @@
+# Allowlist: only what the image build needs. The .git directory is kept on purpose: the
+# build extracts released data from the tags.
+*
+!.git
+!pyproject.toml
+!uv.lock
+!README.md
+!LICENSE
+!NOTICE
+!releases.toml
+!src/
+!universes/
+!scripts/build_snapshots.py
+**/__pycache__
+**/*.py[cod]

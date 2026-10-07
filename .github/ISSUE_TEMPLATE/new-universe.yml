@@ -1,0 +1,55 @@
+name: New universe
+description: Propose a new fictional universe.
+title: "New universe: "
+labels: [universe]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a universe! Please read the [universe guide](https://github.com/Kentrow/fakeverse/blob/main/docs/universe-guide.md)
+        and the content rules of [CONTRIBUTING.md](https://github.com/Kentrow/fakeverse/blob/main/CONTRIBUTING.md) first.
+  - type: input
+    id: work
+    attributes:
+      label: Work or franchise
+      placeholder: "e.g. The Wheel of Time"
+    validations:
+      required: true
+  - type: input
+    id: id
+    attributes:
+      label: Proposed universe id
+      description: Lowercase letters, digits and hyphens.
+      placeholder: "e.g. wheel-of-time"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope of the sources
+      description: Which works are covered, and which are excluded (adaptations, spin-offs...).
+    validations:
+      required: true
+  - type: input
+    id: locales
+    attributes:
+      label: Locales and reference translations
+      placeholder: "e.g. en; fr (translation by ...)"
+    validations:
+      required: true
+  - type: input
+    id: maintainer
+    attributes:
+      label: Maintainer
+      description: GitHub handle of the person who will maintain the file.
+    validations:
+      required: true
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Content rules
+      options:
+        - label: The universe will only contain names and short labels (no quotes, descriptions or images).
+          required: true
+        - label: The data will not be copied in bulk from a wiki.
+          required: true

@@ -1,0 +1,131 @@
+{
+  "data": [
+    {
+      "name": {
+        "value": "The Lantern",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "kind": {
+        "value": "Auberge",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "address": {
+        "street_address": {
+          "value": "126 rue Cloche",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "postal_code": {
+          "value": null,
+          "origin": null,
+          "locale": null,
+          "fallback": false
+        },
+        "locality": {
+          "value": "Port-Lumen",
+          "origin": "canon",
+          "locale": "fr",
+          "fallback": false
+        },
+        "subdivision": {
+          "value": null,
+          "origin": null,
+          "locale": null,
+          "fallback": false
+        },
+        "area": {
+          "value": "East Isles",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "formatted": {
+          "value": "126 rue Cloche\nPort-Lumen\nEast Isles",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        }
+      },
+      "phone": {
+        "value": "+99 262 197",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      }
+    },
+    {
+      "name": {
+        "value": "The Lantern",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "kind": {
+        "value": "Auberge",
+        "origin": "canon",
+        "locale": "fr",
+        "fallback": false
+      },
+      "address": {
+        "street_address": {
+          "value": "74 rue Moulin",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "postal_code": {
+          "value": null,
+          "origin": null,
+          "locale": null,
+          "fallback": false
+        },
+        "locality": {
+          "value": "Port-Lumen",
+          "origin": "canon",
+          "locale": "fr",
+          "fallback": false
+        },
+        "subdivision": {
+          "value": null,
+          "origin": null,
+          "locale": null,
+          "fallback": false
+        },
+        "area": {
+          "value": "East Isles",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        },
+        "formatted": {
+          "value": "74 rue Moulin\nPort-Lumen\nEast Isles",
+          "origin": "generated",
+          "locale": "fr",
+          "fallback": false
+        }
+      },
+      "phone": {
+        "value": "+99 631 489",
+        "origin": "generated",
+        "locale": "fr",
+        "fallback": false
+      }
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "organization",
+    "count": 2,
+    "seed": 5,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

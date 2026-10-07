@@ -1,0 +1,1307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fakeverse universe",
+  "$defs": {
+    "Extension": {
+      "additionalProperties": false,
+      "description": "A type specific to the universe. Exactly one of `items` or `fields`.",
+      "properties": {
+        "label": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+          "title": "Label"
+        },
+        "items": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ExtensionItem"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Draw among canonical entities.",
+          "title": "Items"
+        },
+        "fields": {
+          "anyOf": [
+            {
+              "minProperties": 1,
+              "patternProperties": {
+                "^[a-z][a-z0-9]*(_[a-z0-9]+)*$": {
+                  "$ref": "#/$defs/FieldSpec"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Field-by-field generation, in declaration order.",
+          "title": "Fields"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "title": "Extension",
+      "type": "object"
+    },
+    "ExtensionItem": {
+      "additionalProperties": false,
+      "description": "A canonical entity of an extension in `items` form.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+          "title": "Name"
+        },
+        "weight": {
+          "default": 1,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Weight",
+          "type": "integer"
+        },
+        "canon": {
+          "default": true,
+          "title": "Canon",
+          "type": "boolean"
+        },
+        "fields": {
+          "description": "Additional fields; every item of an extension declares the same keys.",
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(_[a-z0-9]+)*$": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    {
+                      "additionalProperties": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "minProperties": 1,
+                      "type": "object"
+                    }
+                  ],
+                  "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "title": "Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "title": "ExtensionItem",
+      "type": "object"
+    },
+    "FamilyNameItem": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+        },
+        {
+          "additionalProperties": false,
+          "description": "Family name entry.",
+          "properties": {
+            "value": {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+              "title": "Value"
+            },
+            "weight": {
+              "default": 1,
+              "maximum": 1000,
+              "minimum": 1,
+              "title": "Weight",
+              "type": "integer"
+            },
+            "canon": {
+              "default": true,
+              "description": "False for a name invented to enrich the pool.",
+              "title": "Canon",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "title": "FamilyNameItem",
+          "type": "object"
+        }
+      ]
+    },
+    "FieldSpec": {
+      "additionalProperties": false,
+      "description": "How to generate one field of an extension in `fields` form. Exactly one key.",
+      "properties": {
+        "pattern": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Render a pattern; its context is the fields declared before this one.",
+          "title": "Pattern"
+        },
+        "vocab": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Weighted draw in a vocabulary.",
+          "title": "Vocab"
+        },
+        "place": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PlaceLevel"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Name of a place of this level, weighted draw."
+        },
+        "people": {
+          "anyOf": [
+            {
+              "const": true,
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Name of a people, weighted draw.",
+          "title": "People"
+        },
+        "int": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Uniform integer, as `\"MIN-MAX\"`.",
+          "title": "Int"
+        }
+      },
+      "title": "FieldSpec",
+      "type": "object"
+    },
+    "FirstNameItem": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+        },
+        {
+          "additionalProperties": false,
+          "description": "First name entry.",
+          "properties": {
+            "value": {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+              "title": "Value"
+            },
+            "weight": {
+              "default": 1,
+              "maximum": 1000,
+              "minimum": 1,
+              "title": "Weight",
+              "type": "integer"
+            },
+            "canon": {
+              "default": true,
+              "description": "False for a name invented to enrich the pool.",
+              "title": "Canon",
+              "type": "boolean"
+            },
+            "gender": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Gender"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Gender of the first name; omitted for a name usable with any gender."
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "title": "FirstNameItem",
+          "type": "object"
+        }
+      ]
+    },
+    "Gender": {
+      "enum": [
+        "masculine",
+        "feminine",
+        "neutral"
+      ],
+      "type": "string"
+    },
+    "GenerationSettings": {
+      "additionalProperties": false,
+      "description": "Fine-tuning of the engine for this universe.",
+      "properties": {
+        "organization_generated_ratio": {
+          "default": 0.5,
+          "description": "Share of organizations generated by pattern rather than drawn from the canonical ones,\nin steps of 0.05.",
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Organization Generated Ratio",
+          "type": "number"
+        }
+      },
+      "title": "GenerationSettings",
+      "type": "object"
+    },
+    "Organization": {
+      "additionalProperties": false,
+      "description": "A company, guild, inn, order...",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+          "title": "Name"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Kind"
+        },
+        "places": {
+          "description": "Places where the organization is located; any locality when empty.",
+          "items": {
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "title": "Places",
+          "type": "array"
+        },
+        "weight": {
+          "default": 1,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Weight",
+          "type": "integer"
+        },
+        "canon": {
+          "default": true,
+          "title": "Canon",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "title": "Organization",
+      "type": "object"
+    },
+    "Patterns": {
+      "additionalProperties": false,
+      "description": "Patterns of the universe, by name.",
+      "properties": {
+        "street_address": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Street Address"
+        },
+        "postal_code": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Postal Code"
+        },
+        "address_format": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Address Format"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Phone"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        },
+        "username": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Username"
+        },
+        "organization_name": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Organization Name"
+        }
+      },
+      "title": "Patterns",
+      "type": "object"
+    },
+    "People": {
+      "additionalProperties": false,
+      "description": "A group carrying naming rules and homelands (race, species, culture, faction).",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+          "title": "Name"
+        },
+        "homelands": {
+          "description": "Places of any level, each containing at least one locality.",
+          "items": {
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Homelands",
+          "type": "array"
+        },
+        "weight": {
+          "default": 1,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Weight",
+          "type": "integer"
+        },
+        "canon": {
+          "default": true,
+          "title": "Canon",
+          "type": "boolean"
+        },
+        "name_format": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Pattern of the full name. Default: `{first_name} {family_name}` when the people has\nfamily names, `{first_name}` otherwise.",
+          "title": "Name Format"
+        },
+        "first_names": {
+          "items": {
+            "$ref": "#/$defs/FirstNameItem"
+          },
+          "minItems": 1,
+          "title": "First Names",
+          "type": "array"
+        },
+        "family_names": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/FamilyNameItem"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Family Names"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "homelands",
+        "first_names"
+      ],
+      "title": "People",
+      "type": "object"
+    },
+    "Place": {
+      "additionalProperties": false,
+      "description": "A place of one of the three core levels.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "level": {
+          "$ref": "#/$defs/PlaceLevel"
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Forbidden for an area; an area for a subdivision; a subdivision or an area for a\nlocality.",
+          "title": "Parent"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+          "title": "Name"
+        },
+        "weight": {
+          "default": 1,
+          "description": "Draw weight among the places of the same level.",
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Weight",
+          "type": "integer"
+        },
+        "canon": {
+          "default": true,
+          "title": "Canon",
+          "type": "boolean"
+        },
+        "patterns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PlacePatterns"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "level",
+        "name"
+      ],
+      "title": "Place",
+      "type": "object"
+    },
+    "PlaceLevel": {
+      "enum": [
+        "area",
+        "subdivision",
+        "locality"
+      ],
+      "type": "string"
+    },
+    "PlaceLevels": {
+      "additionalProperties": false,
+      "description": "Universe-specific labels of the core place levels.",
+      "properties": {
+        "area": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Area"
+        },
+        "subdivision": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subdivision"
+        },
+        "locality": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Locality"
+        }
+      },
+      "title": "PlaceLevels",
+      "type": "object"
+    },
+    "PlacePatterns": {
+      "additionalProperties": false,
+      "description": "Patterns that a place overrides for itself and its descendants.",
+      "properties": {
+        "street_address": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Street Address"
+        },
+        "postal_code": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Postal Code"
+        },
+        "address_format": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Address Format"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Phone"
+        }
+      },
+      "title": "PlacePatterns",
+      "type": "object"
+    },
+    "Sources": {
+      "additionalProperties": false,
+      "description": "Scope of the sources of the universe.",
+      "properties": {
+        "scope": {
+          "description": "Scope of the sources, in English (e.g. which books or films are covered).",
+          "minLength": 1,
+          "title": "Scope",
+          "type": "string"
+        },
+        "translations": {
+          "additionalProperties": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": "Reference translation for each locale.",
+          "title": "Translations",
+          "type": "object"
+        }
+      },
+      "required": [
+        "scope"
+      ],
+      "title": "Sources",
+      "type": "object"
+    },
+    "UniverseMeta": {
+      "additionalProperties": false,
+      "description": "Identity and languages of the universe.",
+      "properties": {
+        "id": {
+          "description": "Identifier, equal to the file name.",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+          "title": "Name"
+        },
+        "default_locale": {
+          "description": "Fallback locale, in canonical BCP-47 form (e.g. `en`).",
+          "title": "Default Locale",
+          "type": "string"
+        },
+        "locales": {
+          "description": "Supported locales; must contain `default_locale`.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Locales",
+          "type": "array"
+        },
+        "sources": {
+          "$ref": "#/$defs/Sources"
+        },
+        "maintainers": {
+          "description": "GitHub handles of the maintainers of this file.",
+          "items": {
+            "maxLength": 39,
+            "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Maintainers",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "default_locale",
+        "locales",
+        "sources",
+        "maintainers"
+      ],
+      "title": "UniverseMeta",
+      "type": "object"
+    },
+    "VocabItem": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minProperties": 1,
+              "type": "object"
+            }
+          ],
+          "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale."
+        },
+        {
+          "additionalProperties": false,
+          "description": "Vocabulary entry: no origin of its own.",
+          "properties": {
+            "value": {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              ],
+              "description": "Localized text: a string used for every locale, or a mapping from locale to string that contains the default locale.",
+              "title": "Value"
+            },
+            "weight": {
+              "default": 1,
+              "maximum": 1000,
+              "minimum": 1,
+              "title": "Weight",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "title": "VocabItem",
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "description": "A universe file: `universes/<id>.yaml`.",
+  "properties": {
+    "format": {
+      "const": 1,
+      "description": "Version of the file format.",
+      "title": "Format",
+      "type": "integer"
+    },
+    "universe": {
+      "$ref": "#/$defs/UniverseMeta"
+    },
+    "generation": {
+      "$ref": "#/$defs/GenerationSettings",
+      "default": {
+        "organization_generated_ratio": 0.5
+      }
+    },
+    "place_levels": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PlaceLevels"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "places": {
+      "items": {
+        "$ref": "#/$defs/Place"
+      },
+      "title": "Places",
+      "type": "array"
+    },
+    "peoples": {
+      "items": {
+        "$ref": "#/$defs/People"
+      },
+      "title": "Peoples",
+      "type": "array"
+    },
+    "organizations": {
+      "items": {
+        "$ref": "#/$defs/Organization"
+      },
+      "title": "Organizations",
+      "type": "array"
+    },
+    "vocab": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(_[a-z0-9]+)*$": {
+          "items": {
+            "$ref": "#/$defs/VocabItem"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "title": "Vocab",
+      "type": "object"
+    },
+    "patterns": {
+      "$ref": "#/$defs/Patterns",
+      "default": {
+        "street_address": null,
+        "postal_code": null,
+        "address_format": null,
+        "phone": null,
+        "email": null,
+        "username": null,
+        "organization_name": null
+      }
+    },
+    "extensions": {
+      "patternProperties": {
+        "^[a-z0-9]+(-[a-z0-9]+)*$": {
+          "$ref": "#/$defs/Extension"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    }
+  },
+  "required": [
+    "format",
+    "universe",
+    "places",
+    "peoples"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,147 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - run: uv sync --locked --all-extras
+      - name: Run the pre-commit hooks (mypy, validation and schema drift have their own jobs)
+        env:
+          SKIP: mypy,validate-universes,schema-drift
+        run: uv run pre-commit run --all-files --show-diff-on-failure
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - run: uv sync --locked --all-extras
+      - run: uv run mypy src
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: uv sync --locked --all-extras
+      - run: uv run pytest --cov --cov-report=term-missing
+
+  lowest:
+    # The package declares minimum versions of its dependencies: test them.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          python-version: "3.12"
+      - run: uv sync --all-extras --resolution lowest-direct
+      # The test client of old Starlette versions needs httpx rather than httpx2.
+      - run: uv pip install httpx
+      - run: uv run --no-sync pytest
+
+  universes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - run: uv sync --locked --all-extras
+      - run: uv run fakeverse validate --strict universes/
+      - run: uv run fakeverse check-coherence
+      - name: Publish the coverage report in the job summary
+        run: |
+          {
+            echo '## Universe coverage'
+            echo '```'
+            uv run fakeverse coverage
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  schema-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - run: uv sync --locked --all-extras
+      - name: Check that the committed JSON Schema matches the models
+        run: |
+          uv run fakeverse schema export > schema/universe.schema.json
+          git diff --exit-code schema/
+
+  wheel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - name: Build the wheel and test it in an isolated environment
+        run: scripts/check_wheel.sh
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # tags are needed to build the data snapshots of past releases
+          persist-credentials: false # .git goes into the Docker build context
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build the image (not published)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          push: false
+          load: true
+          tags: fakeverse:ci
+      - name: Check that the container becomes healthy
+        run: |
+          docker run -d --name fakeverse fakeverse:ci
+          for _ in $(seq 1 30); do
+            status="$(docker inspect -f '{{.State.Health.Status}}' fakeverse)"
+            [ "$status" = healthy ] && break
+            sleep 2
+          done
+          docker logs fakeverse
+          [ "$status" = healthy ]
+          docker exec fakeverse python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/v1/universes/lotr/generate/person?seed=1', timeout=5)"
+          docker rm -f fakeverse
+
+  bench:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - run: uv sync --locked --all-extras
+      - name: Benchmark (informative, never blocks)
+        run: uv run python tests/bench/bench_generate.py | tee -a "$GITHUB_STEP_SUMMARY"
+
+  commits:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Check Conventional Commits and Signed-off-by on every commit
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python3 scripts/check_commits.py --range "$BASE_SHA..$HEAD_SHA"

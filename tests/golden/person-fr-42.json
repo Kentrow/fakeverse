@@ -1,0 +1,105 @@
+{
+  "data": [
+    {
+      "first_name": "Tide",
+      "last_name": "Néemer",
+      "full_name": "Tide Néemer de Port-Lumen",
+      "gender": "neutral",
+      "people": "Islander",
+      "address": {
+        "street_address": "190 allée Moulin",
+        "postal_code": null,
+        "locality": "Port-Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "190 allée Moulin\nPort-Lumen\nEast Isles"
+      },
+      "email": "tide.neemer@post.example",
+      "username": "tide866",
+      "phone": "+99 237 873"
+    },
+    {
+      "first_name": "Sedge",
+      "last_name": null,
+      "full_name": "Sedge",
+      "gender": null,
+      "people": "Marcheur des marais",
+      "address": {
+        "street_address": "78 allée Oak",
+        "postal_code": "NR-0135",
+        "locality": "Marshton",
+        "subdivision": "Grey Fens",
+        "area": "Confins du Nord",
+        "formatted": "78 allée Oak\nNR-0135 Marshton\nGrey Fens, Confins du Nord"
+      },
+      "email": "sedge@post.example",
+      "username": "sedge408",
+      "phone": "+10 043 2857"
+    },
+    {
+      "first_name": "Ivo",
+      "last_name": "Oakley",
+      "full_name": "Ivo Oakley",
+      "gender": "masculine",
+      "people": "Valois",
+      "address": {
+        "street_address": "25 route Cloche",
+        "postal_code": "NR-1365",
+        "locality": "Moulinet",
+        "subdivision": "Val d'Ambre",
+        "area": "Confins du Nord",
+        "formatted": "25 route Cloche\nNR-1365 Moulinet\nVal d'Ambre, Confins du Nord"
+      },
+      "email": "ivo.oakley@post.example",
+      "username": "ivo846",
+      "phone": "+10 843 0402"
+    },
+    {
+      "first_name": "Shore",
+      "last_name": "Néemer",
+      "full_name": "Shore Néemer de Port-Lumen",
+      "gender": "neutral",
+      "people": "Islander",
+      "address": {
+        "street_address": "28 rue Oak",
+        "postal_code": null,
+        "locality": "Port-Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "28 rue Oak\nPort-Lumen\nEast Isles"
+      },
+      "email": "shore.neemer@post.example",
+      "username": "shore606",
+      "phone": "+99 647 521"
+    },
+    {
+      "first_name": "Sedge",
+      "last_name": null,
+      "full_name": "Sedge",
+      "gender": null,
+      "people": "Marcheur des marais",
+      "address": {
+        "street_address": "138 rue Oak",
+        "postal_code": "NR-9644",
+        "locality": "Marshton",
+        "subdivision": "Grey Fens",
+        "area": "Confins du Nord",
+        "formatted": "138 rue Oak\nNR-9644 Marshton\nGrey Fens, Confins du Nord"
+      },
+      "email": "sedge@post.example",
+      "username": "sedge370",
+      "phone": "+10 809 8825"
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "person",
+    "count": 5,
+    "seed": 42,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 6,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "data": [
+    "Coral",
+    "Elna",
+    "Jory",
+    "Shore",
+    "Dorian",
+    "Reed",
+    "Sedge",
+    "Marin",
+    "Cyril",
+    "Aldo",
+    "Ivo",
+    "Willow"
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "first_name",
+    "count": 12,
+    "seed": 2,
+    "seed_generated": false,
+    "locale": "en",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

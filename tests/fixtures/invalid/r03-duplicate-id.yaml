@@ -1,0 +1,48 @@
+# Rule 3: duplicate id in a collection.
+format: 1
+
+universe:
+  id: r03-duplicate-id
+  name: { en: Minimal, fr: Minimal }
+  default_locale: en
+  locales: [en, fr]
+  sources:
+    scope: "Minimal valid universe for validation tests."
+  maintainers: [Kentrow]
+
+places:
+  - id: land
+    level: area
+    name: { en: Land, fr: Terre }
+  - id: county
+    level: subdivision
+    parent: land
+    name: { en: County, fr: Canton }
+  - id: town
+    level: locality
+    parent: county
+    name: { en: Town, fr: Ville }
+
+peoples:
+  - id: folk
+    name: { en: Folk, fr: Peuple }
+    homelands: [county]
+    first_names: [Ann, Ben, Cid, Dan, Eve, Fay, Gus, Hal, Ivy, Jon]
+    family_names: [Smith]
+
+organizations:
+  - id: guild
+    name: { en: Guild, fr: Guilde }
+  - id: guild
+    name: { en: Other, fr: Autre }
+
+vocab:
+  street:
+    - { en: Street, fr: rue }
+
+patterns:
+  street_address: { en: "{int:1-9} {vocab.street}", fr: "{int:1-9} {vocab.street}" }
+  postal_code: "{digits:5}"
+  phone: "{digits:10}"
+  email: "{first_name|slug}@example.org"
+  username: "{first_name|slug}{int:1-9}"

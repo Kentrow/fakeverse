@@ -1,0 +1,31 @@
+name: Data fix
+description: Report a wrong, missing or out-of-scope name in a universe.
+title: "Data fix: "
+labels: [data]
+body:
+  - type: input
+    id: universe
+    attributes:
+      label: Universe
+      placeholder: "e.g. lotr"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: The value, its YAML path if you know it (e.g. places[12].name), and the locale.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Proposed fix
+      description: The correct name or translation.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Book and chapter, or edition of the reference translation. No quote needed.

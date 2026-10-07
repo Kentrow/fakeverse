@@ -1,0 +1,74 @@
+{
+  "first_name": [
+    "Coral",
+    "Aldo",
+    "Jory",
+    "Ivo"
+  ],
+  "last_name": [
+    "Oakley",
+    "Thistle",
+    "Brightwater",
+    "Saltmarsh"
+  ],
+  "full_name": [
+    "Bertram Souscolline",
+    "Coral Néemer de Port-Lumen",
+    "Reed",
+    "Aldo Oakley"
+  ],
+  "email": [
+    "jory.thistle@testmail.example",
+    "elna.oakley@post.example",
+    "aldo.oakley@post.example",
+    "jory.souscolline@post.example"
+  ],
+  "username": [
+    "reed220",
+    "shore588",
+    "sedge624",
+    "elna68"
+  ],
+  "phone": [
+    "+10 041 4336",
+    "+99 535 314",
+    "+10 608 2293",
+    "+99 260 506"
+  ],
+  "street_address": [
+    "182 rue Moulin",
+    "21 rue Moulin",
+    "30 allée Moulin",
+    "30 route Cloche"
+  ],
+  "postal_code": [
+    null,
+    "NR-5545",
+    "NR-2233",
+    "NR-8686"
+  ],
+  "locality": [
+    "Moulinet",
+    "Champcuivre",
+    "Dunmere",
+    "Port-Lumen"
+  ],
+  "subdivision": [
+    "Val d'Ambre",
+    null,
+    "Grey Fens",
+    "Collines Rouges"
+  ],
+  "area": [
+    "Marche du Sud",
+    "Confins du Nord",
+    "East Isles",
+    "East Isles"
+  ],
+  "organization_name": [
+    "Guilde du Cuivre",
+    "Wayfarers' Company",
+    "The Lantern",
+    "Loge Doré"
+  ]
+}

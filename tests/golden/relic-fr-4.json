@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "name": "Glass Crown",
+      "kind": "Couronne",
+      "age": 12
+    },
+    {
+      "name": "Pierre de braise",
+      "kind": "Pierre",
+      "age": 300
+    },
+    {
+      "name": "Glass Crown",
+      "kind": "Couronne",
+      "age": 12
+    },
+    {
+      "name": "Pierre de braise",
+      "kind": "Pierre",
+      "age": 300
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "relic",
+    "count": 4,
+    "seed": 4,
+    "seed_generated": false,
+    "locale": "fr",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 2
+  }
+}

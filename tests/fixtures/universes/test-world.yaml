@@ -1,0 +1,218 @@
+# yaml-language-server: $schema=../../../schema/universe.schema.json
+#
+# Synthetic universe used by the golden and unit tests. It contains no third-party
+# intellectual property and is designed to cover every case of the format:
+# localities without subdivision, a people without family names, ungendered first names,
+# pattern overrides at every level, extensions of both forms and partial translations.
+# Changing this file changes the goldens: regenerate them with `pytest --update-goldens`.
+format: 1
+
+universe:
+  id: test-world
+  name: { en: Test World, fr: Monde de test }
+  default_locale: en
+  locales: [en, fr]
+  sources:
+    scope: "Synthetic fixture for engine tests; no third-party content."
+    translations:
+      fr: "Fakeverse maintainers"
+  maintainers: [Kentrow]
+
+generation:
+  organization_generated_ratio: 0.25
+
+place_levels:
+  area: { en: Region, fr: Région }
+  subdivision: { en: District, fr: District }
+  locality: { en: Town, fr: Ville }
+
+places:
+  - id: north-reach
+    level: area
+    name: { en: North Reach, fr: Confins du Nord }
+    patterns:
+      postal_code: "NR-{digits:4}"
+  - id: south-march
+    level: area
+    name: { en: South March, fr: Marche du Sud }
+    weight: 2
+  - id: east-isles
+    level: area
+    name: East Isles
+    canon: false
+    patterns:
+      phone: "+99 {digits:3} {digits:3}"
+  - id: amber-vale
+    level: subdivision
+    parent: north-reach
+    name: { en: Amber Vale, fr: Val d'Ambre }
+    weight: 3
+    patterns:
+      street_address:
+        en: "{int:1-50} {vocab.street_name} Road"
+        fr: "{int:1-50} route {vocab.street_name}"
+  - id: grey-fens
+    level: subdivision
+    parent: north-reach
+    name: { en: Grey Fens }
+  - id: red-hills
+    level: subdivision
+    parent: south-march
+    name: { en: Red Hills, fr: Collines Rouges }
+    patterns:
+      address_format:
+        en: "{street_address}, {locality}, {subdivision}, {area}"
+        fr: "{street_address}, {locality} ({subdivision}), {area}"
+  - id: millbrook
+    level: locality
+    parent: amber-vale
+    name: { en: Millbrook, fr: Moulinet }
+    weight: 3
+  - id: stonebridge
+    level: locality
+    parent: amber-vale
+    name: Stonebridge
+    patterns:
+      postal_code: "SB-{digits:2}"
+  - id: marshton
+    level: locality
+    parent: grey-fens
+    name: Marshton
+    canon: false
+  - id: copperfield
+    level: locality
+    parent: red-hills
+    name: { en: Copperfield, fr: Champcuivre }
+  - id: dunmere
+    level: locality
+    parent: south-march
+    name: Dunmere
+  - id: port-lumen
+    level: locality
+    parent: east-isles
+    name: { en: Port Lumen, fr: Port-Lumen }
+    weight: 2
+
+peoples:
+  - id: valefolk
+    name: { en: Valefolk, fr: Valois }
+    homelands: [amber-vale]
+    weight: 4
+    first_names:
+      - { value: Aldo, gender: masculine, weight: 3 }
+      - { value: Bertram, gender: masculine }
+      - { value: { en: Cyril, fr: Cyrille }, gender: masculine }
+      - { value: Dorian, gender: masculine, canon: false }
+      - { value: Elna, gender: feminine, weight: 2 }
+      - { value: { en: Flora, fr: Flore }, gender: feminine }
+      - { value: Greta, gender: feminine }
+      - { value: Hilde, gender: feminine, canon: false }
+      - Ivo
+      - { value: Jory, weight: 2 }
+    family_names:
+      - { en: Underhill, fr: Souscolline }
+      - Brightwater
+      - { value: Oakley, weight: 2 }
+      - { value: Thistle, canon: false }
+  - id: fenwalker
+    name: { en: Fenwalker, fr: Marcheur des marais }
+    homelands: [grey-fens, dunmere]
+    name_format: "{first_name}"
+    first_names:
+      - Reed
+      - { value: Sedge, weight: 2 }
+      - { value: Willow, canon: false }
+  - id: islander
+    name: { en: Islander }
+    homelands: [east-isles]
+    weight: 2
+    name_format:
+      en: "{first_name} {family_name} of {locality}"
+      fr: "{first_name} {family_name} de {locality}"
+    first_names:
+      - { value: Marin, gender: feminine }
+      - { value: Coral, gender: feminine, weight: 2 }
+      - { value: Tide, gender: neutral }
+      - Shore
+    family_names:
+      - Saltmarsh
+      - { en: Seaborn, fr: Néemer }
+
+organizations:
+  - id: copper-guild
+    name: { en: Copper Guild, fr: Guilde du Cuivre }
+    kind: { en: Guild, fr: Guilde }
+    places: [red-hills]
+  - id: lantern-inn
+    name: The Lantern
+    kind: { en: Inn, fr: Auberge }
+    places: [port-lumen]
+    weight: 2
+  - id: wayfarers
+    name: { en: Wayfarers' Company }
+    canon: false
+
+vocab:
+  street_name:
+    - Oak
+    - { value: { en: Mill, fr: Moulin }, weight: 3 }
+    - { en: Bell, fr: Cloche }
+  street_type:
+    - { en: Street, fr: rue }
+    - { en: Lane, fr: allée }
+  email_domain:
+    - testmail.example
+    - { value: post.example, weight: 2 }
+  org_adjective:
+    - { en: Golden, fr: Doré }
+    - { en: Silent }
+  org_noun:
+    - { en: Lodge, fr: Loge }
+    - { en: Workshop, fr: Atelier }
+  cargo:
+    - Grain
+    - Salt
+    - { value: { en: Wool, fr: Laine }, weight: 2 }
+
+patterns:
+  street_address:
+    en: "{int:1-200} {vocab.street_name} {vocab.street_type}"
+    fr: "{int:1-200} {vocab.street_type} {vocab.street_name}"
+  address_format:
+    en: "{street_address}\n{locality} {postal_code}\n{subdivision}\n{area}"
+    fr: "{street_address}\n{postal_code} {locality}\n{subdivision}, {area}"
+  phone: "+10 {digits:3} {digits:4}"
+  email: "{first_name|slug}.{family_name|slug}@{vocab.email_domain}"
+  username: "{first_name|lower}{int:1-999}"
+  organization_name:
+    en: "The {vocab.org_adjective} {vocab.org_noun}"
+    fr: "{vocab.org_noun|title} {vocab.org_adjective}"
+
+extensions:
+  relic:
+    label: { en: Relic, fr: Relique }
+    items:
+      - id: ember-stone
+        name: { en: Ember Stone, fr: Pierre de braise }
+        weight: 2
+        fields:
+          kind: { en: Stone, fr: Pierre }
+          age: 300
+      - id: glass-crown
+        name: Glass Crown
+        canon: false
+        fields:
+          kind: { en: Crown, fr: Couronne }
+          age: 12
+  barge:
+    label: { en: Barge, fr: Péniche }
+    fields:
+      name:
+        pattern: { en: "The {vocab.street_name|upper}", fr: "Le {vocab.street_name|upper}" }
+      registry: { pattern: "{letters:2}-{digits:4}" }
+      cargo: { vocab: cargo }
+      home_port: { place: locality }
+      region: { place: area }
+      crew: { int: "2-40" }
+      owner: { people: true }
+      plate: { pattern: "{registry} ({crew})" }

@@ -1,0 +1,74 @@
+{
+  "first_name": [
+    "Jory",
+    "Reed",
+    "Willow",
+    "Bertram"
+  ],
+  "last_name": [
+    "Saltmarsh",
+    "Underhill",
+    "Oakley",
+    "Thistle"
+  ],
+  "full_name": [
+    "Hilde Thistle",
+    "Aldo Underhill",
+    "Jory Oakley",
+    "Coral Seaborn of Port Lumen"
+  ],
+  "email": [
+    "elna.thistle@testmail.example",
+    "coral.seaborn@post.example",
+    "jory.underhill@testmail.example",
+    "jory.underhill@post.example"
+  ],
+  "username": [
+    "jory14",
+    "sedge946",
+    "sedge245",
+    "cyril438"
+  ],
+  "phone": [
+    "+10 863 3000",
+    "+10 281 2025",
+    "+99 470 705",
+    "+10 745 9530"
+  ],
+  "street_address": [
+    "71 Mill Street",
+    "48 Mill Road",
+    "13 Bell Road",
+    "37 Bell Street"
+  ],
+  "postal_code": [
+    "NR-5337",
+    "NR-8096",
+    "NR-6208",
+    null
+  ],
+  "locality": [
+    "Copperfield",
+    "Millbrook",
+    "Stonebridge",
+    "Dunmere"
+  ],
+  "subdivision": [
+    "Amber Vale",
+    "Red Hills",
+    null,
+    "Grey Fens"
+  ],
+  "area": [
+    "East Isles",
+    "South March",
+    "North Reach",
+    "North Reach"
+  ],
+  "organization_name": [
+    "The Lantern",
+    "Wayfarers' Company",
+    "Copper Guild",
+    "The Silent Workshop"
+  ]
+}

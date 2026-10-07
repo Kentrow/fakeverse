@@ -1,0 +1,843 @@
+# yaml-language-server: $schema=../schema/universe.schema.json
+#
+# The Lord of the Rings universe, books only. Names and short labels only: no quotes, no
+# descriptions. French names follow the translation by Francis Ledoux (The Hobbit, The Lord
+# of the Rings, 1972-1973, whose forms differ from his Hobbit of 1969) and by Pierre Alien
+# (The Silmarillion); names that the French translations keep unchanged (Sindarin, Quenya,
+# Khuzdul, Old English) are plain strings. French forms were checked against the
+# correspondence tables of Tolkiendil (tolkiendil.com).
+# Vocabularies (streets, inn signs, email domains) are invented for the generator.
+format: 1
+
+universe:
+  id: lotr
+  name: { en: The Lord of the Rings, fr: Le Seigneur des Anneaux }
+  default_locale: en
+  locales: [en, fr]
+  sources:
+    scope: "Books only: The Hobbit, The Lord of the Rings, The Silmarillion. No film-only elements."
+    translations:
+      fr: "Francis Ledoux; Pierre Alien for The Silmarillion"
+  maintainers: [Kentrow]
+
+generation:
+  organization_generated_ratio: 0.5
+
+place_levels:
+  area: { en: Realm, fr: Royaume }
+  subdivision: { en: Region, fr: Région }
+  locality: { en: Town, fr: Ville }
+
+places:
+  # Areas
+  - id: eriador
+    level: area
+    name: Eriador
+    weight: 3
+    patterns:
+      postal_code: "ER-{digits:4}"
+  - id: lindon
+    level: area
+    name: Lindon
+    patterns:
+      postal_code: "LI-{digits:4}"
+  - id: rhovanion
+    level: area
+    name: Rhovanion
+    weight: 2
+    patterns:
+      postal_code: "RH-{digits:4}"
+  - id: gondor
+    level: area
+    name: Gondor
+    weight: 3
+    patterns:
+      postal_code: "GO-{digits:4}"
+  - id: rohan
+    level: area
+    name: Rohan
+    weight: 2
+    patterns:
+      postal_code: "RO-{digits:4}"
+  - id: beleriand
+    level: area
+    name: Beleriand
+    patterns:
+      postal_code: "BE-{digits:4}"
+
+  # Eriador
+  - id: shire
+    level: subdivision
+    parent: eriador
+    name: { en: The Shire, fr: La Comté }
+    weight: 5
+    patterns:
+      postal_code: "SH-{digits:3}"
+  - id: buckland
+    level: subdivision
+    parent: eriador
+    name: { en: Buckland, fr: Le Pays de Bouc }
+  - id: bree-land
+    level: subdivision
+    parent: eriador
+    name: { en: Bree-land, fr: Le Pays de Bree }
+    weight: 2
+  - id: arthedain
+    level: subdivision
+    parent: eriador
+    name: Arthedain
+  - id: rhudaur
+    level: subdivision
+    parent: eriador
+    name: Rhudaur
+  - id: cardolan
+    level: subdivision
+    parent: eriador
+    name: Cardolan
+  - id: hobbiton
+    level: locality
+    parent: shire
+    name: { en: Hobbiton, fr: Hobbitebourg }
+    weight: 3
+  - id: bywater
+    level: locality
+    parent: shire
+    name: { en: Bywater, fr: Lèzeau }
+    weight: 2
+  - id: michel-delving
+    level: locality
+    parent: shire
+    name: { en: Michel Delving, fr: Grand'Cave }
+    weight: 2
+  - id: tuckborough
+    level: locality
+    parent: shire
+    name: { en: Tuckborough, fr: Bourg-de-Touque }
+  - id: frogmorton
+    level: locality
+    parent: shire
+    name: { en: Frogmorton, fr: Lagrenouillère }
+  - id: stock
+    level: locality
+    parent: shire
+    name: Stock
+  - id: longbottom
+    level: locality
+    parent: shire
+    name: { en: Longbottom, fr: Longoulet }
+  - id: overhill
+    level: locality
+    parent: shire
+    name: { en: Overhill, fr: Par-delà-la-Colline }
+  - id: hardbottle
+    level: locality
+    parent: shire
+    name: { en: Hardbottle, fr: Roccreux }
+  - id: little-delving
+    level: locality
+    parent: shire
+    name: { en: Little Delving, fr: Petite Cave }
+  - id: whitfurrows
+    level: locality
+    parent: shire
+    name: { en: Whitfurrows, fr: Blancs Sillons }
+  - id: scary
+    level: locality
+    parent: shire
+    name: Scary
+  - id: budgeford
+    level: locality
+    parent: shire
+    name: { en: Budgeford, fr: Gué-du-Pont }
+  - id: tighfield
+    level: locality
+    parent: shire
+    name: { en: Tighfield, fr: Champtoron }
+  - id: oatbarton
+    level: locality
+    parent: shire
+    name: Oatbarton
+  - id: willowbottom
+    level: locality
+    parent: shire
+    name: { en: Willowbottom, fr: Le Creux aux saules }
+  - id: woodhall
+    level: locality
+    parent: shire
+    name: { en: Woodhall, fr: Castelbois }
+  - id: undertowers
+    level: locality
+    parent: shire
+    name: { en: Undertowers, fr: Tours d'Endessous }
+  - id: rushey
+    level: locality
+    parent: shire
+    name: { en: Rushey, fr: Soldur }
+  - id: bucklebury
+    level: locality
+    parent: buckland
+    name: { en: Bucklebury, fr: Châteaubouc }
+    weight: 2
+  - id: crickhollow
+    level: locality
+    parent: buckland
+    name: { en: Crickhollow, fr: Creux-de-Crique }
+  - id: newbury
+    level: locality
+    parent: buckland
+    name: { en: Newbury, fr: Bourgneuf }
+  - id: haysend
+    level: locality
+    parent: buckland
+    name: { en: Haysend, fr: Fin-de-Barrière }
+  - id: standelf
+    level: locality
+    parent: buckland
+    name: Standelf
+  - id: bree
+    level: locality
+    parent: bree-land
+    name: Bree
+    weight: 3
+  - id: staddle
+    level: locality
+    parent: bree-land
+    name: Staddle
+  - id: combe
+    level: locality
+    parent: bree-land
+    name: Combe
+  - id: archet
+    level: locality
+    parent: bree-land
+    name: Archet
+  - id: fornost
+    level: locality
+    parent: arthedain
+    name: Fornost
+  - id: annuminas
+    level: locality
+    parent: arthedain
+    name: Annúminas
+  - id: rivendell
+    level: locality
+    parent: rhudaur
+    name: { en: Rivendell, fr: Fondcombe }
+    weight: 2
+  - id: tharbad
+    level: locality
+    parent: cardolan
+    name: Tharbad
+  - id: khazad-dum
+    level: locality
+    parent: eriador
+    name: Khazad-dûm
+    weight: 2
+
+  # Lindon
+  - id: harlindon
+    level: subdivision
+    parent: lindon
+    name: Harlindon
+  - id: harlond
+    level: locality
+    parent: harlindon
+    name: Harlond
+  - id: grey-havens
+    level: locality
+    parent: lindon
+    name: { en: Grey Havens, fr: Havres Gris }
+    weight: 2
+
+  # Rhovanion
+  - id: lothlorien
+    level: subdivision
+    parent: rhovanion
+    name: Lothlórien
+  - id: caras-galadhon
+    level: locality
+    parent: lothlorien
+    name: Caras Galadhon
+    weight: 2
+  - id: dale
+    level: locality
+    parent: rhovanion
+    name: Dale
+  - id: esgaroth
+    level: locality
+    parent: rhovanion
+    name: Esgaroth
+  - id: erebor
+    level: locality
+    parent: rhovanion
+    name: Erebor
+    weight: 3
+
+  # Gondor
+  - id: anorien
+    level: subdivision
+    parent: gondor
+    name: Anórien
+    weight: 3
+  - id: ithilien
+    level: subdivision
+    parent: gondor
+    name: Ithilien
+  - id: lebennin
+    level: subdivision
+    parent: gondor
+    name: Lebennin
+  - id: belfalas
+    level: subdivision
+    parent: gondor
+    name: Belfalas
+  - id: lamedon
+    level: subdivision
+    parent: gondor
+    name: Lamedon
+  - id: minas-tirith
+    level: locality
+    parent: anorien
+    name: Minas Tirith
+    weight: 5
+    patterns:
+      street_address:
+        en: "Circle {int:1-7}, {int:1-99} {vocab.street_name} {vocab.street_type}"
+        fr: "{int:1-99}, {vocab.street_type} {vocab.street_name}, cercle {int:1-7}"
+  - id: cair-andros
+    level: locality
+    parent: anorien
+    name: Cair Andros
+  - id: henneth-annun
+    level: locality
+    parent: ithilien
+    name: Henneth Annûn
+  - id: emyn-arnen
+    level: locality
+    parent: ithilien
+    name: Emyn Arnen
+  - id: pelargir
+    level: locality
+    parent: lebennin
+    name: Pelargir
+    weight: 3
+  - id: linhir
+    level: locality
+    parent: lebennin
+    name: Linhir
+  - id: dol-amroth
+    level: locality
+    parent: belfalas
+    name: Dol Amroth
+    weight: 3
+  - id: edhellond
+    level: locality
+    parent: belfalas
+    name: Edhellond
+  - id: calembel
+    level: locality
+    parent: lamedon
+    name: Calembel
+  - id: ethring
+    level: locality
+    parent: lamedon
+    name: Ethring
+  - id: osgiliath
+    level: locality
+    parent: gondor
+    name: Osgiliath
+
+  # Rohan
+  - id: edoras
+    level: locality
+    parent: rohan
+    name: Edoras
+    weight: 3
+  - id: aldburg
+    level: locality
+    parent: rohan
+    name: Aldburg
+  - id: hornburg
+    level: locality
+    parent: rohan
+    name: { en: Hornburg, fr: Fort-le-Cor }
+
+  # Beleriand (First Age)
+  - id: doriath
+    level: subdivision
+    parent: beleriand
+    name: Doriath
+  - id: ered-luin
+    level: subdivision
+    parent: beleriand
+    name: Ered Luin
+  - id: menegroth
+    level: locality
+    parent: doriath
+    name: Menegroth
+  - id: nogrod
+    level: locality
+    parent: ered-luin
+    name: Nogrod
+  - id: belegost
+    level: locality
+    parent: ered-luin
+    name: Belegost
+  - id: nargothrond
+    level: locality
+    parent: beleriand
+    name: Nargothrond
+  - id: gondolin
+    level: locality
+    parent: beleriand
+    name: Gondolin
+
+peoples:
+  - id: hobbit
+    name: Hobbit
+    homelands: [shire, buckland, bree-land]
+    weight: 4
+    first_names:
+      - { value: { en: Frodo, fr: Frodon }, gender: masculine, weight: 2 }
+      - { value: { en: Samwise, fr: Samsagace }, gender: masculine, weight: 2 }
+      - { value: { en: Bilbo, fr: Bilbon }, gender: masculine, weight: 2 }
+      - { value: Meriadoc, gender: masculine }
+      - { value: { en: Peregrin, fr: Peregrïn }, gender: masculine }
+      - { value: Hamfast, gender: masculine }
+      - { value: Fredegar, gender: masculine }
+      - { value: { en: Folco, fr: Foulque }, gender: masculine }
+      - { value: { en: Drogo, fr: Drogon }, gender: masculine }
+      - { value: { en: Otho, fr: Othon }, gender: masculine }
+      - { value: { en: Lotho, fr: Lothon }, gender: masculine }
+      - { value: { en: Bungo, fr: Bungon }, gender: masculine }
+      - { value: Gerontius, gender: masculine }
+      - { value: Paladin, gender: masculine }
+      - { value: Saradoc, gender: masculine }
+      - { value: Rorimac, gender: masculine }
+      - { value: Gorbadoc, gender: masculine }
+      - { value: Isengrim, gender: masculine }
+      - { value: Isumbras, gender: masculine }
+      - { value: Fortinbras, gender: masculine }
+      - { value: Ferumbras, gender: masculine }
+      - { value: Adalgrim, gender: masculine }
+      - { value: Hildibrand, gender: masculine }
+      - { value: { en: Mungo, fr: Mungon }, gender: masculine }
+      - { value: { en: Ponto, fr: Ponton }, gender: masculine }
+      - { value: { en: Posco, fr: Poscon }, gender: masculine }
+      - { value: Tolman, gender: masculine }
+      - { value: Wilcome, gender: masculine }
+      - { value: Holman, gender: masculine }
+      - { value: Halfast, gender: masculine }
+      - { value: Bandobras, gender: masculine }
+      - { value: { en: Dudo, fr: Dudon }, gender: masculine }
+      - { value: Milo, gender: masculine }
+      - { value: Everard, gender: masculine }
+      - { value: Odovacar, gender: masculine }
+      - { value: Hob, gender: masculine }
+      - { value: Robin, gender: masculine }
+      - { value: Ted, gender: masculine }
+      - { value: Hugo, gender: masculine }
+      - { value: Sancho, gender: masculine }
+      - { value: { en: Odo, fr: Odon }, gender: masculine }
+      - { value: { en: Olo, fr: Olon }, gender: masculine }
+      - { value: Polo, gender: masculine }
+      - { value: { en: Porto, fr: Porton }, gender: masculine }
+      - { value: { en: Largo, fr: Largon }, gender: masculine }
+      - { value: { en: Longo, fr: Longon }, gender: masculine }
+      - { value: { en: Fosco, fr: Foscon }, gender: masculine }
+      - { value: { en: Falco, fr: Falcon }, gender: masculine }
+      - { value: Dodinas, gender: masculine }
+      - { value: Hildifons, gender: masculine }
+      - { value: Hildigrim, gender: masculine }
+      - { value: Flambard, gender: masculine }
+      - { value: Ferdibrand, gender: masculine }
+      - { value: Ferdinand, gender: masculine }
+      - { value: Reginard, gender: masculine }
+      - { value: Isembard, gender: masculine }
+      - { value: Isembold, gender: masculine }
+      - { value: Merimac, gender: masculine }
+      - { value: Berilac, gender: masculine }
+      - { value: Doderic, gender: masculine }
+      - { value: Ilberic, gender: masculine }
+      - { value: Marmadas, gender: masculine }
+      - { value: Merimas, gender: masculine }
+      - { value: Andwise, gender: masculine }
+      - { value: Hamson, gender: masculine }
+      - { value: Halfred, gender: masculine }
+      - { value: Holfast, gender: masculine }
+      - { value: { en: Wiseman, fr: "Prud'homme" }, gender: masculine }
+      - { value: { en: Griffo, fr: Griffon }, gender: masculine }
+      - { value: Wilibald, gender: masculine }
+      - { value: { en: Togo, fr: Togon }, gender: masculine }
+      - { value: Adelard, gender: masculine }
+      - { value: Lobelia, gender: feminine }
+      - { value: Primula, gender: feminine }
+      - { value: { en: Belladonna, fr: Belladone }, gender: feminine }
+      - { value: Esmeralda, gender: feminine }
+      - { value: Elanor, gender: feminine, weight: 2 }
+      - { value: { en: Rosie, fr: Rose }, gender: feminine, weight: 2 }
+      - { value: Angelica, gender: feminine }
+      - { value: Dora, gender: feminine }
+      - { value: Mimosa, gender: feminine }
+      - { value: Pimpernel, gender: feminine }
+      - { value: Pervinca, gender: feminine }
+      - { value: Melilot, gender: feminine }
+      - { value: Mirabella, gender: feminine }
+      - { value: Donnamira, gender: feminine }
+      - { value: Asphodel, gender: feminine }
+      - { value: Berylla, gender: feminine }
+      - { value: Camellia, gender: feminine }
+      - { value: { en: Eglantine, fr: Églantine }, gender: feminine }
+      - { value: Lalia, gender: feminine }
+      - { value: Malva, gender: feminine }
+      - { value: Menegilda, gender: feminine }
+      - { value: Salvia, gender: feminine }
+      - { value: Belba, gender: feminine }
+      - { value: Hilda, gender: feminine }
+      - { value: { en: Peony, fr: Pivoine }, gender: feminine }
+      - { value: { en: Marigold, fr: Marguerite }, gender: feminine }
+      - { value: { en: Primrose, fr: Primevère }, gender: feminine }
+      - { value: May, gender: feminine }
+      - { value: Bell, gender: feminine }
+      - { value: Pearl, gender: feminine }
+      - { value: { en: Diamond, fr: Diamant }, gender: feminine }
+      - { value: Lily, gender: feminine }
+      - { value: Poppy, gender: feminine }
+      - { value: Ruby, gender: feminine }
+      - { value: Pansy, gender: feminine }
+      - { value: Myrtle, gender: feminine }
+      - { value: Gilly, gender: feminine }
+      - { value: Prisca, gender: feminine }
+      - { value: Rosamunda, gender: feminine }
+      - { value: Tanta, gender: feminine }
+      - { value: Linda, gender: feminine }
+      - { value: Mentha, gender: feminine }
+    family_names:
+      - { value: { en: Baggins, fr: Sacquet }, weight: 3 }
+      - { value: { en: Took, fr: Touque }, weight: 3 }
+      - { value: { en: Brandybuck, fr: Brandebouc }, weight: 2 }
+      - { value: { en: Gamgee, fr: Gamegie }, weight: 2 }
+      - { value: { en: Cotton, fr: Chaumine }, weight: 2 }
+      - { en: Proudfoot, fr: Fierpied }
+      - Bolger
+      - { en: Boffin, fr: Bophin }
+      - { en: Bracegirdle, fr: Sanglebuc }
+      - { en: Hornblower, fr: Sonnecor }
+      - { en: Chubb, fr: Boulot }
+      - { en: Grubb, fr: Fouille }
+      - { en: Sackville-Baggins, fr: Sacquet de Besace }
+      - { en: Maggot, fr: Maggotte }
+      - { en: Sandyman, fr: Rouquin }
+      - { en: Whitfoot, fr: Piedblanc }
+      - { en: Goodchild, fr: Bonenfant }
+      - { en: Brown, fr: Brun }
+      - { en: Burrows, fr: Fouine }
+      - { en: Goodbody, fr: Bravet }
+      - { en: Hayward, fr: Gardeclôture }
+      - { en: Smallburrow, fr: Petitterrier }
+      - { en: Roper, fr: le Cordier }
+      - Gardner
+      - { en: Brockhouse, fr: Trougrisard }
+      - { en: Twofoot, fr: Bipied }
+      - { en: Headstrong, fr: Testarude }
+      - Goold
+      - Bunce
+      - Brownlock
+
+  - id: elf
+    name: { en: Elf, fr: Elfe }
+    homelands: [lindon, rivendell, lothlorien, doriath, nargothrond, gondolin]
+    weight: 2
+    name_format: "{first_name}"
+    first_names:
+      - { value: Elrond, gender: masculine, weight: 2 }
+      - { value: Celeborn, gender: masculine }
+      - { value: Legolas, gender: masculine, weight: 2 }
+      - { value: Glorfindel, gender: masculine }
+      - { value: Thranduil, gender: masculine }
+      - { value: Haldir, gender: masculine }
+      - { value: Rúmil, gender: masculine }
+      - { value: Orophin, gender: masculine }
+      - { value: Gildor, gender: masculine }
+      - { value: Lindir, gender: masculine }
+      - { value: Erestor, gender: masculine }
+      - { value: Elladan, gender: masculine }
+      - { value: Elrohir, gender: masculine }
+      - { value: Círdan, gender: masculine }
+      - { value: Gil-galad, gender: masculine }
+      - { value: Finrod, gender: masculine }
+      - { value: Fingolfin, gender: masculine }
+      - { value: Fëanor, gender: masculine }
+      - { value: Thingol, gender: masculine }
+      - { value: Turgon, gender: masculine }
+      - { value: Maedhros, gender: masculine }
+      - { value: Maglor, gender: masculine }
+      - { value: Celebrimbor, gender: masculine }
+      - { value: Ecthelion, gender: masculine }
+      - { value: Beleg, gender: masculine }
+      - { value: Gwindor, gender: masculine }
+      - { value: Amroth, gender: masculine }
+      - { value: Finarfin, gender: masculine }
+      - { value: Fingon, gender: masculine }
+      - { value: Orodreth, gender: masculine }
+      - { value: Daeron, gender: masculine }
+      - { value: Galadriel, gender: feminine, weight: 2 }
+      - { value: Arwen, gender: feminine, weight: 2 }
+      - { value: Celebrían, gender: feminine }
+      - { value: Lúthien, gender: feminine }
+      - { value: Idril, gender: feminine }
+      - { value: Aredhel, gender: feminine }
+      - { value: Nimrodel, gender: feminine }
+      - { value: Finduilas, gender: feminine }
+      - { value: Elwing, gender: feminine }
+      - { value: Nellas, gender: feminine }
+      - { value: Míriel, gender: feminine }
+      - { value: Nerdanel, gender: feminine }
+
+  - id: man-of-gondor
+    name: { en: Man of Gondor, fr: Homme de Gondor }
+    homelands: [gondor]
+    weight: 3
+    name_format: "{first_name}"
+    first_names:
+      - { value: Aragorn, gender: masculine }
+      - { value: Boromir, gender: masculine, weight: 2 }
+      - { value: Faramir, gender: masculine, weight: 2 }
+      - { value: Denethor, gender: masculine }
+      - { value: Imrahil, gender: masculine }
+      - { value: Beregond, gender: masculine, weight: 2 }
+      - { value: Bergil, gender: masculine }
+      - { value: Húrin, gender: masculine }
+      - { value: Hirgon, gender: masculine }
+      - { value: Ingold, gender: masculine }
+      - { value: Damrod, gender: masculine }
+      - { value: Anborn, gender: masculine }
+      - { value: Forlong, gender: masculine }
+      - { value: Hirluin, gender: masculine }
+      - { value: Angbor, gender: masculine }
+      - { value: Duinhir, gender: masculine }
+      - { value: Derufin, gender: masculine }
+      - { value: Duilin, gender: masculine }
+      - { value: Golasgil, gender: masculine }
+      - { value: Elendil, gender: masculine }
+      - { value: Isildur, gender: masculine }
+      - { value: Anárion, gender: masculine }
+      - { value: Meneldil, gender: masculine }
+      - { value: Eärnur, gender: masculine }
+      - { value: Eärnil, gender: masculine }
+      - { value: Mardil, gender: masculine }
+      - { value: Cirion, gender: masculine }
+      - { value: Baranor, gender: masculine }
+      - { value: Targon, gender: masculine }
+      - { value: Iorlas, gender: masculine }
+      - { value: Ioreth, gender: feminine, weight: 2 }
+      - { value: Lothíriel, gender: feminine, weight: 2 }
+      - { value: Ivriniel, gender: feminine, weight: 2 }
+      - { value: Finduilas, gender: feminine, weight: 2 }
+      - { value: Morwen, gender: feminine, weight: 2 }
+
+  - id: rohirrim
+    name: Rohirrim
+    homelands: [rohan]
+    weight: 2
+    name_format: "{first_name}"
+    first_names:
+      - { value: Théoden, gender: masculine, weight: 2 }
+      - { value: Théodred, gender: masculine }
+      - { value: Éomer, gender: masculine, weight: 2 }
+      - { value: Éomund, gender: masculine }
+      - { value: Thengel, gender: masculine }
+      - { value: Fengel, gender: masculine }
+      - { value: Folcwine, gender: masculine }
+      - { value: Folca, gender: masculine }
+      - { value: Walda, gender: masculine }
+      - { value: Brytta, gender: masculine }
+      - { value: Fréaláf, gender: masculine }
+      - { value: Helm, gender: masculine }
+      - { value: Fréa, gender: masculine }
+      - { value: Aldor, gender: masculine }
+      - { value: Brego, gender: masculine }
+      - { value: Baldor, gender: masculine }
+      - { value: Eorl, gender: masculine }
+      - { value: Léod, gender: masculine }
+      - { value: Háma, gender: masculine }
+      - { value: Gamling, gender: masculine }
+      - { value: Erkenbrand, gender: masculine }
+      - { value: Elfhelm, gender: masculine }
+      - { value: Grimbold, gender: masculine }
+      - { value: Dúnhere, gender: masculine }
+      - { value: Déorwine, gender: masculine }
+      - { value: Guthláf, gender: masculine }
+      - { value: Harding, gender: masculine }
+      - { value: Herefara, gender: masculine }
+      - { value: Herubrand, gender: masculine }
+      - { value: Fastred, gender: masculine }
+      - { value: Ceorl, gender: masculine }
+      - { value: Éowyn, gender: feminine, weight: 3 }
+      - { value: Théodwyn, gender: feminine, weight: 2 }
+      - { value: Elfhild, gender: feminine, weight: 2 }
+      - { value: Hild, gender: feminine, weight: 2 }
+
+  - id: dwarf
+    name: { en: Dwarf, fr: Nain }
+    homelands: [erebor, khazad-dum, ered-luin]
+    weight: 2
+    name_format: "{first_name}"
+    first_names:
+      - { value: Gimli, gender: masculine, weight: 2 }
+      - { value: Glóin, gender: masculine, weight: 2 }
+      - { value: Balin, gender: masculine, weight: 2 }
+      - { value: Dwalin, gender: masculine }
+      - { value: Fíli, gender: masculine }
+      - { value: Kíli, gender: masculine }
+      - { value: Dori, gender: masculine }
+      - { value: Nori, gender: masculine }
+      - { value: Ori, gender: masculine }
+      - { value: Óin, gender: masculine }
+      - { value: Bifur, gender: masculine }
+      - { value: Bofur, gender: masculine }
+      - { value: Bombur, gender: masculine }
+      - { value: Thorin, gender: masculine, weight: 2 }
+      - { value: Thráin, gender: masculine }
+      - { value: Thrór, gender: masculine }
+      - { value: Dáin, gender: masculine }
+      - { value: Náin, gender: masculine }
+      - { value: Durin, gender: masculine }
+      - { value: Fundin, gender: masculine }
+      - { value: Frár, gender: masculine }
+      - { value: Lóni, gender: masculine }
+      - { value: Náli, gender: masculine }
+      - { value: Flói, gender: masculine }
+      - { value: Borin, gender: masculine }
+      - { value: Farin, gender: masculine }
+      - { value: Frerin, gender: masculine }
+      - { value: Grór, gender: masculine }
+      - { value: Telchar, gender: masculine }
+      - { value: Azaghâl, gender: masculine }
+      - { value: Mîm, gender: masculine }
+      - { value: Narvi, gender: masculine }
+      - { value: Gróin, gender: masculine }
+      - { value: Nár, gender: masculine }
+      - { value: Dís, gender: feminine, weight: 3 }
+
+organizations:
+  - id: green-dragon
+    name: { en: The Green Dragon, fr: Le Dragon Vert }
+    kind: { en: Inn, fr: Auberge }
+    places: [bywater]
+    weight: 2
+  - id: prancing-pony
+    name: { en: The Prancing Pony, fr: Le Poney Fringant }
+    kind: { en: Inn, fr: Auberge }
+    places: [bree]
+    weight: 2
+  - id: golden-perch
+    name: { en: The Golden Perch, fr: La Perche d'Or }
+    kind: { en: Inn, fr: Auberge }
+    places: [stock]
+  - id: ivy-bush
+    name: { en: The Ivy Bush, fr: Le Buisson de Lierre }
+    kind: { en: Inn, fr: Auberge }
+    places: [hobbiton]
+
+vocab:
+  street_name:
+    - { en: Old Mill, fr: du Vieux Moulin }
+    - { en: Hill, fr: de la Colline }
+    - { en: Willow, fr: des Saules }
+    - { en: Bridge, fr: du Pont }
+    - { en: Pond, fr: de l'Étang }
+    - { en: Oak, fr: du Chêne }
+    - { en: Brook, fr: du Ruisseau }
+    - { en: Market, fr: du Marché }
+    - { en: Orchard, fr: du Verger }
+    - { en: Smithy, fr: de la Forge }
+    - { en: Barley, fr: de l'Orge }
+    - { en: Fern, fr: des Fougères }
+    - { en: Holly, fr: du Houx }
+    - { en: Well, fr: du Puits }
+    - { en: Lantern, fr: de la Lanterne }
+    - { en: Beech, fr: du Hêtre }
+    - { en: Meadow, fr: du Pré }
+    - { en: Stone, fr: de la Pierre }
+  street_type:
+    - { value: { en: Lane, fr: chemin }, weight: 3 }
+    - { value: { en: Street, fr: rue }, weight: 3 }
+    - { en: Road, fr: route }
+    - { en: Row, fr: ruelle }
+    - { en: Way, fr: allée }
+    - { en: Path, fr: sentier }
+  email_domain:
+    - { value: post.example, weight: 3 }
+    - ravenpost.example
+    - letters.example
+    - westmail.example
+  org_name:
+    - { en: The Laughing Badger, fr: Le Blaireau Rieur }
+    - { en: The Old Mill, fr: Le Vieux Moulin }
+    - { en: The Copper Kettle, fr: La Bouilloire de Cuivre }
+    - { en: The Sleepy Owl, fr: La Chouette Endormie }
+    - { en: The Golden Sheaf, fr: La Gerbe d'Or }
+    - { en: The Blue Lantern, fr: La Lanterne Bleue }
+    - { en: The Mossy Stone, fr: La Pierre Moussue }
+    - { en: The Merry Fiddler, fr: Le Joyeux Violoneux }
+    - { en: The Hollow Oak, fr: Le Chêne Creux }
+    - { en: The Three Barrels, fr: Les Trois Tonneaux }
+    - { en: The Silver Swan, fr: Le Cygne d'Argent }
+    - { en: The Wild Boar, fr: Le Sanglier Sauvage }
+    - { en: Millers' Guild, fr: Guilde des Meuniers }
+    - { en: Carters' Company, fr: Compagnie des Charretiers }
+    - { en: Brewers' Guild, fr: Guilde des Brasseurs }
+    - { en: Weavers' Hall, fr: Halle des Tisserands }
+
+patterns:
+  street_address:
+    en: "{int:1-99} {vocab.street_name} {vocab.street_type}"
+    fr: "{int:1-99}, {vocab.street_type} {vocab.street_name}"
+  postal_code: "ME-{digits:5}"
+  address_format:
+    en: "{street_address}\n{locality} {postal_code}\n{subdivision}, {area}"
+    fr: "{street_address}\n{postal_code} {locality}\n{subdivision}, {area}"
+  phone: "+{int:10-99} {digits:3} {digits:4}"
+  email: "{first_name|slug}.{family_name|slug}@{vocab.email_domain}"
+  username: "{first_name|slug}{int:1-999}"
+  organization_name: "{vocab.org_name}"
+
+extensions:
+  weapon:
+    label: { en: Weapon, fr: Arme }
+    items:
+      - id: sting
+        name: { en: Sting, fr: Dard }
+        weight: 2
+        fields:
+          kind: { en: Sword, fr: Épée }
+      - id: glamdring
+        name: Glamdring
+        fields:
+          kind: { en: Sword, fr: Épée }
+      - id: orcrist
+        name: Orcrist
+        fields:
+          kind: { en: Sword, fr: Épée }
+      - id: anduril
+        name: Andúril
+        weight: 2
+        fields:
+          kind: { en: Sword, fr: Épée }
+      - id: narsil
+        name: Narsil
+        fields:
+          kind: { en: Sword, fr: Épée }
+      - id: herugrim
+        name: Herugrim
+        fields:
+          kind: { en: Sword, fr: Épée }
+      - id: anglachel
+        name: Anglachel
+        fields:
+          kind: { en: Sword, fr: Épée }
+      - id: aeglos
+        name: Aeglos
+        fields:
+          kind: { en: Spear, fr: Lance }

@@ -1,0 +1,105 @@
+{
+  "data": [
+    {
+      "first_name": "Jory",
+      "last_name": "Oakley",
+      "full_name": "Jory Oakley",
+      "gender": "masculine",
+      "people": "Valefolk",
+      "address": {
+        "street_address": "47 Mill Road",
+        "postal_code": "NR-8466",
+        "locality": "Millbrook",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "47 Mill Road\nMillbrook NR-8466\nAmber Vale\nNorth Reach"
+      },
+      "email": "jory.oakley@post.example",
+      "username": "jory581",
+      "phone": "+10 346 2829"
+    },
+    {
+      "first_name": "Hilde",
+      "last_name": "Underhill",
+      "full_name": "Hilde Underhill",
+      "gender": "feminine",
+      "people": "Valefolk",
+      "address": {
+        "street_address": "26 Mill Road",
+        "postal_code": "NR-5632",
+        "locality": "Millbrook",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "26 Mill Road\nMillbrook NR-5632\nAmber Vale\nNorth Reach"
+      },
+      "email": "hilde.underhill@testmail.example",
+      "username": "hilde586",
+      "phone": "+10 731 0512"
+    },
+    {
+      "first_name": "Tide",
+      "last_name": "Seaborn",
+      "full_name": "Tide Seaborn of Port Lumen",
+      "gender": "neutral",
+      "people": "Islander",
+      "address": {
+        "street_address": "33 Oak Street",
+        "postal_code": null,
+        "locality": "Port Lumen",
+        "subdivision": null,
+        "area": "East Isles",
+        "formatted": "33 Oak Street\nPort Lumen\nEast Isles"
+      },
+      "email": "tide.seaborn@post.example",
+      "username": "tide938",
+      "phone": "+99 789 844"
+    },
+    {
+      "first_name": "Bertram",
+      "last_name": "Oakley",
+      "full_name": "Bertram Oakley",
+      "gender": "masculine",
+      "people": "Valefolk",
+      "address": {
+        "street_address": "7 Bell Road",
+        "postal_code": "SB-58",
+        "locality": "Stonebridge",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "7 Bell Road\nStonebridge SB-58\nAmber Vale\nNorth Reach"
+      },
+      "email": "bertram.oakley@testmail.example",
+      "username": "bertram935",
+      "phone": "+10 909 5891"
+    },
+    {
+      "first_name": "Hilde",
+      "last_name": "Oakley",
+      "full_name": "Hilde Oakley",
+      "gender": "feminine",
+      "people": "Valefolk",
+      "address": {
+        "street_address": "1 Mill Road",
+        "postal_code": "NR-0557",
+        "locality": "Millbrook",
+        "subdivision": "Amber Vale",
+        "area": "North Reach",
+        "formatted": "1 Mill Road\nMillbrook NR-0557\nAmber Vale\nNorth Reach"
+      },
+      "email": "hilde.oakley@post.example",
+      "username": "hilde436",
+      "phone": "+10 861 8100"
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "person",
+    "count": 5,
+    "seed": 42,
+    "seed_generated": false,
+    "locale": "en",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}

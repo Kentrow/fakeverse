@@ -1,0 +1,8 @@
+# Core of the project: main maintainer.
+/src/ @Kentrow
+/schema/ @Kentrow
+/.github/ @Kentrow
+
+# Universe files: their declared maintainers (universe.maintainers).
+/universes/lotr.yaml @Kentrow
+/universes/starwars.yaml @Kentrow

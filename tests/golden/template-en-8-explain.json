@@ -1,0 +1,207 @@
+{
+  "data": [
+    {
+      "name": {
+        "value": "Jory Oakley",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "contact": {
+        "email": {
+          "value": "jory.oakley@post.example",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "town": {
+          "value": "Millbrook",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": false
+        }
+      },
+      "employer": {
+        "value": "The Golden Lodge",
+        "origin": "generated",
+        "locale": "en",
+        "fallback": false
+      },
+      "colleague": {
+        "value": "Elna",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "barge": {
+        "plate": {
+          "value": "TR-0843 (40)",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "home": {
+          "value": "Dunmere",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": false
+        }
+      }
+    },
+    {
+      "name": {
+        "value": "Coral Saltmarsh of Port Lumen",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "contact": {
+        "email": {
+          "value": "coral.saltmarsh@post.example",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "town": {
+          "value": "Port Lumen",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": false
+        }
+      },
+      "employer": {
+        "value": "The Lantern",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "colleague": {
+        "value": "Jory",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "barge": {
+        "plate": {
+          "value": "EV-2461 (5)",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "home": {
+          "value": "Marshton",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        }
+      }
+    },
+    {
+      "name": {
+        "value": "Elna Brightwater",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "contact": {
+        "email": {
+          "value": "elna.brightwater@post.example",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "town": {
+          "value": "Millbrook",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": false
+        }
+      },
+      "employer": {
+        "value": "Copper Guild",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "colleague": {
+        "value": "Jory",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "barge": {
+        "plate": {
+          "value": "HI-2661 (13)",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "home": {
+          "value": "Millbrook",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": false
+        }
+      }
+    },
+    {
+      "name": {
+        "value": "Greta Oakley",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "contact": {
+        "email": {
+          "value": "greta.oakley@post.example",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "town": {
+          "value": "Millbrook",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": false
+        }
+      },
+      "employer": {
+        "value": "The Lantern",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "colleague": {
+        "value": "Jory",
+        "origin": "canon",
+        "locale": "en",
+        "fallback": false
+      },
+      "barge": {
+        "plate": {
+          "value": "YN-3176 (9)",
+          "origin": "generated",
+          "locale": "en",
+          "fallback": false
+        },
+        "home": {
+          "value": "Stonebridge",
+          "origin": "canon",
+          "locale": "en",
+          "fallback": false
+        }
+      }
+    }
+  ],
+  "meta": {
+    "universe": "test-world",
+    "type": "template",
+    "count": 4,
+    "seed": 8,
+    "seed_generated": false,
+    "locale": "en",
+    "locale_fallbacks": 0,
+    "engine_revision": 1,
+    "duplicates": 0
+  }
+}
