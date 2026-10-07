@@ -47,7 +47,10 @@ jobs:
       - id: provenance
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
-          subject-path: dist/*
+          # uv build also writes dist/.gitignore: only the distributions are attested.
+          subject-path: |
+            dist/*.whl
+            dist/*.tar.gz
       - name: Keep the provenance next to the release files
         env:
           BUNDLE: ${{ steps.provenance.outputs.bundle-path }}
@@ -140,10 +143,15 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      # Only these two artifacts: the image build also uploads a build record.
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
+          name: dist
           path: assets/
-          merge-multiple: true
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: provenance
+          path: assets/
       # The notes are the section of CHANGELOG.md for this version. The distributions and their
       # signed provenance are attached, where tools such as the OpenSSF Scorecard look for them.
       - name: Create the release
@@ -153,4 +161,4 @@ jobs:
         run: |
           python3 scripts/release.py notes "${TAG#v}" > "${RUNNER_TEMP}/notes.md"
           gh release create "$TAG" --verify-tag --title "Fakeverse ${TAG#v}" \
-            --notes-file "${RUNNER_TEMP}/notes.md" assets/*
+            --notes-file "${RUNNER_TEMP}/notes.md" assets/*.whl assets/*.tar.gz assets/*.intoto.jsonl
