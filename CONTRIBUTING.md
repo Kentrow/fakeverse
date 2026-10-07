@@ -6,6 +6,12 @@ API). Both follow the rules below.
 
 By participating, you agree to follow the [code of conduct](CODE_OF_CONDUCT.md).
 
+Questions, and ideas that are not yet a concrete piece of work (a universe you would like, a
+feature you wonder about), go to the [Discussions](https://github.com/Kentrow/fakeverse/discussions).
+Issues track concrete work: a bug, a data fix, a new universe or a feature, and every pull request
+refers to one. Security vulnerabilities are reported privately, as described in
+[SECURITY.md](SECURITY.md).
+
 ## Content rules for universe files
 
 Universe files are published under CC0-1.0 and served by a public API. To keep the project
