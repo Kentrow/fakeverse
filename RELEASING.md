@@ -97,6 +97,25 @@ gh attestation verify /tmp/fakeverse-X.Y.Z/*.whl --repo Kentrow/fakeverse
 The image index lists both platforms, and its tags share one digest. On PyPI, the files of the
 release show their provenance.
 
+## 7. After the release
+
+Close the milestone of the release, so that no new issue is filed under a version that has
+shipped:
+
+```bash
+gh api "repos/Kentrow/fakeverse/milestones?state=open" --jq '.[] | "\(.number) \(.title)"'
+gh api -X PATCH repos/Kentrow/fakeverse/milestones/NUMBER -f state=closed
+```
+
+The badges of the README can keep showing the previous version, or no package at all, for a
+while: GitHub serves images through its own cache. To refresh them, take the
+`camo.githubusercontent.com` addresses of the badges from the repository page and purge them:
+
+```bash
+curl -s https://github.com/Kentrow/fakeverse | grep -o 'https://camo.githubusercontent.com/[a-f0-9/]*'
+curl -X PURGE "<the address of a badge>"
+```
+
 ## If a tag went out wrong
 
 Before the release is announced anywhere, and if PyPI did not publish it yet, a tag and its
