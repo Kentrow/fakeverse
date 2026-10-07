@@ -4,7 +4,7 @@ Errors of the Fakeverse API follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc
 (`Content-Type: application/problem+json`). Every problem has these members:
 
 | Member | Content |
-|---|---|
+| --- | --- |
 | `type` | `/problems/<slug>`, one of the slugs below; on the API, it leads to this documentation |
 | `title` | Short summary of the problem type |
 | `status` | HTTP status code |

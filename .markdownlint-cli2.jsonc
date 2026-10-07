@@ -1,0 +1,16 @@
+// Markdown rules for this repository, checked with markdownlint-cli2 (pre-commit and CI).
+// Each rule turned off or relaxed below matches a deliberate choice rather than an accident.
+{
+  "config": {
+    // Prose is wrapped at about 96 columns. Tables, code and links are left whole.
+    "MD013": { "line_length": 100, "code_blocks": false, "tables": false },
+
+    // Every release in CHANGELOG.md has its own "Added" and "Fixed", as Keep a Changelog wants.
+    "MD024": { "siblings_only": true },
+
+    // The pull request template starts at "##".
+    "MD041": false
+  },
+  // The Contributor Covenant is kept as published.
+  "ignores": ["CODE_OF_CONDUCT.md"]
+}

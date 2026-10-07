@@ -68,7 +68,7 @@ A mapping is in long form as soon as it has one of the keys `value`, `weight`, `
 `canon`. The long form accepts:
 
 | Key | Where | Default |
-|---|---|---|
+| --- | --- | --- |
 | `value` | everywhere | required |
 | `weight` | everywhere | 1 |
 | `gender` (`masculine`, `feminine`, `neutral`) | `first_names` only | no gender |
@@ -231,7 +231,7 @@ A pattern is a string with tokens between braces; everything else is literal, an
 `}}` produce literal braces.
 
 | Token | Effect |
-|---|---|
+| --- | --- |
 | `{vocab.NAME}` | Weighted draw from the vocabulary `NAME` |
 | `{int:MIN-MAX}` | Uniform integer from MIN to MAX (0 to 10^9) |
 | `{digits:N}` | N random digits (1 to 20) |
@@ -245,7 +245,7 @@ digits only), `|upper`, `|lower`, `|title`. For example `{first_name|slug}` turn
 Patterns recognized by the core, and the context fields each one may use:
 
 | Pattern | Used by | Fields | Overridable by a place |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `street_address` | address | `locality`, `subdivision`, `area` | yes |
 | `postal_code` | address | `locality`, `subdivision`, `area` | yes |
 | `address_format` | address | the above, `street_address`, `postal_code` | yes |
@@ -325,7 +325,7 @@ extensions:
 Errors (the file is rejected):
 
 | # | Rule | Codes |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Valid YAML, known keys only, expected types; no YAML anchors or aliases | `yaml-syntax`, `duplicate-key`, `schema`, `yaml-alias` |
 | 2 | `universe.id` equals the file name; every id matches `^[a-z0-9]+(-[a-z0-9]+)*$` | `id-mismatch`, `schema` |
 | 3 | Ids are unique in each collection | `duplicate-id` |
@@ -343,7 +343,7 @@ Errors (the file is rejected):
 Warnings (errors with `--strict`):
 
 | Code | Meaning |
-|---|---|
+| --- | --- |
 | `translation-coverage` | A declared locale does not cover every localized text |
 | `small-name-pool` | A people has fewer than 10 first names |
 | `type-not-supported` | A core type cannot be generated with the data of the universe |

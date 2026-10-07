@@ -88,7 +88,9 @@ def test_range(tmp_path: Path) -> None:
     for message in ("chore: base", "feat: good", "bad commit"):
         git(tmp_path, "commit", "-q", "--allow-empty", "-s", "-m", message)
     git(tmp_path, "commit", "-q", "--allow-empty", "-m", "fix: unsigned")
-    assert check.range_problems("HEAD~3..HEAD", tmp_path) == [
+    bot = ("-c", "user.name=dependabot[bot]", "-c", "user.email=bot@example.com")
+    git(tmp_path, *bot, "commit", "-q", "--allow-empty", "-m", "build(deps): bump x")
+    assert check.range_problems("HEAD~4..HEAD", tmp_path) == [
         "'fix: unsigned' is not signed off: commit with 'git commit -s'",
         "'bad commit' does not follow Conventional Commits: 'type(scope): description' with a "
         "type among build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test",

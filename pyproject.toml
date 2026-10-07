@@ -122,8 +122,9 @@ ignore = [
 known-first-party = ["fakeverse"]
 
 [tool.codespell]
-# Sting is a sword of The Lord of the Rings; the others are deliberately wrong test data.
-ignore-words-list = "sting,caf,valeu"
+# Sting is a sword of The Lord of the Rings, intoto the format of signed provenance; the others
+# are deliberately wrong test data.
+ignore-words-list = "sting,intoto,caf,valeu"
 skip = "uv.lock,./universes,./tests/golden,./tests/fixtures,./schema,./.venv"
 
 # Type checking

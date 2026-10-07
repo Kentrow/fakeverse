@@ -13,7 +13,7 @@ Three core types are composite; every other core type is a projection of one of 
 **`address`**
 
 | Field | Nullable | Content |
-|---|---|---|
+| --- | --- | --- |
 | `street_address` | no | Rendered from the `street_address` pattern of the universe |
 | `postal_code` | yes | Rendered from the `postal_code` pattern, null without one |
 | `locality` | no | A locality (a town), drawn according to its weight |
@@ -24,7 +24,7 @@ Three core types are composite; every other core type is a projection of one of 
 **`person`**
 
 | Field | Nullable | Content |
-|---|---|---|
+| --- | --- | --- |
 | `first_name` | no | A first name of the people of the person |
 | `last_name` | yes | A family name, null when the people has none |
 | `full_name` | no | Rendered from the `name_format` of the people |
@@ -39,7 +39,7 @@ Options: `gender` keeps only first names of that gender (and first names without
 **`organization`**
 
 | Field | Nullable | Content |
-|---|---|---|
+| --- | --- | --- |
 | `name` | no | A canonical organization, or a name rendered from the `organization_name` pattern |
 | `kind` | yes | The kind of a canonical organization, null for a generated one |
 | `address` | no | An `address` in the places of a canonical organization, anywhere otherwise |
@@ -51,7 +51,7 @@ An atomic type returns one value, projected from a composite type, so it has the
 distribution and the same coherence:
 
 | Type | Projection |
-|---|---|
+| --- | --- |
 | `first_name`, `full_name`, `email`, `username`, `phone` | the same field of `person` |
 | `last_name` | `person.last_name`, drawn only among peoples that have family names, so never null |
 | `street_address`, `postal_code`, `locality`, `subdivision`, `area` | the same field of `address` |
@@ -67,8 +67,8 @@ Each universe can add its own types, for instance `weapon` in `lotr` or `starshi
 A universe does not declare which core types it supports: support follows from its data. A
 universe without organizations and without an `organization_name` pattern does not support
 `organization`, for instance. `fakeverse coverage <universe>`,
-`UniverseGenerator.capabilities()` and `GET /v1/universes/{universe}` list the supported types. Asking for another type raises
-`TypeNotSupported` (`type-not-supported` in the API).
+`UniverseGenerator.capabilities()` and `GET /v1/universes/{universe}` list the supported types.
+Asking for another type raises `TypeNotSupported` (`type-not-supported` in the API).
 
 ### Coherence
 
@@ -138,7 +138,7 @@ locale of the universe instead, unless `strict_locale=True`.
 The `unique` option takes three values:
 
 | Value | Behavior |
-|---|---|
+| --- | --- |
 | absent (default) | **Best effort**: no duplicate as long as the pool allows it. Once an item is still a duplicate after 50 attempts, uniqueness is no longer enforced for the rest of the response. |
 | `true` | **Strict**: the same items, but an item that is still a duplicate after 50 attempts raises `PoolExhausted` (`pool-exhausted` in the API). |
 | `false` | Duplicates allowed, one draw per item. |
@@ -201,7 +201,7 @@ opposite ends of the world. A colocation group makes several instances of `perso
 or `organization` share the same locality, hence the same subdivision and area:
 
 | Interface | Form |
-|---|---|
+| --- | --- |
 | Python | `generator.template(template, colocate=[["person", "organization"]])` |
 | API, `POST` | `"colocate": [["person", "organization"], ["person#2", "address"]]` |
 | API, `GET` | `colocate=person,organization;person%232,address` (`#` encoded as `%23`) |

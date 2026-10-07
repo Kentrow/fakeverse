@@ -38,8 +38,10 @@ First release. `ENGINE_REVISION` = 1.
 - Docker image of the API, with the data of every release of the current engine revision.
 - Universe file format with a JSON Schema (`schema/universe.schema.json`), and validation with
   YAML paths, line numbers and stable error codes.
-- Documentation: universe guide, how generation works, API reference, API problems and
-  deployment guide.
+- Documentation: universe guide, how generation works, API reference, API problems,
+  deployment guide, architecture, security policy and release procedure.
+- Releases with signed provenance: PyPI distributions with PEP 740 attestations, and a
+  multi-platform image (`linux/amd64`, `linux/arm64`) with an SBOM.
 - Hardening: YAML anchors and aliases are refused in universe files, invalid encodings and
   excessive nesting are reported instead of crashing; in the API, template generation runs
   off the event loop with a work budget, bodies are read as a stream and capped at 64 KB,

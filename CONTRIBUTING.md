@@ -80,7 +80,8 @@ For a large change, open an issue first to discuss it.
   written in English. In prose, use a simple hyphen `-` rather than an em dash.
 - **Typing.** `mypy --strict` must pass on `src/`.
 
-[How generation works](docs/generation.md) describes the behavior the engine guarantees.
+[How generation works](docs/generation.md) describes the behavior the engine guarantees, and
+the [architecture](docs/architecture.md) how the code is organized.
 
 ## Commits
 
@@ -115,7 +116,7 @@ also the version of its data (`data_version`), so a change of the generated outp
 same request is a change of version:
 
 | Change | From 1.0.0 | Before 1.0.0 |
-|---|---|---|
+| --- | --- | --- |
 | Breaking change of the HTTP API, the universe file format or the Python API; increment of `ENGINE_REVISION` | MAJOR | MINOR |
 | New feature, new type, or any change of `universes/` (it changes the output for a seed) | MINOR | MINOR |
 | Fix that does not change any output | PATCH | PATCH |
@@ -125,19 +126,7 @@ always says so.
 
 ## Releases
 
-Releases are made by the maintainers:
-
-1. On an up-to-date `main`, run `uv run python scripts/release.py prepare`. It proposes the
-   next version from the changes since the last release, following the policy above, then
-   dates the `[Unreleased]` section of the changelog, sets the package version and adds the
-   release to `releases.toml`. `--dry-run` only shows the proposal; `--version` overrides it.
-2. Commit as `chore(release): X.Y.Z` on a branch, open a pull request and merge it.
-3. Tag the merge commit and push the tag:
-   `git tag -a vX.Y.Z -m "Fakeverse X.Y.Z" && git push origin vX.Y.Z`.
-4. The release workflow checks the tag (`scripts/release.py check`), runs the tests, then
-   publishes the package on PyPI, after the approval of a maintainer, and the Docker image on
-   GHCR.
-5. The workflow then creates the GitHub release, with the changelog section as notes.
+Releases are cut by the maintainers, as described in [RELEASING.md](RELEASING.md).
 
 ## Licenses
 
