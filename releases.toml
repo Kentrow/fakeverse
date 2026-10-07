@@ -9,3 +9,8 @@
 #
 # The API serves a data snapshot for every release whose engine_revision equals
 # the current ENGINE_REVISION. Entries are added by scripts/release.py.
+
+[[releases]]
+version = "0.1.0"
+engine_revision = 1
+date = 2026-10-07

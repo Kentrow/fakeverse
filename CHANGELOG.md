@@ -9,6 +9,8 @@ Changes to `ENGINE_REVISION` are always listed, since they change generated outp
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-07
+
 First release. `ENGINE_REVISION` = 1.
 
 ### Added
@@ -32,9 +34,9 @@ First release. `ENGINE_REVISION` = 1.
   `check-coherence` and `schema export`; JSON, NDJSON and CSV output.
 - HTTP API (extra `api`): every endpoint of `/v1`, JSON, NDJSON and CSV formats, template
   generation by `POST` or by a cacheable `GET`, RFC 9457 problems whose types lead to their
-  documentation, per-client rate limiting
-  with trusted proxies, HTTP caching with ETag, several data versions, configuration by
-  environment variables, JSON access logs and optional Prometheus metrics.
+  documentation, per-client rate limiting with trusted proxies, HTTP caching with ETag,
+  several data versions, configuration by environment variables, JSON access logs and
+  optional Prometheus metrics.
 - Docker image of the API, with the data of every release of the current engine revision.
 - Universe file format with a JSON Schema (`schema/universe.schema.json`), and validation with
   YAML paths, line numbers and stable error codes.
@@ -48,4 +50,5 @@ First release. `ENGINE_REVISION` = 1.
   IPv6 clients are rate limited per /64 network, and every `X-Forwarded-For` header is taken
   into account.
 
-[Unreleased]: https://github.com/Kentrow/fakeverse/commits/main
+[Unreleased]: https://github.com/Kentrow/fakeverse/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Kentrow/fakeverse/releases/tag/v0.1.0

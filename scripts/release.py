@@ -212,7 +212,8 @@ def prepare(repo: Path, version: str | None, date: str, *, dry_run: bool = False
         toml.write_text(f"{current}\n\n{entry}" if current else entry, encoding="utf-8")
         summary += [
             "Next steps:",
-            f'  git switch -c release-{version} && git commit -s -am "chore(release): {version}"',
+            f"  git switch -c chore/release-{version}",
+            f'  git commit -s -am "chore(release): {version}"',
             "  open a pull request and merge it, then on the merge commit of main:",
             f'  git tag -a v{version} -m "Fakeverse {version}" && git push origin v{version}',
         ]
