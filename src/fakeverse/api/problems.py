@@ -48,9 +48,10 @@ TITLES: Final[dict[str, str]] = {
 }
 
 
-def documentation_url(slug: str) -> str:
-    """URL of the documentation of a problem type (its section in docs/problems.md)."""
-    return f"{DOCUMENTATION}#{slug}-{STATUS[slug]}"
+DOCUMENTATION_URLS: Final[dict[str, str]] = {
+    slug: f"{DOCUMENTATION}#{slug}-{status}" for slug, status in STATUS.items()
+}
+"""URL of the documentation of each problem type (its section in docs/problems.md)."""
 
 
 class Problem(Exception):

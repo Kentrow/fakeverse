@@ -22,8 +22,8 @@ from starlette.exceptions import HTTPException
 
 from fakeverse import __version__
 from fakeverse.api.metrics import Metrics
+from fakeverse.api.problems import DOCUMENTATION_URLS, Problem, invalid_parameter
 from fakeverse.api.problems import MEDIA_TYPE as PROBLEM_MEDIA_TYPE
-from fakeverse.api.problems import STATUS, Problem, documentation_url, invalid_parameter
 from fakeverse.api.ratelimit import Clock, RateLimiter, client_ip, rate_key, truncate_ip
 from fakeverse.api.routes import AppState, router
 from fakeverse.api.schemas import DOCUMENTED_MODELS
@@ -99,9 +99,11 @@ def create_app(settings: Settings | None = None, *, clock: Clock | None = None) 
     @app.get("/problems/{slug}", include_in_schema=False)
     def problem_type(slug: str) -> RedirectResponse:
         """The ``type`` of a problem is ``/problems/<slug>``: it leads to its documentation."""
-        if slug not in STATUS:
+        # The target comes from a fixed table, never from the request.
+        url = DOCUMENTATION_URLS.get(slug)
+        if url is None:
             raise Problem("not-found", f"Unknown problem type '{slug}'.")
-        return RedirectResponse(documentation_url(slug), status_code=302)
+        return RedirectResponse(url, status_code=302)
 
     _add_error_handlers(app)
     _add_observability(app, state)
