@@ -1,28 +1,52 @@
-# Weekly dependency updates; minor and patch updates are grouped per ecosystem.
+# Weekly dependency updates, one grouped pull request per ecosystem. The commit prefixes keep
+# the titles in the Conventional Commits format that the CI checks, and the cooldown leaves a
+# week to the community to spot a compromised release before it is proposed here.
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: weekly
-    groups:
-      actions:
-        update-types: [minor, patch]
   - package-ecosystem: uv
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     groups:
       python:
-        update-types: [minor, patch]
+        patterns: ["*"]
+    commit-message:
+      prefix: build(deps)
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci(deps)
+
   - package-ecosystem: docker
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      base-images:
+        patterns: ["*"]
+    commit-message:
+      prefix: build(deps)
+
   - package-ecosystem: pre-commit
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     groups:
       pre-commit:
-        update-types: [minor, patch]
+        patterns: ["*"]
+    commit-message:
+      prefix: chore(deps)

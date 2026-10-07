@@ -4,6 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/v/fakeverse)](https://pypi.org/project/fakeverse/)
 [![Python](https://img.shields.io/pypi/pyversions/fakeverse)](https://pypi.org/project/fakeverse/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Kentrow/fakeverse/blob/main/LICENSE)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Kentrow/fakeverse/badge)](https://scorecard.dev/viewer/?uri=github.com/Kentrow/fakeverse)
 
 Fakeverse generates fake data themed by works of fiction. Think
 [Faker](https://faker.readthedocs.io/), but the people, addresses and organizations come from
@@ -43,7 +44,7 @@ For instance, `lotr.one("person", people="hobbit", seed=7)` gives:
 ## Universes
 
 | Id | Universe | Scope | Locales |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `lotr` | The Lord of the Rings | The books only, no film adaptations | English, French |
 | `starwars` | Star Wars | The Disney canon (2014 and later) | English, French |
 
@@ -155,10 +156,34 @@ curl -X POST "http://localhost:8000/v1/universes/lotr/generate" \
 ```
 
 The API supports JSON, NDJSON and CSV, reports errors in the RFC 9457 format, applies rate
-limiting, and sets HTTP cache headers on requests with a seed. The interactive documentation is served at `/docs`. See the
+limiting, and sets HTTP cache headers on requests with a seed. The interactive documentation
+is served at `/docs`. See the
 [API reference](https://github.com/Kentrow/fakeverse/blob/main/docs/api.md) and the
 [deployment guide](https://github.com/Kentrow/fakeverse/blob/main/docs/deployment.md), which
 covers the Docker image.
+
+## Stability
+
+Fakeverse is young: until 1.0.0, a minor release (0.2.0, 0.3.0...) may change the API, the
+universe file format or the generated output, and the
+[changelog](https://github.com/Kentrow/fakeverse/blob/main/CHANGELOG.md) always says so. A patch
+release (0.1.1) never changes any output. Whatever the version, a given version of the package,
+or a given `data_version` of the API, always gives the same output for the same request and
+seed. Pin the version when you rely on generated values, in tests or fixtures.
+
+## Documentation
+
+- [How generation works](https://github.com/Kentrow/fakeverse/blob/main/docs/generation.md):
+  types, seeds, locales, uniqueness, templates.
+- [API reference](https://github.com/Kentrow/fakeverse/blob/main/docs/api.md) and
+  [API problems](https://github.com/Kentrow/fakeverse/blob/main/docs/problems.md).
+- [Deployment guide](https://github.com/Kentrow/fakeverse/blob/main/docs/deployment.md).
+- [Universe guide](https://github.com/Kentrow/fakeverse/blob/main/docs/universe-guide.md), to
+  write or extend a universe, and
+  [architecture](https://github.com/Kentrow/fakeverse/blob/main/docs/architecture.md), to change
+  the code.
+- [Changelog](https://github.com/Kentrow/fakeverse/blob/main/CHANGELOG.md) and
+  [security policy](https://github.com/Kentrow/fakeverse/blob/main/SECURITY.md).
 
 ## Contributing
 

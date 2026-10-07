@@ -20,7 +20,7 @@ The examples below use a local instance at `http://localhost:8000`.
 ## Endpoints
 
 | Method | Path | Description |
-|---|---|---|
+| --- | --- | --- |
 | `GET` | `/v1/health` | `{"status": "ok"}`, not rate limited |
 | `GET` | `/v1/meta` | Versions, limits and disclaimer |
 | `GET` | `/v1/types` | Core taxonomy: composite types, their fields, atomic types |
@@ -58,7 +58,7 @@ curl "http://localhost:8000/v1/universes/starwars/generate/starship?count=10&for
 ```
 
 | Parameter | Default | Description |
-|---|---|---|
+| --- | --- | --- |
 | `count` | `1` | From 1 to the `max_count` of the instance (1000 by default) |
 | `seed` | random | From 0 to 2^63 - 1 |
 | `locale` | default locale of the universe | BCP-47 tag, e.g. `fr` or `fr-FR` |
@@ -153,7 +153,7 @@ The `type` of a problem, `/problems/<slug>`, is relative to the API and redirect
 documentation.
 
 | Status | Problem | Case |
-|---|---|---|
+| --- | --- | --- |
 | 404 | `universe-not-found` | Unknown or withdrawn universe |
 | 404 | `type-not-supported` | Unknown type, or type not supported by the universe |
 | 404 | `data-version-not-found` | Unknown data version |
@@ -178,7 +178,7 @@ minute, with bursts of 20. IPv6 clients are limited per /64 network. Responses c
 A request with an explicit seed is deterministic, hence cacheable:
 
 | Request | `Cache-Control` |
-|---|---|
+| --- | --- |
 | `seed` and `data_version` given | `public, max-age=31536000, immutable` |
 | `seed` given, `data_version` omitted | `public, max-age=3600` |
 | no `seed` | `no-store` |

@@ -5,8 +5,9 @@
     python scripts/check_commits.py --title "feat: add a universe"        # title of a PR
 
 A header reads ``type(scope)!: description``, at most 100 characters, without a final period.
-Commits also need a ``Signed-off-by`` trailer (``git commit -s``). The title of a pull request
-becomes the header of the squashed commit, so it follows the same format.
+Commits also need a ``Signed-off-by`` trailer (``git commit -s``), except those of bots such as
+Dependabot, which cannot certify the Developer Certificate of Origin. The title of a pull
+request becomes the header of the squashed commit, so it follows the same format.
 
 Standard library only.
 """
@@ -52,8 +53,11 @@ def header_problems(header: str) -> list[str]:
     return []
 
 
-def message_problems(message: str, *, local: bool = False) -> list[str]:
-    """Problems of a whole commit message. ``local`` tolerates merges and autosquash commits."""
+def message_problems(message: str, *, local: bool = False, bot: bool = False) -> list[str]:
+    """Problems of a whole commit message.
+
+    ``local`` tolerates merges and autosquash commits; ``bot`` waives the sign-off.
+    """
     lines = [line for line in message.splitlines() if not line.startswith("#")]
     while lines and not lines[0].strip():
         lines.pop(0)
@@ -65,7 +69,7 @@ def message_problems(message: str, *, local: bool = False) -> list[str]:
     problems = header_problems(header)
     if len(lines) > 1 and lines[1].strip():
         problems.append(f"'{header}' must be followed by a blank line")
-    if not SIGN_OFF.search("\n".join(lines)):
+    if not bot and not SIGN_OFF.search("\n".join(lines)):
         problems.append(f"'{header}' is not signed off: commit with 'git commit -s'")
     return problems
 
@@ -73,17 +77,18 @@ def message_problems(message: str, *, local: bool = False) -> list[str]:
 def range_problems(revisions: str, repo: Path = Path(".")) -> list[str]:
     """Problems of every non-merge commit of a revision range."""
     log = subprocess.run(
-        ["git", "-C", str(repo), "log", "--no-merges", "--format=%B%x1e", revisions],
+        ["git", "-C", str(repo), "log", "--no-merges", "--format=%an%x1f%B%x1e", revisions],
         check=True,
         capture_output=True,
         text=True,
     ).stdout
-    return [
-        problem
-        for message in log.split("\x1e")
-        if message.strip()
-        for problem in message_problems(message)
-    ]
+    problems: list[str] = []
+    for entry in log.split("\x1e"):
+        if not entry.strip():
+            continue
+        author, message = entry.lstrip("\n").split("\x1f", 1)
+        problems.extend(message_problems(message, bot=author.endswith("[bot]")))
+    return problems
 
 
 def main(argv: list[str] | None = None) -> int:

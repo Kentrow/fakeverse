@@ -1,13 +1,20 @@
 # Deploying the API
 
-The API ships as a Docker image (`ghcr.io/kentrow/fakeverse`), published at each release. It
-runs Uvicorn with a single worker, as an unprivileged user, and reports its health on
-`/v1/health`.
+The API ships as a Docker image (`ghcr.io/kentrow/fakeverse`), published at each release for
+`linux/amd64` and `linux/arm64`, with the tags `X.Y.Z`, `X.Y` and `latest`. It runs Uvicorn
+with a single worker, as an unprivileged user, and reports its health on `/v1/health`.
 
 ```bash
 docker run -d --name fakeverse -p 127.0.0.1:8000:8000 \
   -e FAKEVERSE_TRUSTED_PROXIES=172.16.0.0/12 \
   ghcr.io/kentrow/fakeverse:0.1
+```
+
+To check that an image was built by the release workflow of this repository, from its
+sources, verify its signed provenance:
+
+```bash
+gh attestation verify oci://ghcr.io/kentrow/fakeverse:0.1 --repo Kentrow/fakeverse
 ```
 
 ## Data versions
@@ -27,7 +34,7 @@ docker build -t fakeverse .
 ## Configuration
 
 | Variable | Default | Description |
-|---|---|---|
+| --- | --- | --- |
 | `FAKEVERSE_DATA_DIR` | `/opt/data` in the image | Snapshots `<version>/<universe>.yaml` |
 | `FAKEVERSE_MAX_COUNT` | `1000` | Maximum `count` per request |
 | `FAKEVERSE_MAX_TEMPLATE_LEAVES` | `50` | Maximum leaves per template |
@@ -65,7 +72,7 @@ clients by /64 network; `OPTIONS` preflight requests are not counted. Pass the `
 **Caching.** Requests with an explicit seed are deterministic, and the API says so:
 
 | Request | `Cache-Control` |
-|---|---|
+| --- | --- |
 | `seed` and `data_version` given | `public, max-age=31536000, immutable` |
 | `seed` given, `data_version` omitted | `public, max-age=3600` |
 | no `seed` | `no-store` |
@@ -125,7 +132,7 @@ Indicative figures for a single worker on a 4-core Xeon at 2.7 GHz (the load cli
 the same machine), with 16 concurrent clients requesting `person`:
 
 | `count` | Requests per second | Items per second | p95 latency |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | about 360 | about 360 | 60 ms |
 | 10 | about 180 | about 1,800 | 110 ms |
 | 100 | about 30 | about 3,200 | 680 ms |
