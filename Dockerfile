@@ -2,7 +2,7 @@
 
 # Build stage: install the package with the api extra, and build the data snapshots
 # (one per release of the current engine revision, extracted from the git tags).
-FROM python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258 AS builder
+FROM python:3.14-slim-bookworm@sha256:48b13b003dda20b16f9442b8475aa05fe21bf6579a8c881db92ffb4d8fd20f83 AS builder
 COPY --from=ghcr.io/astral-sh/uv:0.12.21@sha256:a7aed3216253ee804de3e2d8afa5073baa1a177335345d43845cd4165e43b711 /uv /bin/uv
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends git \
@@ -20,7 +20,7 @@ RUN uv sync --locked --no-dev --extra api --no-editable \
     && python scripts/build_snapshots.py --repo /src --output /opt/data
 
 # Runtime stage: the virtual environment and the snapshots, run by an unprivileged user.
-FROM python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
+FROM python:3.14-slim-bookworm@sha256:48b13b003dda20b16f9442b8475aa05fe21bf6579a8c881db92ffb4d8fd20f83
 RUN useradd --create-home --uid 10001 fakeverse
 COPY --from=builder /opt/venv /opt/venv
 COPY --from=builder /opt/data /opt/data
