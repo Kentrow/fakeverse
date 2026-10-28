@@ -3,11 +3,15 @@
     python scripts/check_commits.py --message-file .git/COMMIT_EDITMSG   # commit-msg hook
     python scripts/check_commits.py --range BASE..HEAD                     # commits of a PR
     python scripts/check_commits.py --title "feat: add a universe"        # title of a PR
+    python scripts/check_commits.py --title "..." --bot                   # title of a bot PR
 
 A header reads ``type(scope)!: description``, at most 100 characters, without a final period.
 Commits also need a ``Signed-off-by`` trailer (``git commit -s``), except those of bots such as
 Dependabot, which cannot certify the Developer Certificate of Origin. The title of a pull
 request becomes the header of the squashed commit, so it follows the same format.
+
+Bots are also exempt from the length limit, since they write long headers (a pre-commit update
+names the whole URL of the hook); the maintainer shortens the header when squashing.
 
 Standard library only.
 """
@@ -39,14 +43,14 @@ SIGN_OFF: Final = re.compile(r"^Signed-off-by: .+ <.+>$", re.MULTILINE)
 AUTOSQUASH: Final = ("fixup! ", "squash! ", "amend! ")
 
 
-def header_problems(header: str) -> list[str]:
-    """Problems of a commit header or pull request title."""
+def header_problems(header: str, *, bot: bool = False) -> list[str]:
+    """Problems of a commit header or pull request title; ``bot`` waives the length limit."""
     if not HEADER.match(header):
         return [
             f"'{header}' does not follow Conventional Commits: 'type(scope): description' "
             f"with a type among {', '.join(TYPES)}"
         ]
-    if len(header) > MAX_HEADER:
+    if not bot and len(header) > MAX_HEADER:
         return [f"'{header}' is longer than {MAX_HEADER} characters"]
     if header.endswith("."):
         return [f"'{header}' ends with a period"]
@@ -56,7 +60,8 @@ def header_problems(header: str) -> list[str]:
 def message_problems(message: str, *, local: bool = False, bot: bool = False) -> list[str]:
     """Problems of a whole commit message.
 
-    ``local`` tolerates merges and autosquash commits; ``bot`` waives the sign-off.
+    ``local`` tolerates merges and autosquash commits; ``bot`` waives the sign-off and the
+    length limit.
     """
     lines = [line for line in message.splitlines() if not line.startswith("#")]
     while lines and not lines[0].strip():
@@ -66,7 +71,7 @@ def message_problems(message: str, *, local: bool = False, bot: bool = False) ->
     header = lines[0]
     if local and (header.startswith("Merge ") or header.startswith(AUTOSQUASH)):
         return []
-    problems = header_problems(header)
+    problems = header_problems(header, bot=bot)
     if len(lines) > 1 and lines[1].strip():
         problems.append(f"'{header}' must be followed by a blank line")
     if not bot and not SIGN_OFF.search("\n".join(lines)):
@@ -97,13 +102,14 @@ def main(argv: list[str] | None = None) -> int:
     group.add_argument("--message-file", type=Path, help="Commit message file (commit-msg hook).")
     group.add_argument("--range", dest="revisions", help="Revision range, e.g. BASE..HEAD.")
     group.add_argument("--title", help="Title of a pull request.")
+    parser.add_argument("--bot", action="store_true", help="The pull request is opened by a bot.")
     args = parser.parse_args(argv)
     if args.message_file is not None:
         problems = message_problems(args.message_file.read_text(encoding="utf-8"), local=True)
     elif args.revisions is not None:
         problems = range_problems(args.revisions)
     else:
-        problems = header_problems(args.title)
+        problems = header_problems(args.title, bot=args.bot)
     for problem in problems:
         print(f"error: {problem}")
     if problems:

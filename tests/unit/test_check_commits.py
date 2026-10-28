@@ -59,6 +59,14 @@ def test_invalid_headers(header: str, problem: str) -> None:
     assert problem in problems[0]
 
 
+def test_bots_are_exempt_from_the_length_limit() -> None:
+    long = "chore(deps): bump https://github.com/example/" + "x" * 60 + " from v1 to v2"
+    assert check.header_problems(long) != []
+    assert check.header_problems(long, bot=True) == []
+    assert check.message_problems(long, bot=True) == []
+    assert check.header_problems("Bump x", bot=True) != []
+
+
 def test_messages() -> None:
     assert check.message_problems("") == ["The commit message is empty"]
     assert check.message_problems("feat: x\n") == [
@@ -105,6 +113,8 @@ def test_main(
     assert check.main(["--message-file", str(message)]) == 0
     assert check.main(["--title", "feat: x"]) == 0
     assert check.main(["--title", "Update README.md"]) == 1
+    assert check.main(["--title", "feat: " + "x" * 95]) == 1
+    assert check.main(["--title", "feat: " + "x" * 95, "--bot"]) == 0
     assert "CONTRIBUTING.md" in capsys.readouterr().out
     git(tmp_path, "init", "-q", "-b", "main")
     git(
