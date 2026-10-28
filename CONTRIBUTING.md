@@ -113,7 +113,9 @@ Signed-off-by: Your Name <you@example.com>
 
 The `commit-msg` hook installed by `pre-commit install` checks your messages, and the CI checks
 every commit of a pull request. Pull requests are squashed when merged: their title becomes the
-header of the commit, so it follows the same format.
+header of the commit, so it follows the same format. Pull requests opened by bots, such as
+Dependabot, need no sign-off and may have longer titles; their header is shortened when they
+are squashed.
 
 ## Versioning
 
