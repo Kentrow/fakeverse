@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/pypi/pyversions/fakeverse)](https://pypi.org/project/fakeverse/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Kentrow/fakeverse/blob/main/LICENSE)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Kentrow/fakeverse/badge)](https://scorecard.dev/viewer/?uri=github.com/Kentrow/fakeverse)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/16013/badge)](https://www.bestpractices.dev/projects/16013)
 
 Fakeverse generates fake data themed by works of fiction. Think
 [Faker](https://faker.readthedocs.io/), but the people, addresses and organizations come from
