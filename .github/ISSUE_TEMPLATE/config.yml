@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Questions and ideas
+    url: https://github.com/Kentrow/fakeverse/discussions
+    about: Ask a question, or share an idea or a universe you would like, in the Discussions.
   - name: Security vulnerability, takedown request or conduct report
     url: https://github.com/Kentrow/fakeverse/security/advisories/new
     about: Report privately with a GitHub security advisory (see SECURITY.md and TAKEDOWN.md).
