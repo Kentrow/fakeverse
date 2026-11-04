@@ -105,3 +105,32 @@ def test_generated_organizations_have_two_different_partners() -> None:
         if " & " in o["name"]:
             senior, junior = o["name"].split(" & ", 1)
             assert senior != junior
+
+
+COLLECTIONS = {
+    "Novel",
+    "The Adventures of Sherlock Holmes",
+    "The Memoirs of Sherlock Holmes",
+    "The Return of Sherlock Holmes",
+    "His Last Bow",
+    "The Case-Book of Sherlock Holmes",
+}
+
+
+def test_the_sixty_cases() -> None:
+    assert len(FV.universe("sherlock").index.extensions["case"].items.items) == 60
+    novels = [c for c in items("case", 3000) if c["collection"] == "Novel"]
+    assert {c["name"] for c in novels} == {
+        "A Study in Scarlet",
+        "The Sign of the Four",
+        "The Hound of the Baskervilles",
+        "The Valley of Fear",
+    }
+    for c in items("case", 500):
+        assert c["collection"] in COLLECTIONS
+        assert 1887 <= c["year"] <= 1927
+
+
+def test_inspectors() -> None:
+    names = {i["name"] for i in items("inspector", 1000)}
+    assert {"Lestrade", "Gregson", "Athelney Jones", "Stanley Hopkins"} <= names

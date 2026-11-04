@@ -1498,3 +1498,372 @@ patterns:
   email: "{first_name|slug}.{family_name|slug}@{vocab.email_domain}"
   username: "{first_name|slug}{int:1-999}"
   organization_name: "{vocab.org_senior_partner} & {vocab.org_junior_partner}"
+
+extensions:
+  case:
+    label: { en: Case, fr: Affaire }
+    items:
+      - id: a-study-in-scarlet
+        name: { en: A Study in Scarlet, fr: Une étude en rouge }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1887
+      - id: the-sign-of-the-four
+        name: { en: The Sign of the Four, fr: Le Signe des quatre }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1890
+      - id: the-hound-of-the-baskervilles
+        name: { en: The Hound of the Baskervilles, fr: Le Chien des Baskerville }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1901
+      - id: the-valley-of-fear
+        name: { en: The Valley of Fear, fr: La Vallée de la peur }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1914
+      - id: a-scandal-in-bohemia
+        name: { en: A Scandal in Bohemia, fr: Un scandale en Bohême }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-red-headed-league
+        name: { en: The Red-Headed League, fr: La Ligue des rouquins }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: a-case-of-identity
+        name: { en: A Case of Identity, fr: "Une affaire d'identité" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-boscombe-valley-mystery
+        name: { en: The Boscombe Valley Mystery, fr: Le Mystère du Val Boscombe }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-five-orange-pips
+        name: { en: The Five Orange Pips, fr: "Les Cinq Pépins d'orange" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-man-with-the-twisted-lip
+        name: { en: The Man with the Twisted Lip, fr: "L'Homme à la lèvre tordue" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-adventure-of-the-blue-carbuncle
+        name: { en: The Adventure of the Blue Carbuncle, fr: "L'Escarboucle bleue" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-speckled-band
+        name: { en: The Adventure of the Speckled Band, fr: La Bande mouchetée }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-engineers-thumb
+        name: { en: "The Adventure of the Engineer's Thumb", fr: "Le Pouce de l'ingénieur" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-noble-bachelor
+        name: { en: The Adventure of the Noble Bachelor, fr: Le Célibataire de haut rang }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-beryl-coronet
+        name: { en: The Adventure of the Beryl Coronet, fr: Le Diadème de béryls }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-copper-beeches
+        name: { en: The Adventure of the Copper Beeches, fr: Les Hêtres rouges }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: silver-blaze
+        name: { en: Silver Blaze, fr: "Flamme d'argent" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-cardboard-box
+        name: { en: The Adventure of the Cardboard Box, fr: La Boîte en carton }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-yellow-face
+        name: { en: The Yellow Face, fr: Le Visage jaune }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-stockbrokers-clerk
+        name: { en: "The Stockbroker's Clerk", fr: "L'Employé de l'agent de change" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-gloria-scott
+        name: { en: The Gloria Scott, fr: Le Gloria Scott }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-musgrave-ritual
+        name: { en: The Musgrave Ritual, fr: Le Rituel des Musgrave }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-reigate-squires
+        name: { en: The Reigate Squires, fr: Les Propriétaires de Reigate }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-crooked-man
+        name: { en: The Crooked Man, fr: "L'Homme tordu" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-resident-patient
+        name: { en: The Resident Patient, fr: Le Malade résident }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-greek-interpreter
+        name: { en: The Greek Interpreter, fr: "L'Interprète grec" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-naval-treaty
+        name: { en: The Naval Treaty, fr: Le Traité naval }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-final-problem
+        name: { en: The Final Problem, fr: Le Dernier Problème }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-adventure-of-the-empty-house
+        name: { en: The Adventure of the Empty House, fr: La Maison vide }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-norwood-builder
+        name: { en: The Adventure of the Norwood Builder, fr: "L'Entrepreneur de Norwood" }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-dancing-men
+        name: { en: The Adventure of the Dancing Men, fr: Les Hommes dansants }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-solitary-cyclist
+        name: { en: The Adventure of the Solitary Cyclist, fr: La Cycliste solitaire }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-priory-school
+        name: { en: The Adventure of the Priory School, fr: "L'École du Prieuré" }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-black-peter
+        name: { en: The Adventure of Black Peter, fr: Peter le Noir }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-charles-augustus-milverton
+        name: { en: The Adventure of Charles Augustus Milverton, fr: Charles Auguste Milverton }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-six-napoleons
+        name: { en: The Adventure of the Six Napoleons, fr: Les Six Napoléons }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-three-students
+        name: { en: The Adventure of the Three Students, fr: Les Trois Étudiants }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-golden-pince-nez
+        name: { en: The Adventure of the Golden Pince-Nez, fr: Le Pince-nez en or }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-missing-three-quarter
+        name: { en: The Adventure of the Missing Three-Quarter, fr: Le Trois-quarts disparu }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-abbey-grange
+        name: { en: The Adventure of the Abbey Grange, fr: "L'Abbaye de Grange" }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-second-stain
+        name: { en: The Adventure of the Second Stain, fr: La Deuxième Tache }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-wisteria-lodge
+        name: { en: The Adventure of Wisteria Lodge, fr: Le Pavillon de Wisteria }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1908
+      - id: the-adventure-of-the-bruce-partington-plans
+        name: { en: The Adventure of the Bruce-Partington Plans, fr: Les Plans du Bruce-Partington }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1908
+      - id: the-adventure-of-the-devils-foot
+        name: { en: "The Adventure of the Devil's Foot", fr: Le Pied du diable }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1910
+      - id: the-adventure-of-the-red-circle
+        name: { en: The Adventure of the Red Circle, fr: Le Cercle rouge }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1911
+      - id: the-disappearance-of-lady-frances-carfax
+        name: { en: The Disappearance of Lady Frances Carfax, fr: La Disparition de lady Frances Carfax }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1911
+      - id: the-adventure-of-the-dying-detective
+        name: { en: The Adventure of the Dying Detective, fr: Le Détective mourant }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1913
+      - id: his-last-bow-the-war-service-of-sherlock-holmes
+        name: { en: "His Last Bow: The War Service of Sherlock Holmes", fr: "Son dernier coup d'archet" }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1917
+      - id: the-adventure-of-the-illustrious-client
+        name: { en: The Adventure of the Illustrious Client, fr: Le Client illustre }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1924
+      - id: the-adventure-of-the-blanched-soldier
+        name: { en: The Adventure of the Blanched Soldier, fr: Le Soldat blanchi }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+      - id: the-adventure-of-the-mazarin-stone
+        name: { en: The Adventure of the Mazarin Stone, fr: La Pierre de Mazarin }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1921
+      - id: the-adventure-of-the-three-gables
+        name: { en: The Adventure of the Three Gables, fr: Les Trois Pignons }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+      - id: the-adventure-of-the-sussex-vampire
+        name: { en: The Adventure of the Sussex Vampire, fr: Le Vampire du Sussex }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1924
+      - id: the-adventure-of-the-three-garridebs
+        name: { en: The Adventure of the Three Garridebs, fr: Les Trois Garrideb }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1924
+      - id: the-problem-of-thor-bridge
+        name: { en: The Problem of Thor Bridge, fr: Le Pont de Thor }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1922
+      - id: the-adventure-of-the-creeping-man
+        name: { en: The Adventure of the Creeping Man, fr: "L'Homme qui rampait" }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1923
+      - id: the-adventure-of-the-lions-mane
+        name: { en: "The Adventure of the Lion's Mane", fr: La Crinière du lion }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+      - id: the-adventure-of-the-veiled-lodger
+        name: { en: The Adventure of the Veiled Lodger, fr: La Locataire voilée }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1927
+      - id: the-adventure-of-shoscombe-old-place
+        name: { en: The Adventure of Shoscombe Old Place, fr: Shoscombe Old Place }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1927
+      - id: the-adventure-of-the-retired-colourman
+        name: { en: The Adventure of the Retired Colourman, fr: Le Fabricant de couleurs retiré }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+  inspector:
+    label: { en: Inspector, fr: Inspecteur }
+    items:
+      - id: lestrade
+        name: Lestrade
+        weight: 5
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: gregson
+        name: Gregson
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: athelney-jones
+        name: Athelney Jones
+        fields:
+          rank: { en: Detective, fr: Détective }
+          force: Scotland Yard
+      - id: stanley-hopkins
+        name: Stanley Hopkins
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: bradstreet
+        name: Bradstreet
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: macdonald
+        name: MacDonald
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: morton
+        name: Morton
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: baynes
+        name: Baynes
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: Surrey Constabulary, fr: Police du Surrey }
+      - id: martin
+        name: Martin
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: Norfolk Constabulary, fr: Police du Norfolk }
+      - id: bardie
+        name: Bardie
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: Sussex Constabulary, fr: Police du Sussex }
+      - id: wilson
+        name: Wilson
+        fields:
+          rank: { en: Sergeant, fr: Sergent }
+          force: { en: Sussex Constabulary, fr: Police du Sussex }
+      - id: tuson
+        name: Tuson
+        fields:
+          rank: { en: Sergeant, fr: Sergent }
+          force: { en: City Police, fr: Police de la Cité }
