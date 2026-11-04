@@ -1,14 +1,17 @@
 """Invariants specific to the sherlock universe (see the design in docs/superpowers/specs)."""
 
 import re
+from pathlib import Path
 
 import pytest
 from faker import Faker
 
 from fakeverse import Fakeverse
 from fakeverse.faker import FakeverseProvider
+from fakeverse.loader import load_file
 
 FV = Fakeverse()
+ROOT = Path(__file__).resolve().parents[2]
 DISTRICTS = {"W", "NW", "WC", "EC", "E", "SW", "SE", "N"}
 
 
@@ -144,3 +147,20 @@ def test_faker_provider_uses_french() -> None:
     fake.seed_instance(1)
     addresses = [fake.fakeverse("sherlock").address() for _ in range(200)]
     assert any(a["subdivision"] == "Londres" for a in addresses)
+
+
+def test_london_dominates() -> None:
+    addresses = items("address", 3000)
+    london = sum(a["subdivision"] == "London" for a in addresses)
+    assert london / len(addresses) >= 0.40
+
+
+def test_partner_vocabularies_are_disjoint_and_not_family_names() -> None:
+    universe = load_file(ROOT / "universes" / "sherlock.yaml").universe
+    assert universe is not None
+    vocab = universe.vocab
+    senior = {str(v.value) for v in vocab["org_senior_partner"]}
+    junior = {str(v.value) for v in vocab["org_junior_partner"]}
+    assert senior.isdisjoint(junior)
+    families = {f.value for p in universe.peoples for f in p.family_names}
+    assert families.isdisjoint(senior | junior)

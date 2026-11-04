@@ -3,8 +3,9 @@
 # Sherlock Holmes universe, the Canon by Arthur Conan Doyle only (4 novels and 56 short
 # stories, 1887-1927). No pastiches, films or series. Names and short labels only: no quotes,
 # no descriptions. Proper names that the French translation keeps unchanged are plain strings.
-# Names marked `canon: false` are invented, or real places the Canon never mentions, to enrich
-# the pools; vocabularies (streets, firm partners, exchanges, email domains) are invented.
+# Names marked `canon: false` are invented elements, or real names and places the Canon does not
+# use, added to enrich the pools. Street-name stems are real London street names used as invented
+# vocabulary; firm partners, exchanges and email domains are invented.
 format: 1
 
 universe:
@@ -30,15 +31,14 @@ places:
   - id: southern-england
     level: area
     name: { en: Southern England, fr: Sud de l'Angleterre }
-    weight: 6
 
   # London: one subdivision, its neighbourhoods are the localities. Each carries the
   # Victorian postal district of the neighbourhood.
+    canon: false
   - id: london
     level: subdivision
     parent: southern-england
     name: { en: London, fr: Londres }
-    weight: 10
     patterns:
       address_format: "{street_address}\n{locality}, {subdivision} {postal_code}"
 
@@ -46,12 +46,10 @@ places:
     level: subdivision
     parent: southern-england
     name: Surrey
-    weight: 2
   - id: kent
     level: subdivision
     parent: southern-england
     name: Kent
-    weight: 2
   - id: sussex
     level: subdivision
     parent: southern-england
@@ -65,14 +63,14 @@ places:
     level: locality
     parent: london
     name: Marylebone
-    weight: 5
+    weight: 24
     patterns:
       postal_code: "W"
   - id: mayfair
     level: locality
     parent: london
     name: Mayfair
-    weight: 2
+    weight: 9
     canon: false
     patterns:
       postal_code: "W"
@@ -80,63 +78,63 @@ places:
     level: locality
     parent: london
     name: Kensington
-    weight: 2
+    weight: 9
     patterns:
       postal_code: "W"
   - id: paddington
     level: locality
     parent: london
     name: Paddington
-    weight: 2
+    weight: 9
     patterns:
       postal_code: "W"
   - id: st-johns-wood
     level: locality
     parent: london
     name: "St John's Wood"
-    weight: 2
+    weight: 9
     patterns:
       postal_code: "NW"
   - id: hampstead
     level: locality
     parent: london
     name: Hampstead
-    weight: 2
+    weight: 9
     patterns:
       postal_code: "NW"
   - id: bloomsbury
     level: locality
     parent: london
     name: Bloomsbury
-    weight: 3
+    weight: 14
     patterns:
       postal_code: "WC"
   - id: covent-garden
     level: locality
     parent: london
     name: Covent Garden
-    weight: 2
+    weight: 9
     patterns:
       postal_code: "WC"
   - id: holborn
     level: locality
     parent: london
     name: Holborn
-    weight: 2
+    weight: 9
     patterns:
       postal_code: "WC"
   - id: city-of-london
     level: locality
     parent: london
     name: { en: The City, fr: La City }
-    weight: 3
+    weight: 14
     patterns:
       postal_code: "EC"
   - id: whitechapel
     level: locality
     parent: london
     name: Whitechapel
-    weight: 2
+    weight: 9
     canon: false
     patterns:
       postal_code: "E"
@@ -144,19 +142,21 @@ places:
     level: locality
     parent: london
     name: Stepney
+    weight: 5
     patterns:
       postal_code: "E"
   - id: westminster
     level: locality
     parent: london
     name: Westminster
-    weight: 3
+    weight: 14
     patterns:
       postal_code: "SW"
   - id: belgravia
     level: locality
     parent: london
     name: Belgravia
+    weight: 5
     canon: false
     patterns:
       postal_code: "SW"
@@ -164,6 +164,7 @@ places:
     level: locality
     parent: london
     name: Chelsea
+    weight: 5
     canon: false
     patterns:
       postal_code: "SW"
@@ -171,24 +172,28 @@ places:
     level: locality
     parent: london
     name: Brixton
+    weight: 5
     patterns:
       postal_code: "SW"
   - id: lambeth
     level: locality
     parent: london
     name: Lambeth
+    weight: 5
     patterns:
       postal_code: "SE"
   - id: norwood
     level: locality
     parent: london
     name: Norwood
+    weight: 5
     patterns:
       postal_code: "SE"
   - id: islington
     level: locality
     parent: london
     name: Islington
+    weight: 5
     canon: false
     patterns:
       postal_code: "N"
@@ -359,22 +364,18 @@ places:
   - id: west-country
     level: area
     name: { en: West Country, fr: "Sud-Ouest de l'Angleterre" }
-    weight: 3
   - id: devon
     level: subdivision
     parent: west-country
     name: Devon
-    weight: 3
   - id: cornwall
     level: subdivision
     parent: west-country
     name: { en: Cornwall, fr: Cornouailles }
-    weight: 2
   - id: herefordshire
     level: subdivision
     parent: west-country
     name: Herefordshire
-    weight: 2
   - id: grimpen
     level: locality
     parent: devon
@@ -479,22 +480,21 @@ places:
   - id: midlands-north
     level: area
     name: { en: Midlands and the North, fr: "Midlands et Nord de l'Angleterre" }
-    weight: 4
+    canon: false
   - id: warwickshire
     level: subdivision
     parent: midlands-north
     name: Warwickshire
-    weight: 2
+    canon: false
   - id: hallamshire
     level: subdivision
     parent: midlands-north
     name: Hallamshire
-    weight: 2
   - id: derbyshire
     level: subdivision
     parent: midlands-north
     name: Derbyshire
-    weight: 2
+    canon: false
   - id: coventry
     level: locality
     parent: warwickshire
@@ -569,17 +569,15 @@ places:
   - id: east-anglia
     level: area
     name: { en: East Anglia, fr: Anglie orientale }
-    weight: 3
   - id: norfolk
     level: subdivision
     parent: east-anglia
     name: Norfolk
-    weight: 3
   - id: suffolk
     level: subdivision
     parent: east-anglia
     name: Suffolk
-    weight: 2
+    canon: false
   - id: riding-thorpe
     level: locality
     parent: norfolk
@@ -634,27 +632,24 @@ places:
   - id: united-states
     level: area
     name: { en: United States, fr: États-Unis }
-    weight: 3
+    patterns:
+      street_address: "{int:1-2999} {vocab.us_street_name} {vocab.us_street_type}"
   - id: utah
     level: subdivision
     parent: united-states
     name: Utah
-    weight: 2
   - id: illinois
     level: subdivision
     parent: united-states
     name: Illinois
-    weight: 2
   - id: vermissa-valley
     level: subdivision
     parent: united-states
     name: Vermissa Valley
-    weight: 3
   - id: new-york
     level: subdivision
     parent: united-states
     name: New York
-    weight: 2
   - id: salt-lake-city
     level: locality
     parent: utah
@@ -733,63 +728,52 @@ places:
   - id: scotland
     level: area
     name: { en: Scotland, fr: Écosse }
-    weight: 3
   - id: ireland
     level: area
     name: { en: Ireland, fr: Irlande }
-    weight: 2
   - id: lothian
     level: subdivision
     parent: scotland
     name: Lothian
-    weight: 3
     canon: false
   - id: lanarkshire
     level: subdivision
     parent: scotland
     name: Lanarkshire
-    weight: 2
     canon: false
   - id: forfarshire
     level: subdivision
     parent: scotland
     name: Forfarshire
-    weight: 2
     canon: false
   - id: aberdeenshire
     level: subdivision
     parent: scotland
     name: Aberdeenshire
-    weight: 2
     canon: false
   - id: berwickshire
     level: subdivision
     parent: scotland
     name: Berwickshire
-    weight: 1
     canon: false
   - id: dublin
     level: subdivision
     parent: ireland
-    name: Dublin
-    weight: 3
+    name: { en: County Dublin, fr: Comté de Dublin }
   - id: antrim
     level: subdivision
     parent: ireland
     name: Antrim
-    weight: 2
     canon: false
   - id: cork
     level: subdivision
     parent: ireland
-    name: Cork
-    weight: 2
+    name: { en: County Cork, fr: Comté de Cork }
     canon: false
   - id: waterford
     level: subdivision
     parent: ireland
-    name: Waterford
-    weight: 1
+    name: { en: County Waterford, fr: Comté de Waterford }
   - id: edinburgh
     level: locality
     parent: lothian
@@ -1096,8 +1080,8 @@ peoples:
       - { value: George, gender: masculine }
       - { value: William, gender: masculine }
       - { value: Arthur, gender: masculine }
-      - { value: Samuel, gender: masculine }
-      - { value: Thomas, gender: masculine }
+      - { value: Samuel, gender: masculine, canon: false }
+      - { value: Thomas, gender: masculine, canon: false }
       - { value: Silas, gender: masculine }
       - { value: Ezekiah, gender: masculine }
       - { value: Hiram, gender: masculine, canon: false }
@@ -1164,7 +1148,7 @@ peoples:
 
   - id: scottish
     name: { en: Scottish, fr: Écossais }
-    homelands: [scotland, london]
+    homelands: [scotland, holborn, islington]
     weight: 2
     first_names:
       - { value: Alexander, gender: masculine }
@@ -1176,7 +1160,7 @@ peoples:
       - { value: Alasdair, gender: masculine, canon: false }
       - { value: Hamish, gender: masculine, canon: false }
       - { value: Fergus, gender: masculine, canon: false }
-      - { value: Callum, gender: masculine, canon: false }
+      - { value: Roderick, gender: masculine, canon: false }
       - { value: Iain, gender: masculine, canon: false }
       - { value: Ewan, gender: masculine, canon: false }
       - { value: Lachlan, gender: masculine, canon: false }
@@ -1199,15 +1183,15 @@ peoples:
       - { value: Catriona, gender: feminine, canon: false }
       - { value: Elspeth, gender: feminine, canon: false }
       - { value: Mairi, gender: feminine, canon: false }
-      - { value: Kirsty, gender: feminine, canon: false }
-      - { value: Sheena, gender: feminine, canon: false }
+      - { value: Christina, gender: feminine, canon: false }
+      - { value: Janet, gender: feminine }
       - { value: Ishbel, gender: feminine, canon: false }
       - { value: Eilidh, gender: feminine, canon: false }
       - { value: Moira, gender: feminine, canon: false }
       - { value: Margaret, gender: feminine, canon: false }
       - { value: Jessie, gender: feminine, canon: false }
       - { value: Ailsa, gender: feminine, canon: false }
-      - { value: Shona, gender: feminine, canon: false }
+      - { value: Euphemia, gender: feminine, canon: false }
     family_names:
       - Munro
       - MacDonald
@@ -1244,7 +1228,7 @@ peoples:
       - { value: Brendan, gender: masculine, canon: false }
       - { value: Declan, gender: masculine, canon: false }
       - { value: Eamon, gender: masculine, canon: false }
-      - { value: Liam, gender: masculine, canon: false }
+      - { value: Patrick, gender: masculine }
       - { value: Niall, gender: masculine, canon: false }
       - { value: Conor, gender: masculine, canon: false }
       - { value: Fergal, gender: masculine, canon: false }
@@ -1287,7 +1271,7 @@ peoples:
       - { value: Eithne, gender: feminine, canon: false }
       - { value: Máire, gender: feminine, canon: false }
       - { value: Sorcha, gender: feminine, canon: false }
-      - { value: Saoirse, gender: feminine, canon: false }
+      - { value: Honora, gender: feminine, canon: false }
     family_names:
       - McCarthy
       - Murphy
@@ -1431,6 +1415,27 @@ vocab:
     - Ledbury
     - Lansdowne
     - Harrow
+  us_street_name:
+    - Main
+    - Elm
+    - Maple
+    - Washington
+    - Lincoln
+    - State
+    - Market
+    - Jefferson
+    - Franklin
+    - Church
+    - Pine
+    - Walnut
+    - Oak
+    - Union
+    - Water
+  us_street_type:
+    - { value: Street, weight: 3 }
+    - Avenue
+    - Road
+    - Boulevard
   street_type:
     - { value: Street, weight: 3 }
     - { value: Road, weight: 2 }
@@ -1604,7 +1609,7 @@ extensions:
           collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
           year: 1893
       - id: the-gloria-scott
-        name: { en: 'The "Gloria Scott"', fr: 'Le "Gloria Scott"' }
+        name: { en: 'The "Gloria Scott"', fr: 'Le « Gloria Scott »' }
         fields:
           collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
           year: 1893
@@ -1870,6 +1875,12 @@ extensions:
         fields:
           rank: { en: Inspector, fr: Inspecteur }
           force: { en: County Police, fr: Police du comté }
+      # White Mason (The Valley of Fear): "the chief Sussex detective", "the local officer".
+      - id: white-mason
+        name: White Mason
+        fields:
+          rank: { en: Detective, fr: Détective }
+          force: { en: Sussex Constabulary, fr: Police du Sussex }
       - id: wilson
         name: Wilson
         fields:
