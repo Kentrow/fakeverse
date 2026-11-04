@@ -1,0 +1,567 @@
+# yaml-language-server: $schema=../schema/universe.schema.json
+#
+# Sherlock Holmes universe, the Canon by Arthur Conan Doyle only (4 novels and 56 short
+# stories, 1887-1927). No pastiches, films or series. Names and short labels only: no quotes,
+# no descriptions. Proper names that the French translation keeps unchanged are plain strings.
+# Names marked `canon: false` are invented, or real places the Canon never mentions, to enrich
+# the pools; vocabularies (streets, firm partners, exchanges, email domains) are invented.
+format: 1
+
+universe:
+  id: sherlock
+  name: Sherlock Holmes
+  default_locale: en
+  locales: [en, fr]
+  sources:
+    scope: "The Canon by Arthur Conan Doyle only: 4 novels and 56 short stories (1887-1927). No pastiches, films or series."
+    translations:
+      fr: "Bibliothèque de la Pléiade (Gallimard, 2025), edited by Alain Morvan"
+  maintainers: [Kentrow]
+
+generation:
+  organization_generated_ratio: 0.5
+
+place_levels:
+  area: { en: Region, fr: Région }
+  subdivision: { en: County, fr: Comté }
+  locality: { en: Town, fr: Ville }
+
+places:
+  - id: southern-england
+    level: area
+    name: { en: Southern England, fr: Sud de l'Angleterre }
+    weight: 6
+
+  # London: one subdivision, its neighbourhoods are the localities. Each carries the
+  # Victorian postal district of the neighbourhood.
+  - id: london
+    level: subdivision
+    parent: southern-england
+    name: { en: London, fr: Londres }
+    weight: 10
+    patterns:
+      address_format: "{street_address}\n{locality}, {subdivision} {postal_code}"
+
+  - id: surrey
+    level: subdivision
+    parent: southern-england
+    name: Surrey
+    weight: 2
+  - id: kent
+    level: subdivision
+    parent: southern-england
+    name: Kent
+    weight: 2
+  - id: sussex
+    level: subdivision
+    parent: southern-england
+    name: Sussex
+  - id: hampshire
+    level: subdivision
+    parent: southern-england
+    name: Hampshire
+
+  - id: marylebone
+    level: locality
+    parent: london
+    name: Marylebone
+    weight: 5
+    patterns:
+      postal_code: "W"
+  - id: mayfair
+    level: locality
+    parent: london
+    name: Mayfair
+    weight: 2
+    canon: false
+    patterns:
+      postal_code: "W"
+  - id: kensington
+    level: locality
+    parent: london
+    name: Kensington
+    weight: 2
+    patterns:
+      postal_code: "W"
+  - id: paddington
+    level: locality
+    parent: london
+    name: Paddington
+    weight: 2
+    patterns:
+      postal_code: "W"
+  - id: st-johns-wood
+    level: locality
+    parent: london
+    name: "St John's Wood"
+    weight: 2
+    patterns:
+      postal_code: "NW"
+  - id: hampstead
+    level: locality
+    parent: london
+    name: Hampstead
+    weight: 2
+    patterns:
+      postal_code: "NW"
+  - id: bloomsbury
+    level: locality
+    parent: london
+    name: Bloomsbury
+    weight: 3
+    patterns:
+      postal_code: "WC"
+  - id: covent-garden
+    level: locality
+    parent: london
+    name: Covent Garden
+    weight: 2
+    patterns:
+      postal_code: "WC"
+  - id: holborn
+    level: locality
+    parent: london
+    name: Holborn
+    weight: 2
+    patterns:
+      postal_code: "WC"
+  - id: city-of-london
+    level: locality
+    parent: london
+    name: { en: The City, fr: La City }
+    weight: 3
+    patterns:
+      postal_code: "EC"
+  - id: whitechapel
+    level: locality
+    parent: london
+    name: Whitechapel
+    weight: 2
+    canon: false
+    patterns:
+      postal_code: "E"
+  - id: stepney
+    level: locality
+    parent: london
+    name: Stepney
+    patterns:
+      postal_code: "E"
+  - id: westminster
+    level: locality
+    parent: london
+    name: Westminster
+    weight: 3
+    patterns:
+      postal_code: "SW"
+  - id: belgravia
+    level: locality
+    parent: london
+    name: Belgravia
+    canon: false
+    patterns:
+      postal_code: "SW"
+  - id: chelsea
+    level: locality
+    parent: london
+    name: Chelsea
+    canon: false
+    patterns:
+      postal_code: "SW"
+  - id: brixton
+    level: locality
+    parent: london
+    name: Brixton
+    patterns:
+      postal_code: "SW"
+  - id: lambeth
+    level: locality
+    parent: london
+    name: Lambeth
+    patterns:
+      postal_code: "SE"
+  - id: norwood
+    level: locality
+    parent: london
+    name: Norwood
+    patterns:
+      postal_code: "SE"
+  - id: islington
+    level: locality
+    parent: london
+    name: Islington
+    canon: false
+    patterns:
+      postal_code: "N"
+  - id: reigate
+    level: locality
+    parent: surrey
+    name: Reigate
+  - id: esher
+    level: locality
+    parent: surrey
+    name: Esher
+  - id: woking
+    level: locality
+    parent: surrey
+    name: Woking
+    weight: 2
+  - id: croydon
+    level: locality
+    parent: surrey
+    name: Croydon
+    weight: 2
+  - id: farnham
+    level: locality
+    parent: surrey
+    name: Farnham
+  - id: leatherhead
+    level: locality
+    parent: surrey
+    name: Leatherhead
+  - id: kingston
+    level: locality
+    parent: surrey
+    name: Kingston
+  - id: ripley
+    level: locality
+    parent: surrey
+    name: Ripley
+  - id: oxshott
+    level: locality
+    parent: surrey
+    name: Oxshott
+  - id: guildford
+    level: locality
+    parent: surrey
+    name: Guildford
+  - id: wimbledon
+    level: locality
+    parent: surrey
+    name: Wimbledon
+  - id: chatham
+    level: locality
+    parent: kent
+    name: Chatham
+  - id: canterbury
+    level: locality
+    parent: kent
+    name: { en: Canterbury, fr: Cantorbéry }
+  - id: gravesend
+    level: locality
+    parent: kent
+    name: Gravesend
+  - id: folkestone
+    level: locality
+    parent: kent
+    name: Folkestone
+  - id: margate
+    level: locality
+    parent: kent
+    name: Margate
+  - id: tunbridge-wells
+    level: locality
+    parent: kent
+    name: Tunbridge Wells
+  - id: lee
+    level: locality
+    parent: kent
+    name: Lee
+  - id: maidstone
+    level: locality
+    parent: kent
+    name: Maidstone
+    canon: false
+  - id: dover
+    level: locality
+    parent: kent
+    name: Dover
+    canon: false
+  - id: birlstone
+    level: locality
+    parent: sussex
+    name: Birlstone
+    weight: 3
+  - id: horsham
+    level: locality
+    parent: sussex
+    name: Horsham
+    weight: 2
+  - id: eastbourne
+    level: locality
+    parent: sussex
+    name: Eastbourne
+  - id: newhaven
+    level: locality
+    parent: sussex
+    name: Newhaven
+  - id: brighton
+    level: locality
+    parent: sussex
+    name: Brighton
+    canon: false
+  - id: lewes
+    level: locality
+    parent: sussex
+    name: Lewes
+    canon: false
+  - id: hastings
+    level: locality
+    parent: sussex
+    name: Hastings
+    canon: false
+  - id: aldershot
+    level: locality
+    parent: hampshire
+    name: Aldershot
+    weight: 2
+  - id: southampton
+    level: locality
+    parent: hampshire
+    name: Southampton
+  - id: portsmouth
+    level: locality
+    parent: hampshire
+    name: Portsmouth
+  - id: winchester
+    level: locality
+    parent: hampshire
+    name: Winchester
+  - id: petersfield
+    level: locality
+    parent: hampshire
+    name: Petersfield
+  - id: fareham
+    level: locality
+    parent: hampshire
+    name: Fareham
+  - id: southsea
+    level: locality
+    parent: hampshire
+    name: Southsea
+  - id: andover
+    level: locality
+    parent: hampshire
+    name: Andover
+  - id: fordingbridge
+    level: locality
+    parent: hampshire
+    name: Fordingbridge
+  - id: netley
+    level: locality
+    parent: hampshire
+    name: Netley
+  - id: basingstoke
+    level: locality
+    parent: hampshire
+    name: Basingstoke
+    canon: false
+
+peoples:
+  - id: english
+    name: { en: English, fr: Anglais }
+    homelands: [southern-england]
+    weight: 10
+    first_names:
+      - { value: Sherlock, gender: masculine, weight: 2 }
+      - { value: Mycroft, gender: masculine }
+      - { value: James, gender: masculine }
+      - { value: Henry, gender: masculine }
+      - { value: Jabez, gender: masculine }
+      - { value: Neville, gender: masculine }
+      - { value: Thaddeus, gender: masculine }
+      - { value: Bartholomew, gender: masculine }
+      - { value: Godfrey, gender: masculine }
+      - { value: Percy, gender: masculine }
+      - { value: Hosmer, gender: masculine }
+      - { value: Josiah, gender: masculine }
+      - { value: Stanley, gender: masculine }
+      - { value: Hilton, gender: masculine }
+      - { value: Culverton, gender: masculine }
+      - { value: Grimesby, gender: masculine }
+      - { value: Reginald, gender: masculine }
+      - { value: Victor, gender: masculine }
+      - { value: Alexander, gender: masculine }
+      - { value: Jonas, gender: masculine }
+      - { value: Peter, gender: masculine }
+      - { value: Hall, gender: masculine }
+      - { value: Ronald, gender: masculine }
+      - { value: Fitzroy, gender: masculine }
+      - { value: John, gender: masculine, weight: 2 }
+      - { value: Silas, gender: masculine }
+      - { value: Charles, gender: masculine }
+      - { value: Robert, gender: masculine }
+      - { value: Tobias, gender: masculine }
+      - { value: Hugo, gender: masculine }
+      - { value: Violet, gender: feminine, weight: 2 }
+      - { value: Helen, gender: feminine, weight: 2 }
+      - { value: Irene, gender: feminine, weight: 2 }
+      - { value: Mary, gender: feminine, weight: 2 }
+      - { value: Kate, gender: feminine }
+      - { value: Alice, gender: feminine }
+      - { value: Hatty, gender: feminine }
+      - { value: Eugenia, gender: feminine }
+      - { value: Laura, gender: feminine }
+      - { value: Maud, gender: feminine }
+      - { value: Susan, gender: feminine }
+      - { value: Beryl, gender: feminine }
+      - { value: Grace, gender: feminine }
+      - { value: Lucy, gender: feminine }
+      - { value: Rachel, gender: feminine }
+      - { value: Hilda, gender: feminine }
+      - { value: Frances, gender: feminine }
+      - { value: Sarah, gender: feminine }
+      - { value: Elsie, gender: feminine }
+      - { value: Julia, gender: feminine }
+      - { value: Effie, gender: feminine }
+      - { value: Agatha, gender: feminine }
+      - { value: Edith, gender: feminine }
+      - { value: Maria, gender: feminine }
+    family_names:
+      - { value: Holmes, weight: 2 }
+      - { value: Watson, weight: 2 }
+      - Hudson
+      - Hunter
+      - Stoner
+      - Morstan
+      - Sholto
+      - Baskerville
+      - Stapleton
+      - Windibank
+      - Rucastle
+      - Roylott
+      - Openshaw
+      - Munro
+      - Cubitt
+      - Doran
+      - Baker
+      - Wilson
+      - Phelps
+      - Holder
+      - Pycroft
+      - Hatherley
+      - Adair
+      - Straker
+      - Oldacre
+      - Cushing
+      - Ferguson
+      - Trevelyan
+      - Mortimer
+      - Maberley
+      - Carfax
+      - Musgrave
+      - Armitage
+      - Barclay
+      - Lyons
+      - Whitney
+      - Turner
+      - McCarthy
+      - Sutherland
+      - Gibson
+      - Carruthers
+      - Soames
+      - Gilchrist
+      - { value: Brown, weight: 2 }
+      - Carey
+      - Dunbar
+      - Bellamy
+      - Hopkins
+      - Tregennis
+      - Sterndale
+      - Brunton
+      - Trevor
+      - { value: Smith, weight: 2 }
+
+vocab:
+  street_name:
+    - Montague
+    - Harcourt
+    - Albany
+    - Chandos
+    - Wigmore
+    - Devonshire
+    - Hanover
+    - Cavendish
+    - Bedford
+    - Gower
+    - Percy
+    - Rathbone
+    - Berkeley
+    - Mortimer
+    - Welbeck
+    - Manchester
+    - Seymour
+    - Dorset
+    - Wimpole
+    - Granville
+    - Brunswick
+    - Russell
+    - Tavistock
+    - Craven
+    - Orchard
+    - Portman
+    - Ledbury
+    - Lansdowne
+    - Harrow
+  street_type:
+    - { value: Street, weight: 3 }
+    - { value: Road, weight: 2 }
+    - Square
+    - Terrace
+    - Place
+    - Gardens
+    - Mews
+    - Lane
+  email_domain:
+    - { value: telegraph.example, weight: 3 }
+    - penny-post.example
+    - gazette.example
+    - cab-rank.example
+  exchange:
+    - Hartwell
+    - Larkspur
+    - Elmbridge
+    - Wexley
+    - Marlcombe
+    - Ashgrove
+    - Quenby
+    - Thistledown
+    - Bramhall
+  org_senior_partner:
+    - Pemberton
+    - Tolliver
+    - Wexcombe
+    - Ashdown
+    - Fenwick
+    - Rutherglen
+    - Lockwood
+    - Dunmore
+    - Harcourt
+    - Penhallow
+    - Ellerby
+    - Garroway
+    - Whitcombe
+    - Alderton
+    - Bramwell
+    - Colville
+    - Danvers
+  org_junior_partner:
+    - Fairweather
+    - Stanbury
+    - Tennant
+    - Upjohn
+    - Vaughan
+    - Wetherby
+    - Yardley
+    - Lovell
+    - Merriman
+    - Peverell
+    - Sons
+    - Co.
+
+patterns:
+  street_address: "{int:1-299} {vocab.street_name} {vocab.street_type}"
+  address_format: "{street_address}\n{locality}\n{subdivision}, {area}"
+  phone: "{vocab.exchange} {digits:4}"
+  email: "{first_name|slug}.{family_name|slug}@{vocab.email_domain}"
+  username: "{first_name|slug}{int:1-999}"
+  organization_name: "{vocab.org_senior_partner} & {vocab.org_junior_partner}"

@@ -119,5 +119,5 @@ def test_info() -> None:
     assert result.output.splitlines() == [
         f"fakeverse {__version__}",
         f"Engine revision: {ENGINE_REVISION}",
-        "Embedded universes: lotr, starwars",
+        "Embedded universes: lotr, sherlock, starwars",
     ]

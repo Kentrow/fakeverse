@@ -5,4 +5,5 @@
 
 # Universe files: their declared maintainers (universe.maintainers).
 /universes/lotr.yaml @Kentrow
+/universes/sherlock.yaml @Kentrow
 /universes/starwars.yaml @Kentrow
