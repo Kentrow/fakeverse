@@ -1318,6 +1318,88 @@ peoples:
       - { value: Nolan, canon: false }
       - { value: Healy, canon: false }
 
+organizations:
+  - id: diogenes-club
+    name: { en: The Diogenes Club, fr: Le Club Diogène }
+    kind: { en: Club, fr: Club }
+    places: [westminster]
+    weight: 3
+  - id: red-headed-league
+    name: { en: The Red-Headed League, fr: La Ligue des rouquins }
+    kind: { en: League, fr: Ligue }
+    places: [city-of-london]
+    weight: 3
+  - id: alpha-inn
+    name: { en: The Alpha Inn, fr: L'Auberge Alpha }
+    kind: { en: Inn, fr: Auberge }
+    places: [bloomsbury]
+    weight: 3
+  - id: city-and-suburban-bank
+    name: The City and Suburban Bank
+    kind: { en: Bank, fr: Banque }
+    places: [city-of-london]
+  - id: holder-and-stevenson
+    name: Holder & Stevenson
+    kind: { en: Bank, fr: Banque }
+    places: [city-of-london]
+  - id: westaways
+    name: Westaway's
+    kind: { en: Agency, fr: Agence }
+    places: [mayfair]
+  - id: mawson-and-williams
+    name: Mawson & Williams
+    kind: { en: Brokerage, fr: Maison de courtage }
+    places: [city-of-london]
+  - id: franco-midland-hardware
+    name: The Franco-Midland Hardware Company
+    kind: { en: Company, fr: Société }
+    places: [birmingham]
+  - id: bagatelle-club
+    name: The Bagatelle Card Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: tankerville-club
+    name: The Tankerville Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: cavendish-club
+    name: The Cavendish Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: baldwin-club
+    name: The Baldwin Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: anglo-indian-club
+    name: The Anglo-Indian Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: priory-school
+    name: { en: The Priory School, fr: L'École du Prieuré }
+    kind: { en: School, fr: École }
+    places: [mackleton]
+    weight: 2
+  - id: fighting-cock
+    name: { en: The Fighting Cock, fr: Le Coq de Combat }
+    kind: { en: Inn, fr: Auberge }
+    places: [mackleton]
+  - id: goldinis-restaurant
+    name: Goldini's Restaurant
+    kind: { en: Restaurant, fr: Restaurant }
+    places: [kensington]
+  - id: gelder-and-co
+    name: Gelder & Co.
+    kind: { en: Dealer, fr: Fournisseur }
+    places: [stepney]
+  - id: harding-brothers
+    name: Harding Brothers
+    kind: { en: Shop, fr: Boutique }
+    places: [kensington]
+  - id: morse-hudson
+    name: Morse Hudson's
+    kind: { en: Shop, fr: Boutique }
+    places: [lambeth]
+
 vocab:
   street_name:
     - Montague
@@ -1391,6 +1473,8 @@ vocab:
     - Bramwell
     - Colville
     - Danvers
+    - Ormerod
+    - Medlicott
   org_junior_partner:
     - Fairweather
     - Stanbury
@@ -1402,6 +1486,8 @@ vocab:
     - Lovell
     - Merriman
     - Peverell
+    - Pargeter
+    - Selwood
     - Sons
     - Co.
 

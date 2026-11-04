@@ -92,3 +92,16 @@ def test_invented_names_are_generated() -> None:
         "first_name", 500, seed=1, unique=False, people="irish", explain=True
     )
     assert "generated" in {value["origin"] for value in result.items}
+
+
+def test_canonical_organizations() -> None:
+    names = {o["name"] for o in items("organization", 3000)}
+    assert {"The Diogenes Club", "The Red-Headed League", "The Alpha Inn"} <= names
+    assert not any("Freemen" in n or "Scowrer" in n for n in names)
+
+
+def test_generated_organizations_have_two_different_partners() -> None:
+    for o in items("organization", 1000):
+        if " & " in o["name"]:
+            senior, junior = o["name"].split(" & ", 1)
+            assert senior != junior
