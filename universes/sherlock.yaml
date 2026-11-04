@@ -356,10 +356,414 @@ places:
     name: Basingstoke
     canon: false
 
+  - id: west-country
+    level: area
+    name: { en: West Country, fr: "Sud-Ouest de l'Angleterre" }
+    weight: 3
+  - id: devon
+    level: subdivision
+    parent: west-country
+    name: Devon
+    weight: 3
+  - id: cornwall
+    level: subdivision
+    parent: west-country
+    name: { en: Cornwall, fr: Cornouailles }
+    weight: 2
+  - id: herefordshire
+    level: subdivision
+    parent: west-country
+    name: Herefordshire
+    weight: 2
+  - id: grimpen
+    level: locality
+    parent: devon
+    name: Grimpen
+    weight: 3
+    canon: false
+  - id: coombe-tracey
+    level: locality
+    parent: devon
+    name: Coombe Tracey
+    weight: 3
+    canon: false
+  - id: princetown
+    level: locality
+    parent: devon
+    name: Princetown
+    weight: 2
+    canon: false
+  - id: tavistock
+    level: locality
+    parent: devon
+    name: Tavistock
+    weight: 2
+    canon: false
+  - id: plymouth
+    level: locality
+    parent: devon
+    name: Plymouth
+    weight: 2
+    canon: false
+  - id: exeter
+    level: locality
+    parent: devon
+    name: Exeter
+    canon: false
+  - id: okehampton
+    level: locality
+    parent: devon
+    name: Okehampton
+    canon: false
+  - id: torquay
+    level: locality
+    parent: devon
+    name: Torquay
+    canon: false
+  - id: barnstaple
+    level: locality
+    parent: devon
+    name: Barnstaple
+    canon: false
+  - id: poldhu
+    level: locality
+    parent: cornwall
+    name: Poldhu
+    weight: 2
+    canon: false
+  - id: redruth
+    level: locality
+    parent: cornwall
+    name: Redruth
+    canon: false
+  - id: helston
+    level: locality
+    parent: cornwall
+    name: Helston
+    canon: false
+  - id: falmouth
+    level: locality
+    parent: cornwall
+    name: Falmouth
+    canon: false
+  - id: tredannick-wollas
+    level: locality
+    parent: cornwall
+    name: Tredannick Wollas
+    weight: 2
+    canon: false
+  - id: truro
+    level: locality
+    parent: cornwall
+    name: Truro
+    canon: false
+  - id: penzance
+    level: locality
+    parent: cornwall
+    name: Penzance
+    canon: false
+  - id: ross
+    level: locality
+    parent: herefordshire
+    name: Ross
+    weight: 2
+    canon: false
+  - id: boscombe-valley
+    level: locality
+    parent: herefordshire
+    name: Boscombe Valley
+    weight: 2
+    canon: false
+  - id: hereford
+    level: locality
+    parent: herefordshire
+    name: Hereford
+    weight: 2
+    canon: false
+  - id: leominster
+    level: locality
+    parent: herefordshire
+    name: Leominster
+    canon: false
+  - id: ledbury
+    level: locality
+    parent: herefordshire
+    name: Ledbury
+    canon: false
+  - id: midlands-north
+    level: area
+    name: { en: Midlands and the North, fr: "Midlands et Nord de l'Angleterre" }
+    weight: 4
+  - id: warwickshire
+    level: subdivision
+    parent: midlands-north
+    name: Warwickshire
+    weight: 2
+  - id: hallamshire
+    level: subdivision
+    parent: midlands-north
+    name: Hallamshire
+    weight: 2
+  - id: derbyshire
+    level: subdivision
+    parent: midlands-north
+    name: Derbyshire
+    weight: 2
+  - id: coventry
+    level: locality
+    parent: warwickshire
+    name: Coventry
+    weight: 2
+    canon: false
+  - id: birmingham
+    level: locality
+    parent: warwickshire
+    name: Birmingham
+    weight: 3
+    canon: false
+  - id: warwick
+    level: locality
+    parent: warwickshire
+    name: Warwick
+    canon: false
+  - id: leamington
+    level: locality
+    parent: warwickshire
+    name: Leamington
+    canon: false
+  - id: stratford
+    level: locality
+    parent: warwickshire
+    name: Stratford-upon-Avon
+    canon: false
+  - id: mackleton
+    level: locality
+    parent: hallamshire
+    name: Mackleton
+    weight: 3
+    canon: false
+  - id: sheffield
+    level: locality
+    parent: hallamshire
+    name: Sheffield
+    weight: 2
+    canon: false
+  - id: rotherham
+    level: locality
+    parent: hallamshire
+    name: Rotherham
+    canon: false
+  - id: penistone
+    level: locality
+    parent: hallamshire
+    name: Penistone
+    canon: false
+  - id: chesterfield
+    level: locality
+    parent: derbyshire
+    name: Chesterfield
+    weight: 2
+    canon: false
+  - id: derby
+    level: locality
+    parent: derbyshire
+    name: Derby
+    weight: 2
+    canon: false
+  - id: buxton
+    level: locality
+    parent: derbyshire
+    name: Buxton
+    canon: false
+  - id: matlock
+    level: locality
+    parent: derbyshire
+    name: Matlock
+    canon: false
+  - id: glossop
+    level: locality
+    parent: derbyshire
+    name: Glossop
+    canon: false
+  - id: east-anglia
+    level: area
+    name: { en: East Anglia, fr: Anglie orientale }
+    weight: 3
+  - id: norfolk
+    level: subdivision
+    parent: east-anglia
+    name: Norfolk
+    weight: 3
+  - id: suffolk
+    level: subdivision
+    parent: east-anglia
+    name: Suffolk
+    weight: 2
+  - id: riding-thorpe
+    level: locality
+    parent: norfolk
+    name: Riding Thorpe
+    weight: 3
+    canon: false
+  - id: norwich
+    level: locality
+    parent: norfolk
+    name: Norwich
+    weight: 2
+    canon: false
+  - id: north-walsham
+    level: locality
+    parent: norfolk
+    name: North Walsham
+    weight: 2
+    canon: false
+  - id: cromer
+    level: locality
+    parent: norfolk
+    name: Cromer
+    canon: false
+  - id: great-yarmouth
+    level: locality
+    parent: norfolk
+    name: Great Yarmouth
+    canon: false
+  - id: thetford
+    level: locality
+    parent: norfolk
+    name: Thetford
+    canon: false
+  - id: ipswich
+    level: locality
+    parent: suffolk
+    name: Ipswich
+    weight: 2
+    canon: false
+  - id: lowestoft
+    level: locality
+    parent: suffolk
+    name: Lowestoft
+    canon: false
+  - id: bury-st-edmunds
+    level: locality
+    parent: suffolk
+    name: Bury St Edmunds
+    canon: false
+  - id: southwold
+    level: locality
+    parent: suffolk
+    name: Southwold
+    canon: false
+  - id: united-states
+    level: area
+    name: { en: United States, fr: États-Unis }
+    weight: 3
+  - id: utah
+    level: subdivision
+    parent: united-states
+    name: Utah
+    weight: 2
+  - id: illinois
+    level: subdivision
+    parent: united-states
+    name: Illinois
+    weight: 2
+  - id: vermissa-valley
+    level: subdivision
+    parent: united-states
+    name: Vermissa Valley
+    weight: 3
+  - id: new-york
+    level: subdivision
+    parent: united-states
+    name: New York
+    weight: 2
+  - id: salt-lake-city
+    level: locality
+    parent: utah
+    name: Salt Lake City
+    weight: 3
+    canon: false
+  - id: ogden
+    level: locality
+    parent: utah
+    name: Ogden
+    canon: false
+  - id: provo
+    level: locality
+    parent: utah
+    name: Provo
+    canon: false
+  - id: chicago
+    level: locality
+    parent: illinois
+    name: Chicago
+    weight: 3
+    canon: false
+  - id: nauvoo
+    level: locality
+    parent: illinois
+    name: Nauvoo
+    weight: 2
+    canon: false
+  - id: springfield
+    level: locality
+    parent: illinois
+    name: Springfield
+    canon: false
+  - id: peoria
+    level: locality
+    parent: illinois
+    name: Peoria
+    canon: false
+  - id: vermissa
+    level: locality
+    parent: vermissa-valley
+    name: Vermissa
+    weight: 4
+    canon: false
+  - id: hobsons-patch
+    level: locality
+    parent: vermissa-valley
+    name: "Hobson's Patch"
+    weight: 2
+    canon: false
+  - id: helmdale
+    level: locality
+    parent: vermissa-valley
+    name: Helmdale
+    canon: false
+  - id: bartons-crossing
+    level: locality
+    parent: vermissa-valley
+    name: Bartons Crossing
+    canon: false
+  - id: new-york-city
+    level: locality
+    parent: new-york
+    name: New York
+    weight: 3
+    canon: false
+  - id: brooklyn
+    level: locality
+    parent: new-york
+    name: Brooklyn
+    weight: 2
+    canon: false
+  - id: buffalo
+    level: locality
+    parent: new-york
+    name: Buffalo
+    canon: false
+  - id: albany
+    level: locality
+    parent: new-york
+    name: Albany
+    canon: false
+
 peoples:
   - id: english
     name: { en: English, fr: Anglais }
-    homelands: [southern-england]
+    homelands: [southern-england, west-country, midlands-north, east-anglia]
     weight: 10
     first_names:
       - { value: Sherlock, gender: masculine, weight: 2 }
@@ -470,6 +874,95 @@ peoples:
       - Brunton
       - Trevor
       - { value: Smith, weight: 2 }
+
+  - id: american
+    name: { en: American, fr: Américain }
+    homelands: [united-states]
+    weight: 3
+    first_names:
+      - { value: Jefferson, gender: masculine, weight: 2 }
+      - { value: Enoch, gender: masculine }
+      - { value: Abe, gender: masculine }
+      - { value: Aloysius, gender: masculine }
+      - { value: Josiah, gender: masculine }
+      - { value: John, gender: masculine, weight: 2 }
+      - { value: Jonathan, gender: masculine }
+      - { value: Nathan, gender: masculine }
+      - { value: Cecil, gender: masculine }
+      - { value: Ted, gender: masculine }
+      - { value: Jim, gender: masculine }
+      - { value: Francis, gender: masculine }
+      - { value: Elias, gender: masculine }
+      - { value: Henry, gender: masculine }
+      - { value: Joseph, gender: masculine }
+      - { value: George, gender: masculine }
+      - { value: William, gender: masculine }
+      - { value: Arthur, gender: masculine }
+      - { value: Samuel, gender: masculine }
+      - { value: Thomas, gender: masculine }
+      - { value: Silas, gender: masculine }
+      - { value: Ezekiah, gender: masculine }
+      - { value: Hiram, gender: masculine, canon: false }
+      - { value: Seth, gender: masculine, canon: false }
+      - { value: Howard, gender: masculine, canon: false }
+      - { value: Daniel, gender: masculine, canon: false }
+      - { value: Ezra, gender: masculine, canon: false }
+      - { value: Edwin, gender: masculine, canon: false }
+      - { value: Elsie, gender: feminine, weight: 2 }
+      - { value: Hatty, gender: feminine, weight: 2 }
+      - { value: Lucy, gender: feminine, weight: 2 }
+      - { value: Ettie, gender: feminine, weight: 2 }
+      - { value: Alice, gender: feminine }
+      - { value: Susan, gender: feminine }
+      - { value: Mary, gender: feminine }
+      - { value: Sarah, gender: feminine }
+      - { value: Annie, gender: feminine }
+      - { value: Martha, gender: feminine }
+      - { value: Rachel, gender: feminine }
+      - { value: Laura, gender: feminine }
+      - { value: Edith, gender: feminine }
+      - { value: Kate, gender: feminine }
+      - { value: Anna, gender: feminine }
+      - { value: Maggie, gender: feminine }
+      - { value: Eliza, gender: feminine }
+      - { value: Clara, gender: feminine }
+      - { value: Rose, gender: feminine }
+      - { value: Emma, gender: feminine, canon: false }
+      - { value: Ruth, gender: feminine, canon: false }
+      - { value: Jessie, gender: feminine, canon: false }
+      - { value: Ellen, gender: feminine, canon: false }
+      - { value: Nellie, gender: feminine, canon: false }
+    family_names:
+      - { value: Hope, weight: 2 }
+      - { value: Ferrier, weight: 2 }
+      - Drebber
+      - Stangerson
+      - Slaney
+      - Shafter
+      - Douglas
+      - Moulton
+      - Doran
+      - Garrideb
+      - Hopkins
+      - Cartwright
+      - Edwards
+      - Dodd
+      - { value: Smith, weight: 2 }
+      - Brown
+      - Johnson
+      - Morris
+      - Evans
+      - Mason
+      - Turner
+      - Warren
+      - Martin
+      - Parker
+      - Pike
+      - Hargrave
+      - { value: Wilkins, canon: false }
+      - { value: Harper, canon: false }
+      - { value: Cooper, canon: false }
+      - { value: Lawrence, canon: false }
 
 vocab:
   street_name:

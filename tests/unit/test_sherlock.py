@@ -51,3 +51,11 @@ def test_addresses_outside_london_name_their_region() -> None:
     for a in others:
         assert a["postal_code"] is None
         assert a["formatted"].endswith(f"\n{a['subdivision']}, {a['area']}")
+
+
+def test_americans_live_in_the_united_states() -> None:
+    assert {p["address"]["area"] for p in items("person", people="american")} == {"United States"}
+
+
+def test_vermissa_exists() -> None:
+    assert "Vermissa" in {a["locality"] for a in items("address", 3000)}
