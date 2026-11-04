@@ -380,36 +380,30 @@ places:
     parent: devon
     name: Grimpen
     weight: 3
-    canon: false
   - id: coombe-tracey
     level: locality
     parent: devon
     name: Coombe Tracey
     weight: 3
-    canon: false
   - id: princetown
     level: locality
     parent: devon
     name: Princetown
     weight: 2
-    canon: false
   - id: tavistock
     level: locality
     parent: devon
     name: Tavistock
     weight: 2
-    canon: false
   - id: plymouth
     level: locality
     parent: devon
     name: Plymouth
     weight: 2
-    canon: false
   - id: exeter
     level: locality
     parent: devon
     name: Exeter
-    canon: false
   - id: okehampton
     level: locality
     parent: devon
@@ -430,28 +424,23 @@ places:
     parent: cornwall
     name: Poldhu
     weight: 2
-    canon: false
   - id: redruth
     level: locality
     parent: cornwall
     name: Redruth
-    canon: false
   - id: helston
     level: locality
     parent: cornwall
     name: Helston
-    canon: false
   - id: falmouth
     level: locality
     parent: cornwall
     name: Falmouth
-    canon: false
   - id: tredannick-wollas
     level: locality
     parent: cornwall
     name: Tredannick Wollas
     weight: 2
-    canon: false
   - id: truro
     level: locality
     parent: cornwall
@@ -467,19 +456,16 @@ places:
     parent: herefordshire
     name: Ross
     weight: 2
-    canon: false
   - id: boscombe-valley
     level: locality
     parent: herefordshire
     name: Boscombe Valley
     weight: 2
-    canon: false
   - id: hereford
     level: locality
     parent: herefordshire
     name: Hereford
     weight: 2
-    canon: false
   - id: leominster
     level: locality
     parent: herefordshire
@@ -514,13 +500,11 @@ places:
     parent: warwickshire
     name: Coventry
     weight: 2
-    canon: false
   - id: birmingham
     level: locality
     parent: warwickshire
     name: Birmingham
     weight: 3
-    canon: false
   - id: warwick
     level: locality
     parent: warwickshire
@@ -541,7 +525,6 @@ places:
     parent: hallamshire
     name: Mackleton
     weight: 3
-    canon: false
   - id: sheffield
     level: locality
     parent: hallamshire
@@ -563,13 +546,11 @@ places:
     parent: derbyshire
     name: Chesterfield
     weight: 2
-    canon: false
   - id: derby
     level: locality
     parent: derbyshire
     name: Derby
     weight: 2
-    canon: false
   - id: buxton
     level: locality
     parent: derbyshire
@@ -604,19 +585,16 @@ places:
     parent: norfolk
     name: Riding Thorpe
     weight: 3
-    canon: false
   - id: norwich
     level: locality
     parent: norfolk
     name: Norwich
     weight: 2
-    canon: false
   - id: north-walsham
     level: locality
     parent: norfolk
     name: North Walsham
     weight: 2
-    canon: false
   - id: cromer
     level: locality
     parent: norfolk
@@ -682,7 +660,6 @@ places:
     parent: utah
     name: Salt Lake City
     weight: 3
-    canon: false
   - id: ogden
     level: locality
     parent: utah
@@ -698,13 +675,11 @@ places:
     parent: illinois
     name: Chicago
     weight: 3
-    canon: false
   - id: nauvoo
     level: locality
     parent: illinois
     name: Nauvoo
     weight: 2
-    canon: false
   - id: springfield
     level: locality
     parent: illinois
@@ -720,40 +695,33 @@ places:
     parent: vermissa-valley
     name: Vermissa
     weight: 4
-    canon: false
   - id: hobsons-patch
     level: locality
     parent: vermissa-valley
     name: "Hobson's Patch"
     weight: 2
-    canon: false
   - id: helmdale
     level: locality
     parent: vermissa-valley
     name: Helmdale
-    canon: false
   - id: bartons-crossing
     level: locality
     parent: vermissa-valley
     name: Bartons Crossing
-    canon: false
   - id: new-york-city
     level: locality
     parent: new-york
     name: New York
     weight: 3
-    canon: false
   - id: brooklyn
     level: locality
     parent: new-york
     name: Brooklyn
     weight: 2
-    canon: false
   - id: buffalo
     level: locality
     parent: new-york
     name: Buffalo
-    canon: false
   - id: albany
     level: locality
     parent: new-york
