@@ -1604,7 +1604,7 @@ extensions:
           collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
           year: 1893
       - id: the-gloria-scott
-        name: { en: The Gloria Scott, fr: Le Gloria Scott }
+        name: { en: 'The "Gloria Scott"', fr: 'Le "Gloria Scott"' }
         fields:
           collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
           year: 1893
@@ -1852,11 +1852,24 @@ extensions:
         fields:
           rank: { en: Inspector, fr: Inspecteur }
           force: { en: Norfolk Constabulary, fr: Police du Norfolk }
-      - id: bardie
-        name: Bardie
+      # Gutenberg 69700 reads "Bardie", an OCR error; standard editions read "Bardle".
+      - id: bardle
+        name: Bardle
         fields:
           rank: { en: Inspector, fr: Inspecteur }
           force: { en: Sussex Constabulary, fr: Police du Sussex }
+      # Gregory (Silver Blaze): the force is inferred from the Devonshire setting.
+      - id: gregory
+        name: Gregory
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: County Police, fr: Police du comté }
+      # Forrester (The Reigate Squires): the text says "the county police".
+      - id: forrester
+        name: Forrester
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: County Police, fr: Police du comté }
       - id: wilson
         name: Wilson
         fields:
@@ -1866,4 +1879,4 @@ extensions:
         name: Tuson
         fields:
           rank: { en: Sergeant, fr: Sergent }
-          force: { en: City Police, fr: Police de la Cité }
+          force: { en: City Police, fr: Police de la City }
