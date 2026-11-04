@@ -3,8 +3,10 @@
 import re
 
 import pytest
+from faker import Faker
 
 from fakeverse import Fakeverse
+from fakeverse.faker import FakeverseProvider
 
 FV = Fakeverse()
 DISTRICTS = {"W", "NW", "WC", "EC", "E", "SW", "SE", "N"}
@@ -134,3 +136,11 @@ def test_the_sixty_cases() -> None:
 def test_inspectors() -> None:
     names = {i["name"] for i in items("inspector", 1000)}
     assert {"Lestrade", "Gregson", "Athelney Jones", "Stanley Hopkins"} <= names
+
+
+def test_faker_provider_uses_french() -> None:
+    fake = Faker("fr_FR")
+    fake.add_provider(FakeverseProvider)
+    fake.seed_instance(1)
+    addresses = [fake.fakeverse("sherlock").address() for _ in range(200)]
+    assert any(a["subdivision"] == "Londres" for a in addresses)

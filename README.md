@@ -48,6 +48,7 @@ For instance, `lotr.one("person", people="hobbit", seed=7)` gives:
 | --- | --- | --- | --- |
 | `lotr` | The Lord of the Rings | The books only, no film adaptations | English, French |
 | `starwars` | Star Wars | The Disney canon (2014 and later) | English, French |
+| `sherlock` | Sherlock Holmes | The Canon by Arthur Conan Doyle, no adaptations | English, French |
 
 New universes are welcome: see [Contributing](#contributing).
 
