@@ -142,7 +142,11 @@ def test_cors(client: TestClient) -> None:
 def test_default_store_serves_the_package_data() -> None:
     client = TestClient(create_app(Settings(rate_limit="0")))
     assert client.get("/v1/meta").json()["data_versions"] == [__version__]
-    assert [u["id"] for u in client.get("/v1/universes").json()["data"]] == ["lotr", "starwars"]
+    assert [u["id"] for u in client.get("/v1/universes").json()["data"]] == [
+        "lotr",
+        "sherlock",
+        "starwars",
+    ]
 
 
 def test_every_problem_is_documented() -> None:

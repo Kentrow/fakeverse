@@ -168,7 +168,7 @@ def test_generator_helpers(world_fr: UniverseGenerator) -> None:
 
 
 def test_embedded_universes_load() -> None:
-    assert [info.id for info in Fakeverse().universes()] == ["lotr", "starwars"]
+    assert [info.id for info in Fakeverse().universes()] == ["lotr", "sherlock", "starwars"]
 
 
 def test_uniqueness_modes(world: UniverseGenerator) -> None:
