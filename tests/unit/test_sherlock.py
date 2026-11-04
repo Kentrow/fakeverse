@@ -1,5 +1,7 @@
 """Invariants specific to the sherlock universe (see the design in docs/superpowers/specs)."""
 
+import re
+
 import pytest
 
 from fakeverse import Fakeverse
@@ -59,3 +61,34 @@ def test_americans_live_in_the_united_states() -> None:
 
 def test_vermissa_exists() -> None:
     assert "Vermissa" in {a["locality"] for a in items("address", 3000)}
+
+
+PEOPLES = ["english", "american", "scottish", "irish"]
+
+
+def test_the_irish_never_live_in_vermissa() -> None:
+    assert all(
+        p["address"]["subdivision"] != "Vermissa Valley"
+        for p in items("person", 2000, people="irish")
+    )
+
+
+@pytest.mark.parametrize("people", PEOPLES)
+@pytest.mark.parametrize("gender", ["masculine", "feminine"])
+def test_every_people_and_gender_generates(people: str, gender: str) -> None:
+    assert all(p["gender"] == gender for p in items("person", 20, people=people, gender=gender))
+
+
+@pytest.mark.parametrize("people", PEOPLES)
+def test_emails_are_valid(people: str) -> None:
+    for p in items("person", 500, people=people):
+        assert re.fullmatch(
+            r"[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.example", p["email"]
+        )
+
+
+def test_invented_names_are_generated() -> None:
+    result = FV.universe("sherlock").generate(
+        "first_name", 500, seed=1, unique=False, people="irish", explain=True
+    )
+    assert "generated" in {value["origin"] for value in result.items}

@@ -728,6 +728,236 @@ places:
     name: Albany
     canon: false
 
+# Scotland and Ireland: only a few places are in the Canon (Edinburgh, Dundee, Aberdeen, Lauder,
+# Belfast, Dublin, Waterford); the rest are real places the Canon never mentions.
+  - id: scotland
+    level: area
+    name: { en: Scotland, fr: Écosse }
+    weight: 3
+  - id: ireland
+    level: area
+    name: { en: Ireland, fr: Irlande }
+    weight: 2
+  - id: lothian
+    level: subdivision
+    parent: scotland
+    name: Lothian
+    weight: 3
+    canon: false
+  - id: lanarkshire
+    level: subdivision
+    parent: scotland
+    name: Lanarkshire
+    weight: 2
+    canon: false
+  - id: forfarshire
+    level: subdivision
+    parent: scotland
+    name: Forfarshire
+    weight: 2
+    canon: false
+  - id: aberdeenshire
+    level: subdivision
+    parent: scotland
+    name: Aberdeenshire
+    weight: 2
+    canon: false
+  - id: berwickshire
+    level: subdivision
+    parent: scotland
+    name: Berwickshire
+    weight: 1
+    canon: false
+  - id: dublin
+    level: subdivision
+    parent: ireland
+    name: Dublin
+    weight: 3
+  - id: antrim
+    level: subdivision
+    parent: ireland
+    name: Antrim
+    weight: 2
+    canon: false
+  - id: cork
+    level: subdivision
+    parent: ireland
+    name: Cork
+    weight: 2
+    canon: false
+  - id: waterford
+    level: subdivision
+    parent: ireland
+    name: Waterford
+    weight: 1
+  - id: edinburgh
+    level: locality
+    parent: lothian
+    name: { en: Edinburgh, fr: Édimbourg }
+    weight: 3
+  - id: leith
+    level: locality
+    parent: lothian
+    name: Leith
+    canon: false
+  - id: musselburgh
+    level: locality
+    parent: lothian
+    name: Musselburgh
+    canon: false
+  - id: dalkeith
+    level: locality
+    parent: lothian
+    name: Dalkeith
+    canon: false
+  - id: glasgow
+    level: locality
+    parent: lanarkshire
+    name: Glasgow
+    weight: 3
+    canon: false
+  - id: hamilton
+    level: locality
+    parent: lanarkshire
+    name: Hamilton
+    canon: false
+  - id: motherwell
+    level: locality
+    parent: lanarkshire
+    name: Motherwell
+    canon: false
+  - id: airdrie
+    level: locality
+    parent: lanarkshire
+    name: Airdrie
+    canon: false
+  - id: dundee
+    level: locality
+    parent: forfarshire
+    name: Dundee
+    weight: 3
+  - id: arbroath
+    level: locality
+    parent: forfarshire
+    name: Arbroath
+    canon: false
+  - id: forfar
+    level: locality
+    parent: forfarshire
+    name: Forfar
+    canon: false
+  - id: montrose
+    level: locality
+    parent: forfarshire
+    name: Montrose
+    canon: false
+  - id: aberdeen
+    level: locality
+    parent: aberdeenshire
+    name: Aberdeen
+    weight: 3
+  - id: peterhead
+    level: locality
+    parent: aberdeenshire
+    name: Peterhead
+    canon: false
+  - id: fraserburgh
+    level: locality
+    parent: aberdeenshire
+    name: Fraserburgh
+    canon: false
+  - id: lauder
+    level: locality
+    parent: berwickshire
+    name: Lauder
+    weight: 2
+  - id: duns
+    level: locality
+    parent: berwickshire
+    name: Duns
+    canon: false
+  - id: eyemouth
+    level: locality
+    parent: berwickshire
+    name: Eyemouth
+    canon: false
+  - id: dublin-city
+    level: locality
+    parent: dublin
+    name: Dublin
+    weight: 3
+  - id: dalkey
+    level: locality
+    parent: dublin
+    name: Dalkey
+    canon: false
+  - id: howth
+    level: locality
+    parent: dublin
+    name: Howth
+    canon: false
+  - id: malahide
+    level: locality
+    parent: dublin
+    name: Malahide
+    canon: false
+  - id: belfast
+    level: locality
+    parent: antrim
+    name: Belfast
+    weight: 3
+  - id: ballymena
+    level: locality
+    parent: antrim
+    name: Ballymena
+    canon: false
+  - id: larne
+    level: locality
+    parent: antrim
+    name: Larne
+    canon: false
+  - id: carrickfergus
+    level: locality
+    parent: antrim
+    name: Carrickfergus
+    canon: false
+  - id: cork-city
+    level: locality
+    parent: cork
+    name: Cork
+    weight: 3
+    canon: false
+  - id: cobh
+    level: locality
+    parent: cork
+    name: Cobh
+    canon: false
+  - id: kinsale
+    level: locality
+    parent: cork
+    name: Kinsale
+    canon: false
+  - id: youghal
+    level: locality
+    parent: cork
+    name: Youghal
+    canon: false
+  - id: waterford-city
+    level: locality
+    parent: waterford
+    name: Waterford
+    weight: 2
+  - id: dungarvan
+    level: locality
+    parent: waterford
+    name: Dungarvan
+    canon: false
+  - id: tramore
+    level: locality
+    parent: waterford
+    name: Tramore
+    canon: false
+
 peoples:
   - id: english
     name: { en: English, fr: Anglais }
@@ -931,6 +1161,162 @@ peoples:
       - { value: Harper, canon: false }
       - { value: Cooper, canon: false }
       - { value: Lawrence, canon: false }
+
+  - id: scottish
+    name: { en: Scottish, fr: Écossais }
+    homelands: [scotland, london]
+    weight: 2
+    first_names:
+      - { value: Alexander, gender: masculine }
+      - { value: Neil, gender: masculine }
+      - { value: Duncan, gender: masculine }
+      - { value: John, gender: masculine }
+      - { value: James, gender: masculine }
+      - { value: Angus, gender: masculine, canon: false }
+      - { value: Alasdair, gender: masculine, canon: false }
+      - { value: Hamish, gender: masculine, canon: false }
+      - { value: Fergus, gender: masculine, canon: false }
+      - { value: Callum, gender: masculine, canon: false }
+      - { value: Iain, gender: masculine, canon: false }
+      - { value: Ewan, gender: masculine, canon: false }
+      - { value: Lachlan, gender: masculine, canon: false }
+      - { value: Murdo, gender: masculine, canon: false }
+      - { value: Rory, gender: masculine, canon: false }
+      - { value: Gregor, gender: masculine, canon: false }
+      - { value: Malcolm, gender: masculine, canon: false }
+      - { value: Donald, gender: masculine, canon: false }
+      - { value: Archibald, gender: masculine, canon: false }
+      - { value: Kenneth, gender: masculine, canon: false }
+      - { value: Finlay, gender: masculine, canon: false }
+      - { value: Ranald, gender: masculine, canon: false }
+      - { value: Struan, gender: masculine, canon: false }
+      - { value: Flora, gender: feminine }
+      - { value: Mary, gender: feminine }
+      - { value: Effie, gender: feminine }
+      - { value: Morag, gender: feminine, canon: false }
+      - { value: Isobel, gender: feminine, canon: false }
+      - { value: Fiona, gender: feminine, canon: false }
+      - { value: Catriona, gender: feminine, canon: false }
+      - { value: Elspeth, gender: feminine, canon: false }
+      - { value: Mairi, gender: feminine, canon: false }
+      - { value: Kirsty, gender: feminine, canon: false }
+      - { value: Sheena, gender: feminine, canon: false }
+      - { value: Ishbel, gender: feminine, canon: false }
+      - { value: Eilidh, gender: feminine, canon: false }
+      - { value: Moira, gender: feminine, canon: false }
+      - { value: Margaret, gender: feminine, canon: false }
+      - { value: Jessie, gender: feminine, canon: false }
+      - { value: Ailsa, gender: feminine, canon: false }
+      - { value: Shona, gender: feminine, canon: false }
+    family_names:
+      - Munro
+      - MacDonald
+      - McFarlane
+      - Stewart
+      - Fraser
+      - Ross
+      - Gibson
+      - Sinclair
+      - Henderson
+      - Morrison
+      - { value: Campbell, canon: false }
+      - Murray
+      - { value: MacLeod, canon: false }
+      - { value: Cameron, canon: false }
+      - { value: Robertson, canon: false }
+      - { value: Buchanan, canon: false }
+      - { value: MacGregor, canon: false }
+      - { value: McIntyre, canon: false }
+      - { value: Kerr, canon: false }
+      - { value: Lindsay, canon: false }
+      - { value: McLean, canon: false }
+      - { value: Mackay, canon: false }
+      - { value: Mackenzie, canon: false }
+      - { value: Grant, canon: false }
+
+  - id: irish
+    name: { en: Irish, fr: Irlandais }
+    homelands: [ireland, new-york, illinois]
+    weight: 2
+    first_names:
+      - { value: Michael, gender: masculine, canon: false }
+      - { value: Seán, gender: masculine, canon: false }
+      - { value: Brendan, gender: masculine, canon: false }
+      - { value: Declan, gender: masculine, canon: false }
+      - { value: Eamon, gender: masculine, canon: false }
+      - { value: Liam, gender: masculine, canon: false }
+      - { value: Niall, gender: masculine, canon: false }
+      - { value: Conor, gender: masculine, canon: false }
+      - { value: Fergal, gender: masculine, canon: false }
+      - { value: Colm, gender: masculine, canon: false }
+      - { value: Donal, gender: masculine, canon: false }
+      - { value: Dermot, gender: masculine, canon: false }
+      - { value: Tadhg, gender: masculine, canon: false }
+      - { value: Pádraig, gender: masculine, canon: false }
+      - { value: Ciarán, gender: masculine, canon: false }
+      - { value: Oisín, gender: masculine, canon: false }
+      - { value: Cathal, gender: masculine, canon: false }
+      - { value: Lorcan, gender: masculine, canon: false }
+      - { value: Ronan, gender: masculine, canon: false }
+      - { value: Kieran, gender: masculine, canon: false }
+      - { value: Diarmuid, gender: masculine, canon: false }
+      - { value: John, gender: masculine }
+      - { value: James, gender: masculine }
+      - { value: Thomas, gender: masculine, canon: false }
+      - { value: Catherine, gender: feminine }
+      - { value: Mary, gender: feminine }
+      - { value: Siobhán, gender: feminine, canon: false }
+      - { value: Aoife, gender: feminine, canon: false }
+      - { value: Brigid, gender: feminine, canon: false }
+      - { value: Maeve, gender: feminine, canon: false }
+      - { value: Niamh, gender: feminine, canon: false }
+      - { value: Orla, gender: feminine, canon: false }
+      - { value: Nora, gender: feminine, canon: false }
+      - { value: Deirdre, gender: feminine, canon: false }
+      - { value: Sinéad, gender: feminine, canon: false }
+      - { value: Eileen, gender: feminine, canon: false }
+      - { value: Kathleen, gender: feminine, canon: false }
+      - { value: Maureen, gender: feminine, canon: false }
+      - { value: Bridget, gender: feminine, canon: false }
+      - { value: Honor, gender: feminine, canon: false }
+      - { value: Una, gender: feminine, canon: false }
+      - { value: Gráinne, gender: feminine, canon: false }
+      - { value: Róisín, gender: feminine, canon: false }
+      - { value: Ciara, gender: feminine, canon: false }
+      - { value: Fionnuala, gender: feminine, canon: false }
+      - { value: Eithne, gender: feminine, canon: false }
+      - { value: Máire, gender: feminine, canon: false }
+      - { value: Sorcha, gender: feminine, canon: false }
+      - { value: Saoirse, gender: feminine, canon: false }
+    family_names:
+      - McCarthy
+      - Murphy
+      - Cusack
+      - { value: "O'Brien", canon: false }
+      - { value: "O'Connor", canon: false }
+      - { value: Kelly, canon: false }
+      - { value: "O'Sullivan", canon: false }
+      - { value: Walsh, canon: false }
+      - { value: Byrne, canon: false }
+      - { value: Ryan, canon: false }
+      - { value: Gallagher, canon: false }
+      - { value: Brennan, canon: false }
+      - { value: Fitzgerald, canon: false }
+      - Kennedy
+      - { value: Burke, canon: false }
+      - { value: Dunne, canon: false }
+      - { value: Daly, canon: false }
+      - { value: Flynn, canon: false }
+      - { value: Quinn, canon: false }
+      - { value: Ó Ceallaigh, canon: false }
+      - { value: Ó Súilleabháin, canon: false }
+      - { value: Mac Carthaigh, canon: false }
+      - { value: Mac Giolla, canon: false }
+      - { value: Ó Briain, canon: false }
+      - { value: "O'Neill", canon: false }
+      - { value: Doherty, canon: false }
+      - { value: Nolan, canon: false }
+      - { value: Healy, canon: false }
 
 vocab:
   street_name:
