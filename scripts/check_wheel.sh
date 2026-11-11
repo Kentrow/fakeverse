@@ -27,7 +27,7 @@ from fakeverse.faker import FakeverseProvider
 from fakeverse.loader import embedded_universes_dir
 
 assert "site-packages" in str(embedded_universes_dir()), embedded_universes_dir()
-assert [u.id for u in Fakeverse().universes()] == ["lotr", "starwars"]
+assert [u.id for u in Fakeverse().universes()] == ["lotr", "sherlock", "starwars"]
 fake = Faker("fr_FR")
 fake.add_provider(FakeverseProvider)
 assert fake.fakeverse("lotr").person()["people"]

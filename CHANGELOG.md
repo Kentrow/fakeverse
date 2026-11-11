@@ -9,6 +9,11 @@ Changes to `ENGINE_REVISION` are always listed, since they change generated outp
 
 ## [Unreleased]
 
+### Added
+
+- Universe `sherlock` (Sherlock Holmes, the Canon by Arthur Conan Doyle), in English and
+  French. French names follow the Pléiade edition.
+
 ## [0.1.0] - 2026-10-07
 
 First release. `ENGINE_REVISION` = 1.

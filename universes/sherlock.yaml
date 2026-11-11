@@ -1,0 +1,1893 @@
+# yaml-language-server: $schema=../schema/universe.schema.json
+#
+# Sherlock Holmes universe, the Canon by Arthur Conan Doyle only (4 novels and 56 short
+# stories, 1887-1927). No pastiches, films or series. Names and short labels only: no quotes,
+# no descriptions. Proper names that the French translation keeps unchanged are plain strings.
+# Names marked `canon: false` are invented elements, or real names and places the Canon does not
+# use, added to enrich the pools. Street-name stems are real London street names used as invented
+# vocabulary; firm partners, exchanges and email domains are invented.
+format: 1
+
+universe:
+  id: sherlock
+  name: Sherlock Holmes
+  default_locale: en
+  locales: [en, fr]
+  sources:
+    scope: "The Canon by Arthur Conan Doyle only: 4 novels and 56 short stories (1887-1927). No pastiches, films or series."
+    translations:
+      fr: "Bibliothèque de la Pléiade (Gallimard, 2025), edited by Alain Morvan"
+  maintainers: [Kentrow]
+
+generation:
+  organization_generated_ratio: 0.5
+
+place_levels:
+  area: { en: Region, fr: Région }
+  subdivision: { en: County, fr: Comté }
+  locality: { en: Town, fr: Ville }
+
+places:
+  - id: southern-england
+    level: area
+    name: { en: Southern England, fr: Sud de l'Angleterre }
+
+  # London: one subdivision, its neighbourhoods are the localities. Each carries the
+  # Victorian postal district of the neighbourhood.
+    canon: false
+  - id: london
+    level: subdivision
+    parent: southern-england
+    name: { en: London, fr: Londres }
+    patterns:
+      address_format: "{street_address}\n{locality}, {subdivision} {postal_code}"
+
+  - id: surrey
+    level: subdivision
+    parent: southern-england
+    name: Surrey
+  - id: kent
+    level: subdivision
+    parent: southern-england
+    name: Kent
+  - id: sussex
+    level: subdivision
+    parent: southern-england
+    name: Sussex
+  - id: hampshire
+    level: subdivision
+    parent: southern-england
+    name: Hampshire
+
+  - id: marylebone
+    level: locality
+    parent: london
+    name: Marylebone
+    weight: 24
+    patterns:
+      postal_code: "W"
+  - id: mayfair
+    level: locality
+    parent: london
+    name: Mayfair
+    weight: 9
+    canon: false
+    patterns:
+      postal_code: "W"
+  - id: kensington
+    level: locality
+    parent: london
+    name: Kensington
+    weight: 9
+    patterns:
+      postal_code: "W"
+  - id: paddington
+    level: locality
+    parent: london
+    name: Paddington
+    weight: 9
+    patterns:
+      postal_code: "W"
+  - id: st-johns-wood
+    level: locality
+    parent: london
+    name: "St John's Wood"
+    weight: 9
+    patterns:
+      postal_code: "NW"
+  - id: hampstead
+    level: locality
+    parent: london
+    name: Hampstead
+    weight: 9
+    patterns:
+      postal_code: "NW"
+  - id: bloomsbury
+    level: locality
+    parent: london
+    name: Bloomsbury
+    weight: 14
+    patterns:
+      postal_code: "WC"
+  - id: covent-garden
+    level: locality
+    parent: london
+    name: Covent Garden
+    weight: 9
+    patterns:
+      postal_code: "WC"
+  - id: holborn
+    level: locality
+    parent: london
+    name: Holborn
+    weight: 9
+    patterns:
+      postal_code: "WC"
+  - id: city-of-london
+    level: locality
+    parent: london
+    name: { en: The City, fr: La City }
+    weight: 14
+    patterns:
+      postal_code: "EC"
+  - id: whitechapel
+    level: locality
+    parent: london
+    name: Whitechapel
+    weight: 9
+    canon: false
+    patterns:
+      postal_code: "E"
+  - id: stepney
+    level: locality
+    parent: london
+    name: Stepney
+    weight: 5
+    patterns:
+      postal_code: "E"
+  - id: westminster
+    level: locality
+    parent: london
+    name: Westminster
+    weight: 14
+    patterns:
+      postal_code: "SW"
+  - id: belgravia
+    level: locality
+    parent: london
+    name: Belgravia
+    weight: 5
+    canon: false
+    patterns:
+      postal_code: "SW"
+  - id: chelsea
+    level: locality
+    parent: london
+    name: Chelsea
+    weight: 5
+    canon: false
+    patterns:
+      postal_code: "SW"
+  - id: brixton
+    level: locality
+    parent: london
+    name: Brixton
+    weight: 5
+    patterns:
+      postal_code: "SW"
+  - id: lambeth
+    level: locality
+    parent: london
+    name: Lambeth
+    weight: 5
+    patterns:
+      postal_code: "SE"
+  - id: norwood
+    level: locality
+    parent: london
+    name: Norwood
+    weight: 5
+    patterns:
+      postal_code: "SE"
+  - id: islington
+    level: locality
+    parent: london
+    name: Islington
+    weight: 5
+    canon: false
+    patterns:
+      postal_code: "N"
+  - id: reigate
+    level: locality
+    parent: surrey
+    name: Reigate
+  - id: esher
+    level: locality
+    parent: surrey
+    name: Esher
+  - id: woking
+    level: locality
+    parent: surrey
+    name: Woking
+    weight: 2
+  - id: croydon
+    level: locality
+    parent: surrey
+    name: Croydon
+    weight: 2
+  - id: farnham
+    level: locality
+    parent: surrey
+    name: Farnham
+  - id: leatherhead
+    level: locality
+    parent: surrey
+    name: Leatherhead
+  - id: kingston
+    level: locality
+    parent: surrey
+    name: Kingston
+  - id: ripley
+    level: locality
+    parent: surrey
+    name: Ripley
+  - id: oxshott
+    level: locality
+    parent: surrey
+    name: Oxshott
+  - id: guildford
+    level: locality
+    parent: surrey
+    name: Guildford
+  - id: wimbledon
+    level: locality
+    parent: surrey
+    name: Wimbledon
+  - id: chatham
+    level: locality
+    parent: kent
+    name: Chatham
+  - id: canterbury
+    level: locality
+    parent: kent
+    name: { en: Canterbury, fr: Cantorbéry }
+  - id: gravesend
+    level: locality
+    parent: kent
+    name: Gravesend
+  - id: folkestone
+    level: locality
+    parent: kent
+    name: Folkestone
+  - id: margate
+    level: locality
+    parent: kent
+    name: Margate
+  - id: tunbridge-wells
+    level: locality
+    parent: kent
+    name: Tunbridge Wells
+  - id: lee
+    level: locality
+    parent: kent
+    name: Lee
+  - id: maidstone
+    level: locality
+    parent: kent
+    name: Maidstone
+    canon: false
+  - id: dover
+    level: locality
+    parent: kent
+    name: Dover
+    canon: false
+  - id: birlstone
+    level: locality
+    parent: sussex
+    name: Birlstone
+    weight: 3
+  - id: horsham
+    level: locality
+    parent: sussex
+    name: Horsham
+    weight: 2
+  - id: eastbourne
+    level: locality
+    parent: sussex
+    name: Eastbourne
+  - id: newhaven
+    level: locality
+    parent: sussex
+    name: Newhaven
+  - id: brighton
+    level: locality
+    parent: sussex
+    name: Brighton
+    canon: false
+  - id: lewes
+    level: locality
+    parent: sussex
+    name: Lewes
+    canon: false
+  - id: hastings
+    level: locality
+    parent: sussex
+    name: Hastings
+    canon: false
+  - id: aldershot
+    level: locality
+    parent: hampshire
+    name: Aldershot
+    weight: 2
+  - id: southampton
+    level: locality
+    parent: hampshire
+    name: Southampton
+  - id: portsmouth
+    level: locality
+    parent: hampshire
+    name: Portsmouth
+  - id: winchester
+    level: locality
+    parent: hampshire
+    name: Winchester
+  - id: petersfield
+    level: locality
+    parent: hampshire
+    name: Petersfield
+  - id: fareham
+    level: locality
+    parent: hampshire
+    name: Fareham
+  - id: southsea
+    level: locality
+    parent: hampshire
+    name: Southsea
+  - id: andover
+    level: locality
+    parent: hampshire
+    name: Andover
+  - id: fordingbridge
+    level: locality
+    parent: hampshire
+    name: Fordingbridge
+  - id: netley
+    level: locality
+    parent: hampshire
+    name: Netley
+  - id: basingstoke
+    level: locality
+    parent: hampshire
+    name: Basingstoke
+    canon: false
+
+  - id: west-country
+    level: area
+    name: { en: West Country, fr: "Sud-Ouest de l'Angleterre" }
+  - id: devon
+    level: subdivision
+    parent: west-country
+    name: Devon
+  - id: cornwall
+    level: subdivision
+    parent: west-country
+    name: { en: Cornwall, fr: Cornouailles }
+  - id: herefordshire
+    level: subdivision
+    parent: west-country
+    name: Herefordshire
+  - id: grimpen
+    level: locality
+    parent: devon
+    name: Grimpen
+    weight: 3
+  - id: coombe-tracey
+    level: locality
+    parent: devon
+    name: Coombe Tracey
+    weight: 3
+  - id: princetown
+    level: locality
+    parent: devon
+    name: Princetown
+    weight: 2
+  - id: tavistock
+    level: locality
+    parent: devon
+    name: Tavistock
+    weight: 2
+  - id: plymouth
+    level: locality
+    parent: devon
+    name: Plymouth
+    weight: 2
+  - id: exeter
+    level: locality
+    parent: devon
+    name: Exeter
+  - id: okehampton
+    level: locality
+    parent: devon
+    name: Okehampton
+    canon: false
+  - id: torquay
+    level: locality
+    parent: devon
+    name: Torquay
+    canon: false
+  - id: barnstaple
+    level: locality
+    parent: devon
+    name: Barnstaple
+    canon: false
+  - id: poldhu
+    level: locality
+    parent: cornwall
+    name: Poldhu
+    weight: 2
+  - id: redruth
+    level: locality
+    parent: cornwall
+    name: Redruth
+  - id: helston
+    level: locality
+    parent: cornwall
+    name: Helston
+  - id: falmouth
+    level: locality
+    parent: cornwall
+    name: Falmouth
+  - id: tredannick-wollas
+    level: locality
+    parent: cornwall
+    name: Tredannick Wollas
+    weight: 2
+  - id: truro
+    level: locality
+    parent: cornwall
+    name: Truro
+    canon: false
+  - id: penzance
+    level: locality
+    parent: cornwall
+    name: Penzance
+    canon: false
+  - id: ross
+    level: locality
+    parent: herefordshire
+    name: Ross
+    weight: 2
+  - id: boscombe-valley
+    level: locality
+    parent: herefordshire
+    name: Boscombe Valley
+    weight: 2
+  - id: hereford
+    level: locality
+    parent: herefordshire
+    name: Hereford
+    weight: 2
+  - id: leominster
+    level: locality
+    parent: herefordshire
+    name: Leominster
+    canon: false
+  - id: ledbury
+    level: locality
+    parent: herefordshire
+    name: Ledbury
+    canon: false
+  - id: midlands-north
+    level: area
+    name: { en: Midlands and the North, fr: "Midlands et Nord de l'Angleterre" }
+    canon: false
+  - id: warwickshire
+    level: subdivision
+    parent: midlands-north
+    name: Warwickshire
+    canon: false
+  - id: hallamshire
+    level: subdivision
+    parent: midlands-north
+    name: Hallamshire
+  - id: derbyshire
+    level: subdivision
+    parent: midlands-north
+    name: Derbyshire
+    canon: false
+  - id: coventry
+    level: locality
+    parent: warwickshire
+    name: Coventry
+    weight: 2
+  - id: birmingham
+    level: locality
+    parent: warwickshire
+    name: Birmingham
+    weight: 3
+  - id: warwick
+    level: locality
+    parent: warwickshire
+    name: Warwick
+    canon: false
+  - id: leamington
+    level: locality
+    parent: warwickshire
+    name: Leamington
+    canon: false
+  - id: stratford
+    level: locality
+    parent: warwickshire
+    name: Stratford-upon-Avon
+    canon: false
+  - id: mackleton
+    level: locality
+    parent: hallamshire
+    name: Mackleton
+    weight: 3
+  - id: sheffield
+    level: locality
+    parent: hallamshire
+    name: Sheffield
+    weight: 2
+    canon: false
+  - id: rotherham
+    level: locality
+    parent: hallamshire
+    name: Rotherham
+    canon: false
+  - id: penistone
+    level: locality
+    parent: hallamshire
+    name: Penistone
+    canon: false
+  - id: chesterfield
+    level: locality
+    parent: derbyshire
+    name: Chesterfield
+    weight: 2
+  - id: derby
+    level: locality
+    parent: derbyshire
+    name: Derby
+    weight: 2
+  - id: buxton
+    level: locality
+    parent: derbyshire
+    name: Buxton
+    canon: false
+  - id: matlock
+    level: locality
+    parent: derbyshire
+    name: Matlock
+    canon: false
+  - id: glossop
+    level: locality
+    parent: derbyshire
+    name: Glossop
+    canon: false
+  - id: east-anglia
+    level: area
+    name: { en: East Anglia, fr: Anglie orientale }
+  - id: norfolk
+    level: subdivision
+    parent: east-anglia
+    name: Norfolk
+  - id: suffolk
+    level: subdivision
+    parent: east-anglia
+    name: Suffolk
+    canon: false
+  - id: riding-thorpe
+    level: locality
+    parent: norfolk
+    name: Riding Thorpe
+    weight: 3
+  - id: norwich
+    level: locality
+    parent: norfolk
+    name: Norwich
+    weight: 2
+  - id: north-walsham
+    level: locality
+    parent: norfolk
+    name: North Walsham
+    weight: 2
+  - id: cromer
+    level: locality
+    parent: norfolk
+    name: Cromer
+    canon: false
+  - id: great-yarmouth
+    level: locality
+    parent: norfolk
+    name: Great Yarmouth
+    canon: false
+  - id: thetford
+    level: locality
+    parent: norfolk
+    name: Thetford
+    canon: false
+  - id: ipswich
+    level: locality
+    parent: suffolk
+    name: Ipswich
+    weight: 2
+    canon: false
+  - id: lowestoft
+    level: locality
+    parent: suffolk
+    name: Lowestoft
+    canon: false
+  - id: bury-st-edmunds
+    level: locality
+    parent: suffolk
+    name: Bury St Edmunds
+    canon: false
+  - id: southwold
+    level: locality
+    parent: suffolk
+    name: Southwold
+    canon: false
+  - id: united-states
+    level: area
+    name: { en: United States, fr: États-Unis }
+    patterns:
+      street_address: "{int:1-2999} {vocab.us_street_name} {vocab.us_street_type}"
+  - id: utah
+    level: subdivision
+    parent: united-states
+    name: Utah
+  - id: illinois
+    level: subdivision
+    parent: united-states
+    name: Illinois
+  - id: vermissa-valley
+    level: subdivision
+    parent: united-states
+    name: Vermissa Valley
+  - id: new-york
+    level: subdivision
+    parent: united-states
+    name: New York
+  - id: salt-lake-city
+    level: locality
+    parent: utah
+    name: Salt Lake City
+    weight: 3
+  - id: ogden
+    level: locality
+    parent: utah
+    name: Ogden
+    canon: false
+  - id: provo
+    level: locality
+    parent: utah
+    name: Provo
+    canon: false
+  - id: chicago
+    level: locality
+    parent: illinois
+    name: Chicago
+    weight: 3
+  - id: nauvoo
+    level: locality
+    parent: illinois
+    name: Nauvoo
+    weight: 2
+  - id: springfield
+    level: locality
+    parent: illinois
+    name: Springfield
+    canon: false
+  - id: peoria
+    level: locality
+    parent: illinois
+    name: Peoria
+    canon: false
+  - id: vermissa
+    level: locality
+    parent: vermissa-valley
+    name: Vermissa
+    weight: 4
+  - id: hobsons-patch
+    level: locality
+    parent: vermissa-valley
+    name: "Hobson's Patch"
+    weight: 2
+  - id: helmdale
+    level: locality
+    parent: vermissa-valley
+    name: Helmdale
+  - id: bartons-crossing
+    level: locality
+    parent: vermissa-valley
+    name: Bartons Crossing
+  - id: new-york-city
+    level: locality
+    parent: new-york
+    name: New York
+    weight: 3
+  - id: brooklyn
+    level: locality
+    parent: new-york
+    name: Brooklyn
+    weight: 2
+  - id: buffalo
+    level: locality
+    parent: new-york
+    name: Buffalo
+  - id: albany
+    level: locality
+    parent: new-york
+    name: Albany
+    canon: false
+
+# Scotland and Ireland: only a few places are in the Canon (Edinburgh, Dundee, Aberdeen, Lauder,
+# Belfast, Dublin, Waterford); the rest are real places the Canon never mentions.
+  - id: scotland
+    level: area
+    name: { en: Scotland, fr: Écosse }
+  - id: ireland
+    level: area
+    name: { en: Ireland, fr: Irlande }
+  - id: lothian
+    level: subdivision
+    parent: scotland
+    name: Lothian
+    canon: false
+  - id: lanarkshire
+    level: subdivision
+    parent: scotland
+    name: Lanarkshire
+    canon: false
+  - id: forfarshire
+    level: subdivision
+    parent: scotland
+    name: Forfarshire
+    canon: false
+  - id: aberdeenshire
+    level: subdivision
+    parent: scotland
+    name: Aberdeenshire
+    canon: false
+  - id: berwickshire
+    level: subdivision
+    parent: scotland
+    name: Berwickshire
+    canon: false
+  - id: dublin
+    level: subdivision
+    parent: ireland
+    name: { en: County Dublin, fr: Comté de Dublin }
+  - id: antrim
+    level: subdivision
+    parent: ireland
+    name: Antrim
+    canon: false
+  - id: cork
+    level: subdivision
+    parent: ireland
+    name: { en: County Cork, fr: Comté de Cork }
+    canon: false
+  - id: waterford
+    level: subdivision
+    parent: ireland
+    name: { en: County Waterford, fr: Comté de Waterford }
+  - id: edinburgh
+    level: locality
+    parent: lothian
+    name: { en: Edinburgh, fr: Édimbourg }
+    weight: 3
+  - id: leith
+    level: locality
+    parent: lothian
+    name: Leith
+    canon: false
+  - id: musselburgh
+    level: locality
+    parent: lothian
+    name: Musselburgh
+    canon: false
+  - id: dalkeith
+    level: locality
+    parent: lothian
+    name: Dalkeith
+    canon: false
+  - id: glasgow
+    level: locality
+    parent: lanarkshire
+    name: Glasgow
+    weight: 3
+    canon: false
+  - id: hamilton
+    level: locality
+    parent: lanarkshire
+    name: Hamilton
+    canon: false
+  - id: motherwell
+    level: locality
+    parent: lanarkshire
+    name: Motherwell
+    canon: false
+  - id: airdrie
+    level: locality
+    parent: lanarkshire
+    name: Airdrie
+    canon: false
+  - id: dundee
+    level: locality
+    parent: forfarshire
+    name: Dundee
+    weight: 3
+  - id: arbroath
+    level: locality
+    parent: forfarshire
+    name: Arbroath
+    canon: false
+  - id: forfar
+    level: locality
+    parent: forfarshire
+    name: Forfar
+    canon: false
+  - id: montrose
+    level: locality
+    parent: forfarshire
+    name: Montrose
+    canon: false
+  - id: aberdeen
+    level: locality
+    parent: aberdeenshire
+    name: Aberdeen
+    weight: 3
+  - id: peterhead
+    level: locality
+    parent: aberdeenshire
+    name: Peterhead
+    canon: false
+  - id: fraserburgh
+    level: locality
+    parent: aberdeenshire
+    name: Fraserburgh
+    canon: false
+  - id: lauder
+    level: locality
+    parent: berwickshire
+    name: Lauder
+    weight: 2
+  - id: duns
+    level: locality
+    parent: berwickshire
+    name: Duns
+    canon: false
+  - id: eyemouth
+    level: locality
+    parent: berwickshire
+    name: Eyemouth
+    canon: false
+  - id: dublin-city
+    level: locality
+    parent: dublin
+    name: Dublin
+    weight: 3
+  - id: dalkey
+    level: locality
+    parent: dublin
+    name: Dalkey
+    canon: false
+  - id: howth
+    level: locality
+    parent: dublin
+    name: Howth
+    canon: false
+  - id: malahide
+    level: locality
+    parent: dublin
+    name: Malahide
+    canon: false
+  - id: belfast
+    level: locality
+    parent: antrim
+    name: Belfast
+    weight: 3
+  - id: ballymena
+    level: locality
+    parent: antrim
+    name: Ballymena
+    canon: false
+  - id: larne
+    level: locality
+    parent: antrim
+    name: Larne
+    canon: false
+  - id: carrickfergus
+    level: locality
+    parent: antrim
+    name: Carrickfergus
+    canon: false
+  - id: cork-city
+    level: locality
+    parent: cork
+    name: Cork
+    weight: 3
+    canon: false
+  - id: cobh
+    level: locality
+    parent: cork
+    name: Cobh
+    canon: false
+  - id: kinsale
+    level: locality
+    parent: cork
+    name: Kinsale
+    canon: false
+  - id: youghal
+    level: locality
+    parent: cork
+    name: Youghal
+    canon: false
+  - id: waterford-city
+    level: locality
+    parent: waterford
+    name: Waterford
+    weight: 2
+  - id: dungarvan
+    level: locality
+    parent: waterford
+    name: Dungarvan
+    canon: false
+  - id: tramore
+    level: locality
+    parent: waterford
+    name: Tramore
+    canon: false
+
+peoples:
+  - id: english
+    name: { en: English, fr: Anglais }
+    homelands: [southern-england, west-country, midlands-north, east-anglia]
+    weight: 10
+    first_names:
+      - { value: Sherlock, gender: masculine, weight: 2 }
+      - { value: Mycroft, gender: masculine }
+      - { value: James, gender: masculine }
+      - { value: Henry, gender: masculine }
+      - { value: Jabez, gender: masculine }
+      - { value: Neville, gender: masculine }
+      - { value: Thaddeus, gender: masculine }
+      - { value: Bartholomew, gender: masculine }
+      - { value: Godfrey, gender: masculine }
+      - { value: Percy, gender: masculine }
+      - { value: Hosmer, gender: masculine }
+      - { value: Josiah, gender: masculine }
+      - { value: Stanley, gender: masculine }
+      - { value: Hilton, gender: masculine }
+      - { value: Culverton, gender: masculine }
+      - { value: Grimesby, gender: masculine }
+      - { value: Reginald, gender: masculine }
+      - { value: Victor, gender: masculine }
+      - { value: Alexander, gender: masculine }
+      - { value: Jonas, gender: masculine }
+      - { value: Peter, gender: masculine }
+      - { value: Hall, gender: masculine }
+      - { value: Ronald, gender: masculine }
+      - { value: Fitzroy, gender: masculine }
+      - { value: John, gender: masculine, weight: 2 }
+      - { value: Silas, gender: masculine }
+      - { value: Charles, gender: masculine }
+      - { value: Robert, gender: masculine }
+      - { value: Tobias, gender: masculine }
+      - { value: Hugo, gender: masculine }
+      - { value: Violet, gender: feminine, weight: 2 }
+      - { value: Helen, gender: feminine, weight: 2 }
+      - { value: Irene, gender: feminine, weight: 2 }
+      - { value: Mary, gender: feminine, weight: 2 }
+      - { value: Kate, gender: feminine }
+      - { value: Alice, gender: feminine }
+      - { value: Hatty, gender: feminine }
+      - { value: Eugenia, gender: feminine }
+      - { value: Laura, gender: feminine }
+      - { value: Maud, gender: feminine }
+      - { value: Susan, gender: feminine }
+      - { value: Beryl, gender: feminine }
+      - { value: Grace, gender: feminine }
+      - { value: Lucy, gender: feminine }
+      - { value: Rachel, gender: feminine }
+      - { value: Hilda, gender: feminine }
+      - { value: Frances, gender: feminine }
+      - { value: Sarah, gender: feminine }
+      - { value: Elsie, gender: feminine }
+      - { value: Julia, gender: feminine }
+      - { value: Effie, gender: feminine }
+      - { value: Agatha, gender: feminine }
+      - { value: Edith, gender: feminine }
+      - { value: Maria, gender: feminine }
+    family_names:
+      - { value: Holmes, weight: 2 }
+      - { value: Watson, weight: 2 }
+      - Hudson
+      - Hunter
+      - Stoner
+      - Morstan
+      - Sholto
+      - Baskerville
+      - Stapleton
+      - Windibank
+      - Rucastle
+      - Roylott
+      - Openshaw
+      - Munro
+      - Cubitt
+      - Doran
+      - Baker
+      - Wilson
+      - Phelps
+      - Holder
+      - Pycroft
+      - Hatherley
+      - Adair
+      - Straker
+      - Oldacre
+      - Cushing
+      - Ferguson
+      - Trevelyan
+      - Mortimer
+      - Maberley
+      - Carfax
+      - Musgrave
+      - Armitage
+      - Barclay
+      - Lyons
+      - Whitney
+      - Turner
+      - McCarthy
+      - Sutherland
+      - Gibson
+      - Carruthers
+      - Soames
+      - Gilchrist
+      - { value: Brown, weight: 2 }
+      - Carey
+      - Dunbar
+      - Bellamy
+      - Hopkins
+      - Tregennis
+      - Sterndale
+      - Brunton
+      - Trevor
+      - { value: Smith, weight: 2 }
+
+  - id: american
+    name: { en: American, fr: Américain }
+    homelands: [united-states]
+    weight: 3
+    first_names:
+      - { value: Jefferson, gender: masculine, weight: 2 }
+      - { value: Enoch, gender: masculine }
+      - { value: Abe, gender: masculine }
+      - { value: Aloysius, gender: masculine }
+      - { value: Josiah, gender: masculine }
+      - { value: John, gender: masculine, weight: 2 }
+      - { value: Jonathan, gender: masculine }
+      - { value: Nathan, gender: masculine }
+      - { value: Cecil, gender: masculine }
+      - { value: Ted, gender: masculine }
+      - { value: Jim, gender: masculine }
+      - { value: Francis, gender: masculine }
+      - { value: Elias, gender: masculine }
+      - { value: Henry, gender: masculine }
+      - { value: Joseph, gender: masculine }
+      - { value: George, gender: masculine }
+      - { value: William, gender: masculine }
+      - { value: Arthur, gender: masculine }
+      - { value: Samuel, gender: masculine, canon: false }
+      - { value: Thomas, gender: masculine, canon: false }
+      - { value: Silas, gender: masculine }
+      - { value: Ezekiah, gender: masculine }
+      - { value: Hiram, gender: masculine, canon: false }
+      - { value: Seth, gender: masculine, canon: false }
+      - { value: Howard, gender: masculine, canon: false }
+      - { value: Daniel, gender: masculine, canon: false }
+      - { value: Ezra, gender: masculine, canon: false }
+      - { value: Edwin, gender: masculine, canon: false }
+      - { value: Elsie, gender: feminine, weight: 2 }
+      - { value: Hatty, gender: feminine, weight: 2 }
+      - { value: Lucy, gender: feminine, weight: 2 }
+      - { value: Ettie, gender: feminine, weight: 2 }
+      - { value: Alice, gender: feminine }
+      - { value: Susan, gender: feminine }
+      - { value: Mary, gender: feminine }
+      - { value: Sarah, gender: feminine }
+      - { value: Annie, gender: feminine }
+      - { value: Martha, gender: feminine }
+      - { value: Rachel, gender: feminine }
+      - { value: Laura, gender: feminine }
+      - { value: Edith, gender: feminine }
+      - { value: Kate, gender: feminine }
+      - { value: Anna, gender: feminine }
+      - { value: Maggie, gender: feminine }
+      - { value: Eliza, gender: feminine }
+      - { value: Clara, gender: feminine }
+      - { value: Rose, gender: feminine }
+      - { value: Emma, gender: feminine, canon: false }
+      - { value: Ruth, gender: feminine, canon: false }
+      - { value: Jessie, gender: feminine, canon: false }
+      - { value: Ellen, gender: feminine, canon: false }
+      - { value: Nellie, gender: feminine, canon: false }
+    family_names:
+      - { value: Hope, weight: 2 }
+      - { value: Ferrier, weight: 2 }
+      - Drebber
+      - Stangerson
+      - Slaney
+      - Shafter
+      - Douglas
+      - Moulton
+      - Doran
+      - Garrideb
+      - Hopkins
+      - Cartwright
+      - Edwards
+      - Dodd
+      - { value: Smith, weight: 2 }
+      - Brown
+      - Johnson
+      - Morris
+      - Evans
+      - Mason
+      - Turner
+      - Warren
+      - Martin
+      - Parker
+      - Pike
+      - Hargrave
+      - { value: Wilkins, canon: false }
+      - { value: Harper, canon: false }
+      - { value: Cooper, canon: false }
+      - { value: Lawrence, canon: false }
+
+  - id: scottish
+    name: { en: Scottish, fr: Écossais }
+    homelands: [scotland, holborn, islington]
+    weight: 2
+    first_names:
+      - { value: Alexander, gender: masculine }
+      - { value: Neil, gender: masculine }
+      - { value: Duncan, gender: masculine }
+      - { value: John, gender: masculine }
+      - { value: James, gender: masculine }
+      - { value: Angus, gender: masculine, canon: false }
+      - { value: Alasdair, gender: masculine, canon: false }
+      - { value: Hamish, gender: masculine, canon: false }
+      - { value: Fergus, gender: masculine, canon: false }
+      - { value: Roderick, gender: masculine, canon: false }
+      - { value: Iain, gender: masculine, canon: false }
+      - { value: Ewan, gender: masculine, canon: false }
+      - { value: Lachlan, gender: masculine, canon: false }
+      - { value: Murdo, gender: masculine, canon: false }
+      - { value: Rory, gender: masculine, canon: false }
+      - { value: Gregor, gender: masculine, canon: false }
+      - { value: Malcolm, gender: masculine, canon: false }
+      - { value: Donald, gender: masculine, canon: false }
+      - { value: Archibald, gender: masculine, canon: false }
+      - { value: Kenneth, gender: masculine, canon: false }
+      - { value: Finlay, gender: masculine, canon: false }
+      - { value: Ranald, gender: masculine, canon: false }
+      - { value: Struan, gender: masculine, canon: false }
+      - { value: Flora, gender: feminine }
+      - { value: Mary, gender: feminine }
+      - { value: Effie, gender: feminine }
+      - { value: Morag, gender: feminine, canon: false }
+      - { value: Isobel, gender: feminine, canon: false }
+      - { value: Fiona, gender: feminine, canon: false }
+      - { value: Catriona, gender: feminine, canon: false }
+      - { value: Elspeth, gender: feminine, canon: false }
+      - { value: Mairi, gender: feminine, canon: false }
+      - { value: Christina, gender: feminine, canon: false }
+      - { value: Janet, gender: feminine }
+      - { value: Ishbel, gender: feminine, canon: false }
+      - { value: Eilidh, gender: feminine, canon: false }
+      - { value: Moira, gender: feminine, canon: false }
+      - { value: Margaret, gender: feminine, canon: false }
+      - { value: Jessie, gender: feminine, canon: false }
+      - { value: Ailsa, gender: feminine, canon: false }
+      - { value: Euphemia, gender: feminine, canon: false }
+    family_names:
+      - Munro
+      - MacDonald
+      - McFarlane
+      - Stewart
+      - Fraser
+      - Ross
+      - Gibson
+      - Sinclair
+      - Henderson
+      - Morrison
+      - { value: Campbell, canon: false }
+      - Murray
+      - { value: MacLeod, canon: false }
+      - { value: Cameron, canon: false }
+      - { value: Robertson, canon: false }
+      - { value: Buchanan, canon: false }
+      - { value: MacGregor, canon: false }
+      - { value: McIntyre, canon: false }
+      - { value: Kerr, canon: false }
+      - { value: Lindsay, canon: false }
+      - { value: McLean, canon: false }
+      - { value: Mackay, canon: false }
+      - { value: Mackenzie, canon: false }
+      - { value: Grant, canon: false }
+
+  - id: irish
+    name: { en: Irish, fr: Irlandais }
+    homelands: [ireland, new-york, illinois]
+    weight: 2
+    first_names:
+      - { value: Michael, gender: masculine, canon: false }
+      - { value: Seán, gender: masculine, canon: false }
+      - { value: Brendan, gender: masculine, canon: false }
+      - { value: Declan, gender: masculine, canon: false }
+      - { value: Eamon, gender: masculine, canon: false }
+      - { value: Patrick, gender: masculine }
+      - { value: Niall, gender: masculine, canon: false }
+      - { value: Conor, gender: masculine, canon: false }
+      - { value: Fergal, gender: masculine, canon: false }
+      - { value: Colm, gender: masculine, canon: false }
+      - { value: Donal, gender: masculine, canon: false }
+      - { value: Dermot, gender: masculine, canon: false }
+      - { value: Tadhg, gender: masculine, canon: false }
+      - { value: Pádraig, gender: masculine, canon: false }
+      - { value: Ciarán, gender: masculine, canon: false }
+      - { value: Oisín, gender: masculine, canon: false }
+      - { value: Cathal, gender: masculine, canon: false }
+      - { value: Lorcan, gender: masculine, canon: false }
+      - { value: Ronan, gender: masculine, canon: false }
+      - { value: Kieran, gender: masculine, canon: false }
+      - { value: Diarmuid, gender: masculine, canon: false }
+      - { value: John, gender: masculine }
+      - { value: James, gender: masculine }
+      - { value: Thomas, gender: masculine, canon: false }
+      - { value: Catherine, gender: feminine }
+      - { value: Mary, gender: feminine }
+      - { value: Siobhán, gender: feminine, canon: false }
+      - { value: Aoife, gender: feminine, canon: false }
+      - { value: Brigid, gender: feminine, canon: false }
+      - { value: Maeve, gender: feminine, canon: false }
+      - { value: Niamh, gender: feminine, canon: false }
+      - { value: Orla, gender: feminine, canon: false }
+      - { value: Nora, gender: feminine, canon: false }
+      - { value: Deirdre, gender: feminine, canon: false }
+      - { value: Sinéad, gender: feminine, canon: false }
+      - { value: Eileen, gender: feminine, canon: false }
+      - { value: Kathleen, gender: feminine, canon: false }
+      - { value: Maureen, gender: feminine, canon: false }
+      - { value: Bridget, gender: feminine, canon: false }
+      - { value: Honor, gender: feminine, canon: false }
+      - { value: Una, gender: feminine, canon: false }
+      - { value: Gráinne, gender: feminine, canon: false }
+      - { value: Róisín, gender: feminine, canon: false }
+      - { value: Ciara, gender: feminine, canon: false }
+      - { value: Fionnuala, gender: feminine, canon: false }
+      - { value: Eithne, gender: feminine, canon: false }
+      - { value: Máire, gender: feminine, canon: false }
+      - { value: Sorcha, gender: feminine, canon: false }
+      - { value: Honora, gender: feminine, canon: false }
+    family_names:
+      - McCarthy
+      - Murphy
+      - Cusack
+      - { value: "O'Brien", canon: false }
+      - { value: "O'Connor", canon: false }
+      - { value: Kelly, canon: false }
+      - { value: "O'Sullivan", canon: false }
+      - { value: Walsh, canon: false }
+      - { value: Byrne, canon: false }
+      - { value: Ryan, canon: false }
+      - { value: Gallagher, canon: false }
+      - { value: Brennan, canon: false }
+      - { value: Fitzgerald, canon: false }
+      - Kennedy
+      - { value: Burke, canon: false }
+      - { value: Dunne, canon: false }
+      - { value: Daly, canon: false }
+      - { value: Flynn, canon: false }
+      - { value: Quinn, canon: false }
+      - { value: Ó Ceallaigh, canon: false }
+      - { value: Ó Súilleabháin, canon: false }
+      - { value: Mac Carthaigh, canon: false }
+      - { value: Mac Giolla, canon: false }
+      - { value: Ó Briain, canon: false }
+      - { value: "O'Neill", canon: false }
+      - { value: Doherty, canon: false }
+      - { value: Nolan, canon: false }
+      - { value: Healy, canon: false }
+
+organizations:
+  - id: diogenes-club
+    name: { en: The Diogenes Club, fr: Le Club Diogène }
+    kind: { en: Club, fr: Club }
+    places: [westminster]
+    weight: 3
+  - id: red-headed-league
+    name: { en: The Red-Headed League, fr: La Ligue des rouquins }
+    kind: { en: League, fr: Ligue }
+    places: [city-of-london]
+    weight: 3
+  - id: alpha-inn
+    name: { en: The Alpha Inn, fr: L'Auberge Alpha }
+    kind: { en: Inn, fr: Auberge }
+    places: [bloomsbury]
+    weight: 3
+  - id: city-and-suburban-bank
+    name: The City and Suburban Bank
+    kind: { en: Bank, fr: Banque }
+    places: [city-of-london]
+  - id: holder-and-stevenson
+    name: Holder & Stevenson
+    kind: { en: Bank, fr: Banque }
+    places: [city-of-london]
+  - id: westaways
+    name: Westaway's
+    kind: { en: Agency, fr: Agence }
+    places: [mayfair]
+  - id: mawson-and-williams
+    name: Mawson & Williams
+    kind: { en: Brokerage, fr: Maison de courtage }
+    places: [city-of-london]
+  - id: franco-midland-hardware
+    name: The Franco-Midland Hardware Company
+    kind: { en: Company, fr: Société }
+    places: [birmingham]
+  - id: bagatelle-club
+    name: The Bagatelle Card Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: tankerville-club
+    name: The Tankerville Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: cavendish-club
+    name: The Cavendish Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: baldwin-club
+    name: The Baldwin Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: anglo-indian-club
+    name: The Anglo-Indian Club
+    kind: { en: Club, fr: Club }
+    places: [mayfair]
+  - id: priory-school
+    name: { en: The Priory School, fr: L'École du Prieuré }
+    kind: { en: School, fr: École }
+    places: [mackleton]
+    weight: 2
+  - id: fighting-cock
+    name: { en: The Fighting Cock, fr: Le Coq de Combat }
+    kind: { en: Inn, fr: Auberge }
+    places: [mackleton]
+  - id: goldinis-restaurant
+    name: Goldini's Restaurant
+    kind: { en: Restaurant, fr: Restaurant }
+    places: [kensington]
+  - id: gelder-and-co
+    name: Gelder & Co.
+    kind: { en: Dealer, fr: Fournisseur }
+    places: [stepney]
+  - id: harding-brothers
+    name: Harding Brothers
+    kind: { en: Shop, fr: Boutique }
+    places: [kensington]
+  - id: morse-hudson
+    name: Morse Hudson's
+    kind: { en: Shop, fr: Boutique }
+    places: [lambeth]
+
+vocab:
+  street_name:
+    - Montague
+    - Harcourt
+    - Albany
+    - Chandos
+    - Wigmore
+    - Devonshire
+    - Hanover
+    - Cavendish
+    - Bedford
+    - Gower
+    - Percy
+    - Rathbone
+    - Berkeley
+    - Mortimer
+    - Welbeck
+    - Manchester
+    - Seymour
+    - Dorset
+    - Wimpole
+    - Granville
+    - Brunswick
+    - Russell
+    - Tavistock
+    - Craven
+    - Orchard
+    - Portman
+    - Ledbury
+    - Lansdowne
+    - Harrow
+  us_street_name:
+    - Main
+    - Elm
+    - Maple
+    - Washington
+    - Lincoln
+    - State
+    - Market
+    - Jefferson
+    - Franklin
+    - Church
+    - Pine
+    - Walnut
+    - Oak
+    - Union
+    - Water
+  us_street_type:
+    - { value: Street, weight: 3 }
+    - Avenue
+    - Road
+    - Boulevard
+  street_type:
+    - { value: Street, weight: 3 }
+    - { value: Road, weight: 2 }
+    - Square
+    - Terrace
+    - Place
+    - Gardens
+    - Mews
+    - Lane
+  email_domain:
+    - { value: telegraph.example, weight: 3 }
+    - penny-post.example
+    - gazette.example
+    - cab-rank.example
+  exchange:
+    - Hartwell
+    - Larkspur
+    - Elmbridge
+    - Wexley
+    - Marlcombe
+    - Ashgrove
+    - Quenby
+    - Thistledown
+    - Bramhall
+  org_senior_partner:
+    - Pemberton
+    - Tolliver
+    - Wexcombe
+    - Ashdown
+    - Fenwick
+    - Rutherglen
+    - Lockwood
+    - Dunmore
+    - Harcourt
+    - Penhallow
+    - Ellerby
+    - Garroway
+    - Whitcombe
+    - Alderton
+    - Bramwell
+    - Colville
+    - Danvers
+    - Ormerod
+    - Medlicott
+  org_junior_partner:
+    - Fairweather
+    - Stanbury
+    - Tennant
+    - Upjohn
+    - Vaughan
+    - Wetherby
+    - Yardley
+    - Lovell
+    - Merriman
+    - Peverell
+    - Pargeter
+    - Selwood
+    - Sons
+    - Co.
+
+patterns:
+  street_address: "{int:1-299} {vocab.street_name} {vocab.street_type}"
+  address_format: "{street_address}\n{locality}\n{subdivision}, {area}"
+  phone: "{vocab.exchange} {digits:4}"
+  email: "{first_name|slug}.{family_name|slug}@{vocab.email_domain}"
+  username: "{first_name|slug}{int:1-999}"
+  organization_name: "{vocab.org_senior_partner} & {vocab.org_junior_partner}"
+
+extensions:
+  case:
+    label: { en: Case, fr: Affaire }
+    items:
+      - id: a-study-in-scarlet
+        name: { en: A Study in Scarlet, fr: Une étude en rouge }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1887
+      - id: the-sign-of-the-four
+        name: { en: The Sign of the Four, fr: Le Signe des quatre }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1890
+      - id: the-hound-of-the-baskervilles
+        name: { en: The Hound of the Baskervilles, fr: Le Chien des Baskerville }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1901
+      - id: the-valley-of-fear
+        name: { en: The Valley of Fear, fr: La Vallée de la peur }
+        fields:
+          collection: { en: Novel, fr: Roman }
+          year: 1914
+      - id: a-scandal-in-bohemia
+        name: { en: A Scandal in Bohemia, fr: Un scandale en Bohême }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-red-headed-league
+        name: { en: The Red-Headed League, fr: La Ligue des rouquins }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: a-case-of-identity
+        name: { en: A Case of Identity, fr: "Une affaire d'identité" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-boscombe-valley-mystery
+        name: { en: The Boscombe Valley Mystery, fr: Le Mystère du Val Boscombe }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-five-orange-pips
+        name: { en: The Five Orange Pips, fr: "Les Cinq Pépins d'orange" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-man-with-the-twisted-lip
+        name: { en: The Man with the Twisted Lip, fr: "L'Homme à la lèvre tordue" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1891
+      - id: the-adventure-of-the-blue-carbuncle
+        name: { en: The Adventure of the Blue Carbuncle, fr: "L'Escarboucle bleue" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-speckled-band
+        name: { en: The Adventure of the Speckled Band, fr: La Bande mouchetée }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-engineers-thumb
+        name: { en: "The Adventure of the Engineer's Thumb", fr: "Le Pouce de l'ingénieur" }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-noble-bachelor
+        name: { en: The Adventure of the Noble Bachelor, fr: Le Célibataire de haut rang }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-beryl-coronet
+        name: { en: The Adventure of the Beryl Coronet, fr: Le Diadème de béryls }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-copper-beeches
+        name: { en: The Adventure of the Copper Beeches, fr: Les Hêtres rouges }
+        fields:
+          collection: { en: The Adventures of Sherlock Holmes, fr: Les Aventures de Sherlock Holmes }
+          year: 1892
+      - id: silver-blaze
+        name: { en: Silver Blaze, fr: "Flamme d'argent" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1892
+      - id: the-adventure-of-the-cardboard-box
+        name: { en: The Adventure of the Cardboard Box, fr: La Boîte en carton }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-yellow-face
+        name: { en: The Yellow Face, fr: Le Visage jaune }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-stockbrokers-clerk
+        name: { en: "The Stockbroker's Clerk", fr: "L'Employé de l'agent de change" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-gloria-scott
+        name: { en: 'The "Gloria Scott"', fr: 'Le « Gloria Scott »' }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-musgrave-ritual
+        name: { en: The Musgrave Ritual, fr: Le Rituel des Musgrave }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-reigate-squires
+        name: { en: The Reigate Squires, fr: Les Propriétaires de Reigate }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-crooked-man
+        name: { en: The Crooked Man, fr: "L'Homme tordu" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-resident-patient
+        name: { en: The Resident Patient, fr: Le Malade résident }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-greek-interpreter
+        name: { en: The Greek Interpreter, fr: "L'Interprète grec" }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-naval-treaty
+        name: { en: The Naval Treaty, fr: Le Traité naval }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-final-problem
+        name: { en: The Final Problem, fr: Le Dernier Problème }
+        fields:
+          collection: { en: The Memoirs of Sherlock Holmes, fr: Les Mémoires de Sherlock Holmes }
+          year: 1893
+      - id: the-adventure-of-the-empty-house
+        name: { en: The Adventure of the Empty House, fr: La Maison vide }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-norwood-builder
+        name: { en: The Adventure of the Norwood Builder, fr: "L'Entrepreneur de Norwood" }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-dancing-men
+        name: { en: The Adventure of the Dancing Men, fr: Les Hommes dansants }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-solitary-cyclist
+        name: { en: The Adventure of the Solitary Cyclist, fr: La Cycliste solitaire }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1903
+      - id: the-adventure-of-the-priory-school
+        name: { en: The Adventure of the Priory School, fr: "L'École du Prieuré" }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-black-peter
+        name: { en: The Adventure of Black Peter, fr: Peter le Noir }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-charles-augustus-milverton
+        name: { en: The Adventure of Charles Augustus Milverton, fr: Charles Auguste Milverton }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-six-napoleons
+        name: { en: The Adventure of the Six Napoleons, fr: Les Six Napoléons }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-three-students
+        name: { en: The Adventure of the Three Students, fr: Les Trois Étudiants }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-golden-pince-nez
+        name: { en: The Adventure of the Golden Pince-Nez, fr: Le Pince-nez en or }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-missing-three-quarter
+        name: { en: The Adventure of the Missing Three-Quarter, fr: Le Trois-quarts disparu }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-abbey-grange
+        name: { en: The Adventure of the Abbey Grange, fr: "L'Abbaye de Grange" }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-the-second-stain
+        name: { en: The Adventure of the Second Stain, fr: La Deuxième Tache }
+        fields:
+          collection: { en: The Return of Sherlock Holmes, fr: Le Retour de Sherlock Holmes }
+          year: 1904
+      - id: the-adventure-of-wisteria-lodge
+        name: { en: The Adventure of Wisteria Lodge, fr: Le Pavillon de Wisteria }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1908
+      - id: the-adventure-of-the-bruce-partington-plans
+        name: { en: The Adventure of the Bruce-Partington Plans, fr: Les Plans du Bruce-Partington }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1908
+      - id: the-adventure-of-the-devils-foot
+        name: { en: "The Adventure of the Devil's Foot", fr: Le Pied du diable }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1910
+      - id: the-adventure-of-the-red-circle
+        name: { en: The Adventure of the Red Circle, fr: Le Cercle rouge }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1911
+      - id: the-disappearance-of-lady-frances-carfax
+        name: { en: The Disappearance of Lady Frances Carfax, fr: La Disparition de lady Frances Carfax }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1911
+      - id: the-adventure-of-the-dying-detective
+        name: { en: The Adventure of the Dying Detective, fr: Le Détective mourant }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1913
+      - id: his-last-bow-the-war-service-of-sherlock-holmes
+        name: { en: "His Last Bow: The War Service of Sherlock Holmes", fr: "Son dernier coup d'archet" }
+        fields:
+          collection: { en: His Last Bow, fr: "Son dernier coup d'archet" }
+          year: 1917
+      - id: the-adventure-of-the-illustrious-client
+        name: { en: The Adventure of the Illustrious Client, fr: Le Client illustre }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1924
+      - id: the-adventure-of-the-blanched-soldier
+        name: { en: The Adventure of the Blanched Soldier, fr: Le Soldat blanchi }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+      - id: the-adventure-of-the-mazarin-stone
+        name: { en: The Adventure of the Mazarin Stone, fr: La Pierre de Mazarin }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1921
+      - id: the-adventure-of-the-three-gables
+        name: { en: The Adventure of the Three Gables, fr: Les Trois Pignons }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+      - id: the-adventure-of-the-sussex-vampire
+        name: { en: The Adventure of the Sussex Vampire, fr: Le Vampire du Sussex }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1924
+      - id: the-adventure-of-the-three-garridebs
+        name: { en: The Adventure of the Three Garridebs, fr: Les Trois Garrideb }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1924
+      - id: the-problem-of-thor-bridge
+        name: { en: The Problem of Thor Bridge, fr: Le Pont de Thor }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1922
+      - id: the-adventure-of-the-creeping-man
+        name: { en: The Adventure of the Creeping Man, fr: "L'Homme qui rampait" }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1923
+      - id: the-adventure-of-the-lions-mane
+        name: { en: "The Adventure of the Lion's Mane", fr: La Crinière du lion }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+      - id: the-adventure-of-the-veiled-lodger
+        name: { en: The Adventure of the Veiled Lodger, fr: La Locataire voilée }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1927
+      - id: the-adventure-of-shoscombe-old-place
+        name: { en: The Adventure of Shoscombe Old Place, fr: Shoscombe Old Place }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1927
+      - id: the-adventure-of-the-retired-colourman
+        name: { en: The Adventure of the Retired Colourman, fr: Le Fabricant de couleurs retiré }
+        fields:
+          collection: { en: The Case-Book of Sherlock Holmes, fr: Les Archives de Sherlock Holmes }
+          year: 1926
+  inspector:
+    label: { en: Inspector, fr: Inspecteur }
+    items:
+      - id: lestrade
+        name: Lestrade
+        weight: 5
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: gregson
+        name: Gregson
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: athelney-jones
+        name: Athelney Jones
+        fields:
+          rank: { en: Detective, fr: Détective }
+          force: Scotland Yard
+      - id: stanley-hopkins
+        name: Stanley Hopkins
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: bradstreet
+        name: Bradstreet
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: macdonald
+        name: MacDonald
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: morton
+        name: Morton
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: Scotland Yard
+      - id: baynes
+        name: Baynes
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: Surrey Constabulary, fr: Police du Surrey }
+      - id: martin
+        name: Martin
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: Norfolk Constabulary, fr: Police du Norfolk }
+      # Gutenberg 69700 reads "Bardie", an OCR error; standard editions read "Bardle".
+      - id: bardle
+        name: Bardle
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: Sussex Constabulary, fr: Police du Sussex }
+      # Gregory (Silver Blaze): the force is inferred from the Devonshire setting.
+      - id: gregory
+        name: Gregory
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: County Police, fr: Police du comté }
+      # Forrester (The Reigate Squires): the text says "the county police".
+      - id: forrester
+        name: Forrester
+        fields:
+          rank: { en: Inspector, fr: Inspecteur }
+          force: { en: County Police, fr: Police du comté }
+      # White Mason (The Valley of Fear): "the chief Sussex detective", "the local officer".
+      - id: white-mason
+        name: White Mason
+        fields:
+          rank: { en: Detective, fr: Détective }
+          force: { en: Sussex Constabulary, fr: Police du Sussex }
+      - id: wilson
+        name: Wilson
+        fields:
+          rank: { en: Sergeant, fr: Sergent }
+          force: { en: Sussex Constabulary, fr: Police du Sussex }
+      - id: tuson
+        name: Tuson
+        fields:
+          rank: { en: Sergeant, fr: Sergent }
+          force: { en: City Police, fr: Police de la City }

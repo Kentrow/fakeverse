@@ -12,7 +12,7 @@ FILES = find_universe_files([UNIVERSES])
 
 
 def test_there_are_universes() -> None:
-    assert [path.stem for path in FILES] == ["lotr", "starwars"]
+    assert [path.stem for path in FILES] == ["lotr", "sherlock", "starwars"]
 
 
 @pytest.mark.parametrize("path", FILES, ids=lambda path: path.stem)
