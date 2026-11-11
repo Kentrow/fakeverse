@@ -9,6 +9,8 @@ Changes to `ENGINE_REVISION` are always listed, since they change generated outp
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-11
+
 ### Added
 
 - Universe `sherlock` (Sherlock Holmes, the Canon by Arthur Conan Doyle), in English and
@@ -55,5 +57,6 @@ First release. `ENGINE_REVISION` = 1.
   IPv6 clients are rate limited per /64 network, and every `X-Forwarded-For` header is taken
   into account.
 
-[Unreleased]: https://github.com/Kentrow/fakeverse/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Kentrow/fakeverse/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/Kentrow/fakeverse/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Kentrow/fakeverse/releases/tag/v0.1.0
