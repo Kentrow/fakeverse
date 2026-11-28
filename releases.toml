@@ -19,3 +19,8 @@ date = 2026-10-07
 version = "0.2.0"
 engine_revision = 1
 date = 2026-11-11
+
+[[releases]]
+version = "0.2.1"
+engine_revision = 1
+date = 2026-11-28
