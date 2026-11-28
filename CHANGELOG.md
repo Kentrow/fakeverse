@@ -9,6 +9,14 @@ Changes to `ENGINE_REVISION` are always listed, since they change generated outp
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-28
+
+### Security
+
+- The image of the API ships `opentelemetry-api` 1.45.2, a dependency of FastAPI, which
+  fixes CVE-2026-126360. The image of 0.2.0 shipped 1.45.1. The package itself is not
+  affected: it does not pin its dependencies.
+
 ## [0.2.0] - 2026-11-11
 
 ### Added
@@ -57,6 +65,7 @@ First release. `ENGINE_REVISION` = 1.
   IPv6 clients are rate limited per /64 network, and every `X-Forwarded-For` header is taken
   into account.
 
-[Unreleased]: https://github.com/Kentrow/fakeverse/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Kentrow/fakeverse/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/Kentrow/fakeverse/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/Kentrow/fakeverse/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Kentrow/fakeverse/releases/tag/v0.1.0
